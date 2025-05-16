@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import type { SortFilterItem } from 'lib/constants';
 import { createUrl } from 'lib/utils';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import type { ListItem, PathFilterItem } from '.';
@@ -46,6 +47,7 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
     })
   );
   const DynamicTag = active ? 'p' : Link;
+  const t = useTranslations('searchPage.filter.sortTitles');
 
   return (
     <li className="mt-2 flex text-sm text-black dark:text-white" key={item.title}>
@@ -56,7 +58,7 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
           'underline underline-offset-4': active
         })}
       >
-        {item.title}
+        {t(item.titleTranslationKey)}
       </DynamicTag>
     </li>
   );

@@ -9,6 +9,7 @@ import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { Suspense } from 'react';
 
@@ -54,11 +55,12 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
+  const t = await getTranslations('productHandles');
 
   const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: product.title,
+    name: product.title, //t(product.handle), //product.title,
     description: product.description,
     image: product.featuredImage.url,
     offers: {

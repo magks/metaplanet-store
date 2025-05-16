@@ -2,6 +2,7 @@ import Grid from 'components/grid';
 import ProductGridItems from 'components/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
+import { getTranslations } from 'next-intl/server';
 
 export const metadata = {
   title: 'Search',
@@ -17,13 +18,13 @@ export default async function SearchPage(props: {
 
   const products = await getProducts({ sortKey, reverse, query: searchValue });
   const resultsText = products.length > 1 ? 'results' : 'result';
-
+  const t = await getTranslations('searchPage');
   return (
     <>
       {searchValue ? (
         <p className="mb-4">
           {products.length === 0
-            ? 'There are no products that match '
+            ? t('noMatches')
             : `Showing ${products.length} ${resultsText} for `}
           <span className="font-bold">&quot;{searchValue}&quot;</span>
         </p>

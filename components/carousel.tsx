@@ -1,4 +1,5 @@
 import { getCollectionProducts } from 'lib/shopify';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { GridTileImage } from './grid/tile';
 
@@ -10,8 +11,10 @@ export async function Carousel() {
 
   // Purposefully duplicating products to make the carousel loop and not run out of products on wide screens.
   const carouselProducts = [...products, ...products, ...products];
-
+  const t = await getTranslations('homePage');
   return (
+    <>
+    <pre> <h1>   {t('carousel')} </h1></pre>
     <div className="w-full overflow-x-auto pb-6 pt-1">
       <ul className="flex animate-carousel gap-4">
         {carouselProducts.map((product, i) => (
@@ -36,5 +39,6 @@ export async function Carousel() {
         ))}
       </ul>
     </div>
+    </>
   );
 }

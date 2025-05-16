@@ -1,9 +1,12 @@
 import Grid from 'components/grid';
 import { GridTileImage } from 'components/grid/tile';
 import { Product } from 'lib/shopify/types';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 export default function ProductGridItems({ products }: { products: Product[] }) {
+  
+  const t = useTranslations('productHandles');
   return (
     <>
       {products.map((product) => (
@@ -16,7 +19,7 @@ export default function ProductGridItems({ products }: { products: Product[] }) 
             <GridTileImage
               alt={product.title}
               label={{
-                title: product.title,
+                title: (typeof t(product.handle) === 'string' ? t(product.handle) : product.title),
                 amount: product.priceRange.maxVariantPrice.amount,
                 currencyCode: product.priceRange.maxVariantPrice.currencyCode
               }}

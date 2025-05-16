@@ -1,0 +1,526 @@
+{
+  "metaplanet": {
+    "name": "Metaplanet"
+
+  },
+  "btcmagjp": {},
+  "homePage": {
+    "carousel": "Featured Products"
+  },
+  "collections": {
+    "noProductsFound": "No products found in this collection"
+  },
+  "productHandles": {
+    "bitcoin-orange-b-shirt": "Bitcoin Orange ₿ Shirt",
+    "metaplanet-hat": "Metaplanet ₿ Hat"
+  },
+  "searchPage": { 
+    "noMatches": "There are no products that match",
+    "filter": {
+      "sortBy": "Sort by",
+      "sortTitles": {
+        "relevance": "Relevance",
+        "trending": "Trending",
+        "latest": "Latest Arrivals",
+        "priceAsc": "Price: Low to high",
+        "priceDesc": "Price: High to low"
+      }
+    }
+  },
+  "navBar": {
+    "search": "Search..."
+  },
+  "footer": {
+    "registeredTrademark": "Registered Trademark",
+    "poweredBy": "Powered by ₿itcoin"
+  },
+  "metadata": {
+    "title": "Metaplanet - Bitcoin Treasury Company",
+    "description": "Metaplanet - Bitcoin Treasury Company"
+  },
+  "navigation": {
+    "analytics": "Analytics",
+    "about": "About",
+    "merch": "Merch",
+    "shareholders": "Shareholders",
+    "settings": {
+      "language": "Language",
+      "theme": "Theme",
+      "themes": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+      }
+    },
+    "aboutPages": [
+      {
+        "title": "Manifesto",
+        "description": "Guiding principles of Metaplanet"
+      },
+      {
+        "title": "Business Lines",
+        "description": "Key operations and ventures"
+      },
+      { "title": "Team", "description": "Minds behind Metaplanet" },
+      { "title": "Contact Us", "description": "Reach out with questions" },
+      {
+        "title": "Disclosures",
+        "description": "Legal and transparency details"
+      },
+      {
+        "title": "News & Articles",
+        "description": "Latest updates and insights"
+      }
+    ],
+    "merchPages": [
+      {
+        "title": "Exclusive",
+        "description": "Limited-time exclusive merch collection"
+      },
+      {
+        "title": "Metaplanet Merch",
+        "description": "Official Metaplanet gear"
+      },
+      {
+        "title": "Bitcoin Magazine",
+        "description": "Collab items with Bitcoin Magazine"
+      }
+    ],
+    "shareholderPages": [
+      {
+        "title": "Sign In",
+        "description": "Access your shareholder account"
+      },
+      {
+        "title": "Investor Relations",
+        "description": "Gateway for investors"
+      },
+      {
+        "title": "Education",
+        "description": "Resources and guides for shareholders"
+      },
+      {
+        "title": "Presentations",
+        "description": "Vision in focus"
+      },
+      {
+        "title": "Shareholder Benefits",
+        "description": "Rewards for investors"
+      },
+      {
+        "title": "Frequently Asked Questions",
+        "description": "Answers to common questions"
+      }
+    ]
+  },
+  "sectionTitles": {
+    "secure": "Secure the Future with Bitcoin",
+    "the": "",
+    "futureWith": "",
+    "bitcoin": ""
+  },
+  "charts": {
+    "bitcoinNav": {
+      "jpy": {
+        "label": "Bitcoin NAV",
+        "tooltip": "Net asset value of Bitcoin holdings in Japanese Yen (¥)"
+      },
+      "usd": {
+        "label": "Bitcoin NAV",
+        "tooltip": "Net asset value of Bitcoin holdings in US Dollars ($)"
+      }
+    },
+    "btcAcquisitions": {
+      "label": "Bitcoin Acquisitions",
+      "tooltip": "Bitcoin holdings of Metaplanet, as officially disclosed on the Tokyo Stock Exchange",
+      "popover": { "y": "Bitcoin Price", "y2": "Bitcoin Acquired" }
+    },
+    "btcAdoptionReturn": {
+      "label": "Return Since BTC Adoption",
+      "tooltip": "Percentage return of Metaplanet shares on the Tokyo Stock Exchange since adoption of the Bitcoin standard (4/8/24) "
+    },
+    "btcAmountGain": {
+      "yen": {
+        "label": "BTC ¥ Gain",
+        "tooltip": "BTC ¥ Gain expresses BTC Gain in yen terms by multiplying BTC Gain by the market price of Bitcoin at the end of the period"
+      },
+      "usd": {
+        "label": "BTC $ Gain",
+        "tooltip": "BTC $ Gain expresses BTC Gain in dollar terms by multiplying BTC Gain by the market price of Bitcoin at the end of the period"
+      }
+    },
+    "btcGain": {
+      "btc": {
+        "label": "BTC Gain",
+        "tooltip": "BTC Gain represents the Company’s Total Bitcoin Holdings at the beginning of a period multiplied by the achieved BTC Yield for that period"
+      }
+    },
+    "btcHolding": {
+      "label": "BTC Holdings",
+      "tooltip": "Bitcoin holdings of Metaplanet, as officially disclosed on the Tokyo Stock Exchange. Data from external sources and on-chain verification may be delayed or inaccurate"
+    },
+    "btcPrice": {
+      "jpy": {
+        "label": "Bitcoin Price",
+        "tooltip": "Bitcoin daily close price in Japanese Yen (JPY)"
+      },
+      "usd": {
+        "label": "Bitcoin Price",
+        "tooltip": "Bitcoin daily close price in US Dollars (USD)"
+      }
+    },
+    "btcPurchases": {
+      "label": "Purchases History",
+      "tooltip": "Bitcoin holdings of Metaplanet, as officially disclosed on the Tokyo Stock Exchange",
+      "columnHeaders": {
+        "reported": "Reported",
+        "acquisition": "BTC Acquisitions",
+        "avgCost": "Avg BTC Cost",
+        "acquisitionsCost": "Acquisition Cost",
+        "btcHolding": "BTC Holdings"
+      }
+    },
+    "btcRating": {
+      "label": "BTC Rating",
+      "tooltip": "How many times Metaplanet's Bitcoin Treasury covers its outstanding debt"
+    },
+    "btcYield": {
+      "label": "BTC Yield",
+      "tooltip": "BTC Yield is a KPI that reflects the percentage change in the ratio of Total Bitcoin Holdings to Fully Diluted Shares Outstanding, period over period"
+    },
+    "debtOutstanding": {
+      "jpy": {
+        "label": "Debt Outstanding",
+        "tooltip": "The aggregate amount of our outstanding indebtedness"
+      },
+      "usd": {
+        "label": "Debt Outstanding",
+        "tooltip": "The aggregate amount of our outstanding indebtedness"
+      }
+    },
+    "liquidity": {
+      "shares": {
+        "label": "3-Month Avg Daily Volume",
+        "tooltip": "Average daily trading volume over the past 3 months on the Tokyo Stock Exchange"
+      },
+      "jpy": {
+        "label": "3-Month Avg Daily Volume",
+        "tooltip": "Average daily trading volume over the past 3 months on the Tokyo Stock Exchange in JPY"
+      },
+      "usd": {
+        "label": "3-Month Avg Daily Volume",
+        "tooltip": "Average daily trading volume over the past 3 months on the Tokyo Stock Exchange in USD"
+      }
+    },
+    "marketCapBtcTreasury": {
+      "jpy": {
+        "label": "",
+        "tooltip": "The value of Metaplanet's Bitcoin NAV compared to the market cap in log scale"
+      },
+      "usd": {
+        "label": "",
+        "tooltip": "The value of Metaplanet's Bitcoin NAV compared to the market cap in log scale"
+      },
+      "yLabel": "Market Cap",
+      "y2Label": "Bitcoin NAV"
+    },
+    "metaplanetPrice": {
+      "jpx": {
+        "label": "Share Price",
+        "tooltip": "Metaplanet share price on the Tokyo Stock Exchange ticker 3350"
+      },
+      "otc": {
+        "label": "Share Price",
+        "tooltip": "Metaplanet share price on the OTCQX ticker MTPLF"
+      }
+    },
+    "mNav": {
+      "jpy": {
+        "label": "mNAV",
+        "tooltip": "Multiple of Bitcoin NAV, calculated by dividing Market Cap by Bitcoin NAV"
+      },
+      "usd": {
+        "label": "mNAV",
+        "tooltip": "Multiple of Bitcoin NAV, calculated by dividing Market Cap by Bitcoin NAV"
+      }
+    },
+    "sharesOutstanding": {
+      "label": "Shares Outstanding",
+      "tooltip": "As disclosed through the Tokyo Stock Exchange"
+    },
+    "unrealizedPnl": {
+      "jpy": {
+        "label": "Unrealized PnL",
+        "tooltip": "Unrealized Profit and Loss for Bitcoin holdings in JPY"
+      },
+      "usd": {
+        "label": "Unrealized PnL",
+        "tooltip": "Unrealized Profit and Loss for Bitcoin holdings in USD"
+      }
+    },
+    "timeframes": {
+      "pastWeek": "Past Week",
+      "pastMonth": "Past Month",
+      "past3Months": "Past 3 Months",
+      "pastYear": "Past Year",
+      "multipleYears": "Multiple Years",
+      "noData": "No Data"
+    },
+    "export": {
+      "title": "Export",
+      "copy": "Copy to Clipboard",
+      "copyFailed": "Failed to copy to clipboard",
+      "copySuccess": "Copied to clipboard",
+      "download": "Save as PNG",
+      "shareSuccess": "Shared successfully",
+      "shareFailed": "Failed to share"
+    },
+    "disclosure": {
+      "title": "Disclosure",
+      "description": [
+        "BTC Yield is a key performance indicator (KPI) that reflects the percentage change in the ratio of Total Bitcoin Holdings to Fully Diluted Shares Outstanding over a given period. The Company uses BTC Yield to assess the performance of its Bitcoin acquisition strategy, which is intended to be accretive to shareholders.",
+        "BTC Gain is a key performance indicator (KPI) that represents the Company’s Total Bitcoin Holdings at the beginning of a period multiplied by the achieved BTC Yield for that period. This metric quantifies the hypothetical increase in Total Bitcoin Holdings, assuming no new shares were issued. By isolating the impact of dilution, BTC Gain highlights the net Bitcoin accretion driven purely by the Company’s Bitcoin Treasury Operations.",
+        "BTC ¥ Gain expresses BTC Gain in yen terms by multiplying BTC Gain by the market price of Bitcoin at the end of the period. This provides shareholders with a clearer view of the financial impact in local currency. BTC ¥ Gain does not represent a fair value gain or loss on the Company’s Bitcoin holdings and may be positive even when the Company incurs fair value losses on its Bitcoin holdings.",
+        "Fully Diluted Shares Outstanding includes all currently issued common shares at the end of each period, along with any additional shares that could be issued through stock options, stock acquisition rights, or the conversion of any future convertible instruments, such as convertible notes. To remain consistent with the reporting standards of At-The-Market (ATM) equity facilities, moving strike warrants issued to purchase Bitcoin will be reflected in the fully diluted share count only after exercise, when proceeds have been delivered to the Company. This methodology ensures the most accurate and fair measurement of dilution for moving strike warrants, aligning with how dilution is measured in ATM facilities in the United States.",
+        "BTC Yield does not account for vesting conditions or exercise prices of stock options, except for  moving strike warrants. The Company uses BTC Yield as a KPI to assess its strategy of acquiring Bitcoin in a manner it believes to be accretive to shareholders. This metric helps investors evaluate the impact of issuing additional shares or convertible instruments to fund Bitcoin acquisitions.",
+        "Management acknowledges the limitations of BTC Yield, BTC Gain, and BTC ¥ Gain, including their exclusion of debt and other liabilities that take priority over common shares. These KPIs also assume that all debt will be refinanced or, in the case of future convertible debt, converted into common shares under its terms. BTC Gain and BTC ¥ Gain do not take into account debt obligations, preferred stock, or other senior claims on company assets, which may influence the actual accretive impact of capital allocation decisions.",
+        "None of these KPIs are measures of operational performance, financial performance, or liquidity. BTC Yield, BTC Gain, and BTC ¥ Gain should not be interpreted as traditional financial metrics such as return on investment, cash flow, or profitability. Additionally, the market price of our common shares is influenced by factors beyond our Bitcoin holdings and share count, meaning these KPIs do not predict or determine our stock price.",
+        "These KPIs are specifically designed to evaluate whether the use of equity capital to acquire Bitcoin benefits shareholders in terms of Bitcoin accumulation. They do not consider the source of funds used for Bitcoin purchases. For example, the Company has acquired Bitcoin through various financing activities, including the rights issue disclosed on August 6, 2024. As a result, BTC Yield, BTC Gain, and BTC ¥ Gain may overstate or understate the impact of equity capital on Bitcoin acquisitions, since not all Bitcoin purchases are funded through equity issuances, and not all equity issuances result in Bitcoin acquisitions. Additionally, the issuance, conversion, or redemption of convertible notes may impact these KPIs in ways not captured by their calculations.",
+        "The Company has not historically paid dividends on its common shares, and the presentation of these KPIs does not imply any future intention to do so. Holding our common shares does not equate to direct ownership of the Bitcoin we hold. Investors should rely on the Company’s financial statements and disclosures filed with the Tokyo Stock Exchange. BTC Yield, BTC Gain, and BTC ¥ Gain are intended as supplemental metrics for those who understand their purpose and limitations, not as replacements for traditional financial analysis."
+      ]
+    }
+  },
+  "forms": {
+    "contact": {
+      "title": "Reach Out and Say Hello",
+      "reason": {
+        "label": "Reason for Contact",
+        "placeholder": "Select a reason",
+        "required": "Reason is required",
+        "options": {
+          "investorRelations": "Investor Relations",
+          "mediaRelations": "Media Relations",
+          "careers": "Careers",
+          "generalInquiries": "General Inquiries"
+        }
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name",
+        "required": "Name is required"
+      },
+      "company": {
+        "label": "Company",
+        "placeholder": "Your company (optional)"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Your email",
+        "invalid": "Invalid email address",
+        "required": "Email is required"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Your phone number (optional)"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message",
+        "required": "Message is required"
+      },
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "success": "Inquiry sent successfully",
+      "error": "Failed to send inquiry",
+      "emails": {
+        "Investor Relations": "ir@metaplanet.jp",
+        "Media Relations": "media@metaplanet.jp",
+        "Careers": "careers@metaplanet.jp",
+        "General Inquiries": "hello@metaplanet.jp"
+      },
+      "cv": {
+        "label": "Resume / CV",
+        "placeholder": "Your CV",
+        "invalid": "Invalid file type. Only PDF, DOCX, and TXT files are allowed.",
+        "required": "CV is required",
+        "tooltip": "We’d love to learn more about you! To help us find the best fit and move things forward smoothly, please upload your CV or resume when applying or reaching out about a position."
+      }
+    }
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign up",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "password": "Password",
+    "passwordPlaceholder": "Your password",
+    "forgotPassword": "Forgot Password?",
+    "signingIn": "Signing In..."
+  },
+  "about": {
+    "manifesto": {
+      "columns": [
+        {
+          "sections": [
+            {
+              "title": "Company Manifesto",
+              "content": [
+                "Metaplanet Inc. (Tokyo Stock Exchange: 3350 / OTCQX: MTPLF) is Japan’s first and only publicly listed Bitcoin Treasury Company. The company leverages Bitcoin as its core treasury reserve asset, employing innovative equity and debt financing strategies to maximize shareholder value. Management measures its performance through the Key Performance Indicator (KPI), ‘BTC Yield,’ which reflects the percentage growth in Bitcoin per share, guiding all capital market activities.",
+                "In addition to its Bitcoin-focused operations, Metaplanet owns and operates a hotel in Tokyo, which is being rebranded as The Bitcoin Hotel and is set to open in Q1 2026. The company also holds the exclusive license for Bitcoin Magazine in Japan, promoting Bitcoin education and adoption."
+              ]
+            },
+            {
+              "title": "Our History",
+              "content": [
+                "Metaplanet draws on decades of expertise, with roots deeply embedded in Japan and a team of seasoned professionals with extensive experience in finance, trading, and real estate. In 2024, Metaplanet’s management embarked on a strategic pivot, recognizing Bitcoin as the world’s most scarce monetary asset and transformed the company into a Bitcoin Treasury Company."
+              ]
+            }
+          ]
+        },
+        {
+          "sections": [
+            {
+              "title": "Metaplanet Bitcoin Mission",
+              "content": [
+                "Acquire and hold Bitcoin securely as a long-term reserve asset, driving lasting value for our shareholders.",
+                "Optimize BTC Yield as a key metric to measure and enhance Metaplanet’s performance over time, ensuring accretive value for shareholders.",
+                "Treat all investors with transparency, fairness, and respect, ensuring trust and alignment in everything we do.",
+                "Structure Metaplanet to deliver returns that outperform Bitcoin over the long term, through disciplined management and intelligent leverage.",
+                "Grow Bitcoin holdings continually and strategically, adapting to market dynamics and seizing opportunities as they arise.",
+                "Educate and advocate for Bitcoin adoption in Japan, fostering greater awareness and engagement across individuals and businesses."
+              ],
+              "linkText": "Our official disclosure"
+            }
+          ]
+        }
+      ]
+    },
+    "businessLines": {
+      "columns": [
+        {
+          "sections": [
+            {
+              "title": "The Bitcoin Hotel",
+              "content": [
+                "The Royal Oak Gotanda, located in the heart of Tokyo, is undergoing a transformation to become The Bitcoin Hotel. This groundbreaking project is designed to integrate Bitcoin into everyday experiences while serving as a hub for education, innovation and community building.",
+                "The hotel will host workshops, events and programs focused on demystifying Bitcoin and promoting its adoption. The Bitcoin Hotel is set to open in Q1 2026 and promises to be a beacon of innovation in the evolving world of digital assets.",
+                "This redevelopment aligns with Metaplanet’s mission to advance Bitcoin adoption and establish a corporate Bitcoin standard. By turning The Bitcoin Hotel into a landmark destination, Metaplanet seeks to bridge the gap between the traditional and digital economies, positioning Japan as a leader in the global Bitcoin ecosystem. The hotel is set to open in Q1 2026 and promises to be a beacon of innovation and collaboration in the evolving world of digital assets."
+              ],
+              "linkText": "Royal Oak Hotel"
+            }
+          ]
+        },
+        {
+          "sections": [
+            {
+              "title": "Bitcoin Treasury Operations",
+              "content": [
+                "Metaplanet is dedicated to maximizing BTC Yield and creating long-term shareholder value by strategically expanding its Bitcoin holdings. This strategy highlights the company’s commitment to positioning Bitcoin as a cornerstone of its financial approach, emphasizing its unmatched potential as a superior store of value in today’s evolving financial landscape.",
+                "To achieve these goals, Metaplanet employs a multifaceted capital-raising strategy that includes innovative financial tools such as equity issuance and debt financing. These approaches are designed to optimize Bitcoin accumulation while maintaining a sustainable and growth-oriented financial structure.",
+                "Metaplanet’s focus on BTC Yield reflects its broader mission to lead the way in adopting a corporate Bitcoin standard. Through efforts to educate stakeholders on Bitcoin’s transformative role as a reserve asset, Metaplanet positions itself as a pioneer in the global shift toward a Bitcoin standard."
+              ]
+            },
+            {
+              "title": "Bitcoin Education and Media",
+              "content": [
+                "Metaplanet leverages its exclusive license for Bitcoin Magazine Japan to drive Bitcoin adoption and education, fostering greater awareness and engagement across the country. By bringing the world’s leading Bitcoin media brand to Japan, Metaplanet provides trusted news, analysis, and educational content tailored to the Japanese audience.",
+                "Bitcoin Magazine Japan is at the forefront of Metaplanet’s mission to onboard one million individuals and organizations into the Bitcoin ecosystem.",
+                "Through Bitcoin Magazine Japan, Metaplanet reinforces its commitment to empowering individuals and businesses with the knowledge and tools to understand and adopt Bitcoin, contributing to the development of a thriving Bitcoin ecosystem in Japan."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "team": {
+      "title": "Team & Investors",
+      "boardTitle": "Board",
+      "advisorsTitle": "Advisors",
+      "teamTitle": "Team",
+      "investorsTitle": "Investors"
+    },
+    "contactUs": {
+      "jpx": "Japan Exchange Group (JPX) ticker is 3350",
+      "otc": "Over the Counter (OTC) ticker is MTPLF",
+      "address": [
+        "Roppongi Hills Mori Tower 16F",
+        "6-10-1 Roppongi, Minato-ku,",
+        "Tokyo 106-6116"
+      ],
+      "phone": "+81-3-6772-3696",
+      "incorporation": "Incorporated on 11 June, 1999",
+      "partnerWithUs": {
+        "title": "Partner with us",
+        "description": "Are you interested in showcasing your products or services to our growing community of engaged shareholders? Join us in creating a unique and rewarding experience through our Shareholder Benefits Program. We're actively seeking partnerships with companies that align with our values and can offer meaningful value to our shareholders. If you're interested in collaborating, please reach out through our general inquiries contact - we'd love to explore opportunities together."
+      }
+    },
+    "disclosures": {
+      "title": "Title",
+      "filingDate": "Filing Date",
+      "disclosures": "Disclosures",
+      "all": "All Disclosures",
+      "discretionary": "Discretionary Disclosures",
+      "legal": "Legal Disclosures",
+      "timely": "Timely Disclosures",
+      "electronic": "Electronic Notifications",
+      "noResults": "No disclosures were found matching your criteria. Try adjusting your search."
+    }
+  },
+  "shareholders": {
+    "investorRelations": {
+      "title": "Investor Relations",
+      "description": "Metaplanet (TSE: 3350 / OTC: MTPLF) is Japan’s first and leading Bitcoin Treasury Company, dedicated to pioneering Bitcoin adoption and financial innovation. As a publicly traded company, we have adopted Bitcoin as our primary treasury reserve asset, aligning our corporate strategy with the world’s most secure and decentralized monetary network. Through disciplined capital market activities, including equity and debt financing, we strategically accumulate Bitcoin, reinforcing our commitment to long-term value creation for shareholders. Our approach combines financial resilience with innovative treasury management, ensuring sustainable and efficient Bitcoin accumulation. Beyond our treasury strategy, we actively promote Bitcoin adoption in Japan through initiatives such as Bitcoin Magazine Japan and The Bitcoin Hotel in Tokyo, which serves as a hub for the global Bitcoin community. With a vision of positioning Bitcoin at the core of corporate finance, Metaplanet is committed to advancing financial innovation and establishing itself as a leader in Japan’s digital asset landscape."
+    },
+    "presentations": {
+      "title": "Presentations"
+    },
+    "benefits": {
+      "features": [
+        {
+          "title": "Shareholder Benefits Program",
+          "description": "We are thrilled to announce the launch of our exclusive Shareholder Benefit Program—a unique opportunity for our growing Metaplanet family to experience exceptional perks, gain valuable insights into the Bitcoin ecosystem, and enjoy exclusive access to carefully curated goods and services.\n\nWe are pleased to present a range of exclusive benefits available to you as a valued shareholder. We invite you to explore and apply for as many benefits as you wish, enjoying the advantages of being part of the Metaplanet family. Each offering has been thoughtfully curated to enhance your experience and provide meaningful value."
+        },
+        {
+          "title": "Program Highlights",
+          "description": "Since we adopted a Bitcoin standard, our community has expanded to over 60,000 shareholders, and we anticipate even greater growth as we continue our mission to onboard Japan to the world of Bitcoin. As part of our appreciation, we’re offering shareholders exclusive perks designed to make this journey even more rewarding:"
+        },
+        {
+          "title": "Eligible Shareholders",
+          "description": "To participate in this exclusive program, shareholders must be listed on the shareholder register as of December 31, 2024, and hold a minimum of 100 shares in their own name. To apply, you will need your name and shareholder number. Each benefit must be applied for separately.\n\nIf you have any questions, please contact us via email, by visiting the CONTACT US page on our company website."
+        }
+      ],
+      "highlightsList": [
+        {
+          "title": "Exclusive Access to Exciting Goods & Services",
+          "description": "As a Metaplanet shareholder, you’ll discover a range of unique products and services that have been thoughtfully selected to enrich your experience and expand your horizons."
+        },
+        {
+          "title": "Specially Negotiated Deals",
+          "description": "We’re working with premium partners to bring you valuable discounts and offers. Through our ongoing negotiations, you’ll enjoy reduced prices on services that align with our values and vision."
+        },
+        {
+          "title": "A Growing List of Shareholder Perks",
+          "description": "Our program is just beginning! We’re committed to expanding the selection of perks and benefits, continuously adding new options that bring lasting value to our shareholders."
+        },
+        {
+          "title": "Be Part of Something Special",
+          "description": "This program is our way of saying thank you and providing you with a first-class experience that reflects your important role in our shared mission."
+        }
+      ],
+      "explore": "Explore Your Benefits",
+      "verification": {
+        "title": "Verify Shareholder Status",
+        "shareholderNumber": "Shareholder ID",
+        "numberTooltip": "Shareholder ID is mailed to eligible shareholders.\n\nPlease enter shareholder ID by half-width characters.\n\nExample: 123456789, not １２３４５６７８９",
+        "shareholderName": "Name",
+        "cta": "Verify",
+        "failed": "Shareholder ID and name don’t match.\n\nStill having trouble? Reach out to us by email through the CONTACT US page. Make sure to include your shareholder ID in the “Message” section when you write.\n\nFor verification, we only handle inquiries via email."
+      },
+      "applicationsClosed": "Applications Closed"
+    },
+    "faqs": {
+      "title": "Frequently Asked Questions"
+    }
+  }
+}
