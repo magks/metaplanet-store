@@ -12,6 +12,7 @@ export async function Carousel() {
   // Purposefully duplicating products to make the carousel loop and not run out of products on wide screens.
   const carouselProducts = [...products, ...products, ...products];
   const t = await getTranslations('homePage');
+  const productMsgs = await getTranslations('products');
   return (
     <>
     <pre> <h1>   {t('carousel')} </h1></pre>
@@ -24,9 +25,9 @@ export async function Carousel() {
           >
             <Link href={`/product/${product.handle}`} className="relative h-full w-full">
               <GridTileImage
-                alt={product.title}
+                alt={productMsgs(`productHandles.${product.handle}`)/*product.title*/}
                 label={{
-                  title: product.title,
+                  title: productMsgs(`productHandles.${product.handle}`) /*product.title*/,
                   amount: product.priceRange.maxVariantPrice.amount,
                   currencyCode: product.priceRange.maxVariantPrice.currencyCode
                 }}

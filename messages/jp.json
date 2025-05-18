@@ -7,13 +7,24 @@
   "homePage": {
     "carousel": "注目の製品"
   },
+  "cart": {
+    "submit": {
+      "outOfStock": "在庫切れ",
+      "addToCart": "カートに追加"
+    }
+
+  },
   "collections": {
     "noProductsFound": "このコレクションには製品が見つかりません"
   },
-  "productHandles": {
-    "bitcoin-orange-b-shirt": "ビットコインオレンジ₿シャツ",
-    "bitcoin-mug": "ビットコインマグ",
-    "metaplanet-hat": "メタプラネットハット"
+  "products": {
+    "relatedProducts": "関連製品",
+    "productHandles": {
+      "bitcoin-orange-b-shirt": "ビットコインオレンジ₿シャツ",
+      "bitcoin-mug": "ビットコインマグ",
+      "metaplanet-hat": "メタプラネットハット",
+      "metaplanet-mens-senkai-tee": "男性用メタプラネットTシャツ"
+    }
   },
   "searchPage": { 
     "noMatches": "申し訳ございませんが、キーワードに一致する製品はありません ",

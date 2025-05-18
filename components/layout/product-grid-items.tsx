@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function ProductGridItems({ products }: { products: Product[] }) {
   
-  const t = useTranslations('productHandles');
+  const t = useTranslations('products');
   return (
     <>
       {products.map((product) => (
@@ -19,7 +19,7 @@ export default function ProductGridItems({ products }: { products: Product[] }) 
             <GridTileImage
               alt={product.title}
               label={{
-                title: (typeof t(product.handle) === 'string' ? t(product.handle) : product.title),
+                title: (typeof t(`productHandles.${product.handle}`) === 'string' ? t(`productHandles.${product.handle}`) : product.title),
                 amount: product.priceRange.maxVariantPrice.amount,
                 currencyCode: product.priceRange.maxVariantPrice.currencyCode
               }}

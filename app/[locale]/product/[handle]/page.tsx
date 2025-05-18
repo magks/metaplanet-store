@@ -55,12 +55,12 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
-  const t = await getTranslations('productHandles');
+  const t = await getTranslations('products');
 
   const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: product.title, //t(product.handle), //product.title,
+    name: product.title, //t(`productHandles.${product.handle}`), //product.title,
     description: product.description,
     image: product.featuredImage.url,
     offers: {
@@ -116,10 +116,10 @@ async function RelatedProducts({ id }: { id: string }) {
   const relatedProducts = await getProductRecommendations(id);
 
   if (!relatedProducts.length) return null;
-
+  const t = await getTranslations('products');
   return (
     <div className="py-8">
-      <h2 className="mb-4 text-2xl font-bold">Related Products</h2>
+      <h2 className="mb-4 text-2xl font-bold">{t('relatedProducts')}</h2>
       <ul className="flex w-full gap-4 overflow-x-auto pt-1">
         {relatedProducts.map((product) => (
           <li
@@ -134,7 +134,7 @@ async function RelatedProducts({ id }: { id: string }) {
               <GridTileImage
                 alt={product.title}
                 label={{
-                  title: product.title,
+                  title: t(`productHandles.${product.handle}`),/*product.title,*/
                   amount: product.priceRange.maxVariantPrice.amount,
                   currencyCode: product.priceRange.maxVariantPrice.currencyCode
                 }}

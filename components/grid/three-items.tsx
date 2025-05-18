@@ -13,7 +13,7 @@ function ThreeItemGridItem({
   size: 'full' | 'half';
   priority?: boolean;
 }) {
-  const t = useTranslations('productHandles');
+  const t = useTranslations('products');
   return (
     <div
       className={size === 'full' ? 'md:col-span-4 md:row-span-2' : 'md:col-span-2 md:row-span-1'}
@@ -33,7 +33,7 @@ function ThreeItemGridItem({
           alt={item.title}
           label={{
             position: size === 'full' ? 'center' : 'bottom',
-            title: t(item.handle),//item.title as string,
+            title: t(`productHandles.${item.handle}`),//item.title as string,
             amount: item.priceRange.maxVariantPrice.amount,
             currencyCode: item.priceRange.maxVariantPrice.currencyCode
           }}

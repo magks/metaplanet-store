@@ -1,4 +1,5 @@
 {
+  "extensions.js-debug.debugTerminal": "/usr/bin/alacritty",
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.codeActionsOnSave": {

@@ -7,12 +7,24 @@
   "homePage": {
     "carousel": "Featured Products"
   },
+  "cart": {
+    "submit": {
+      "outOfStock": "Out of Stock",
+      "addToCart": "Add to Cart"
+    }
+
+  },
   "collections": {
     "noProductsFound": "No products found in this collection"
   },
-  "productHandles": {
-    "bitcoin-orange-b-shirt": "Bitcoin Orange ₿ Shirt",
-    "metaplanet-hat": "Metaplanet ₿ Hat"
+  "products":{
+    "relatedProducts": "Related Products",
+    "productHandles": {
+      "bitcoin-orange-b-shirt": "Bitcoin Orange ₿ Shirt",
+      "bitcoin-mug": "Bitcoin Mug",
+      "metaplanet-hat": "Metaplanet ₿ Hat",
+      "metaplanet-mens-senkai-tee": "Metaplanet Men's Senkai Tee"
+    }
   },
   "searchPage": { 
     "noMatches": "There are no products that match",
