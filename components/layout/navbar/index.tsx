@@ -1,3 +1,4 @@
+import { SettingsMenu } from '@/components/navigation/menus/settings-menu';
 import CartModal from 'components/cart/modal';
 import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
@@ -52,8 +53,10 @@ export async function Navbar() {
             <Search />
           </Suspense>
         </div>
-        <div className="flex justify-end md:w-1/3">
+        <div className="flex justify-end md:w-1/3 gap-2">
           <CartModal />
+          <SettingsMenu />
+
         </div>
       </div>
     </nav>

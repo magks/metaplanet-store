@@ -1,9 +1,15 @@
 @import 'tailwindcss';
 
-@plugin "@tailwindcss/container-queries";
-@plugin "@tailwindcss/typography";
+/*@plugin "@tailwindcss/container-queries";*/
+/*@plugin "@tailwindcss/typography";*/
 
 @layer base {
+  :root {
+    --background: 180 46.9% 10.4%; /* #F7F7F7 neutral-050 */
+    --popover: 0 0% 88%; /* #E1E1E1 neutral-100 */
+    --popover-foreground: 0 0% 23%; /* #3B3B3B neutral-800 */
+
+  }
   *,
   ::after,
   ::before,
@@ -30,3 +36,6 @@ input,
 button {
   @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
 }
+
+
+

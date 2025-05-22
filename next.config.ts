@@ -26,6 +26,7 @@ const nextConfig: NextConfig =  {}
  
 const withNextIntl = createNextIntlPlugin();
 export default withNextIntl({
+  transpilePackages: ["geist"],
   eslint: {
     ignoreDuringBuilds: true,
   },
