@@ -97,7 +97,9 @@ export function SettingsMenu() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>{ICON}</DropdownMenuTrigger>
+      <div className="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white">
+        <DropdownMenuTrigger asChild>{ICON}</DropdownMenuTrigger>
+      </div>
       <DropdownMenuContent className="w-48" align="end">
         <DropdownMenuLabel>{t("language")}</DropdownMenuLabel>
         <DropdownMenuRadioGroup
@@ -106,7 +108,7 @@ export function SettingsMenu() {
         >
           <DropdownMenuRadioItem className="flex gap-2" value="jp">
             <Image
-              src={`https://metaplanet.jp/images/round-flag-japan.svg`}
+              src={`/images/round-flag-japan.svg`}
               alt="Japanese Flag"
               className="h-4 w-4 hover:opacity-80"
               width={4}
@@ -116,7 +118,7 @@ export function SettingsMenu() {
           </DropdownMenuRadioItem>
           <DropdownMenuRadioItem className="flex gap-2" value="en">
             <Image
-              src={`https://metaplanet.jp/images/round-flag-usa.svg`}
+              src={`/images/round-flag-usa.svg`}
               alt="American Flag"
               className="h-4 w-4 hover:opacity-80"
               width={4}

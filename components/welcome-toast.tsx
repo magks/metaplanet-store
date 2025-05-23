@@ -10,7 +10,7 @@ export function WelcomeToast() {
     if (!document.cookie.includes('welcome-toast=2')) {
       toast('🛍️ Welcome to Next.js Commerce!', {
         id: 'welcome-toast',
-        duration: Infinity,
+        duration: 10,
         onDismiss: () => {
           document.cookie = 'welcome-toast=2; max-age=1; path=/';
         },
