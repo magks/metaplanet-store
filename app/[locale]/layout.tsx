@@ -2,12 +2,18 @@ import { CartProvider } from 'components/cart/cart-context';
 import { Navbar } from 'components/layout/navbar';
 import { WelcomeToast } from 'components/welcome-toast';
 
+// todo: fix false "has no imported member Geist{Mono|Sans}" error message in linter
 import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
 
 import { getCart } from 'lib/shopify';
 import { baseUrl } from 'lib/utils';
 import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
+
+
+import ThemeInitializer from '@/components/theme-initializer';
+import { ThemeProvider } from 'next-themes';
 import './globals.css';
 /*
 const geist = Geist({
@@ -56,18 +62,27 @@ export default async function RootLayout({
   const cart = getCart();
 
   return (
-    <html lang={locale}  className={`${GeistMono.variable} `}>
-      <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
-        <NextIntlClientProvider>
-        <CartProvider cartPromise={cart}>
-            <Navbar />
-            <main>
-              {children}
-              <Toaster closeButton />
-              <WelcomeToast />
-            </main>
-          </CartProvider>
-        </NextIntlClientProvider>
+    <html lang={locale}  className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+      {/*<body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">*/}
+        <body>
+        <ThemeProvider 
+          attribute="class"
+          defaultTheme="system"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <ThemeInitializer />
+          <NextIntlClientProvider>
+          <CartProvider cartPromise={cart}>
+              <Navbar />
+              <main>
+                {children}
+                <Toaster closeButton />
+                <WelcomeToast />
+              </main>
+            </CartProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

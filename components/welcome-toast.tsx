@@ -12,7 +12,7 @@ export function WelcomeToast() {
         id: 'welcome-toast',
         duration: Infinity,
         onDismiss: () => {
-          document.cookie = 'welcome-toast=2; max-age=31536000; path=/';
+          document.cookie = 'welcome-toast=2; max-age=1; path=/';
         },
         description: (
           <>

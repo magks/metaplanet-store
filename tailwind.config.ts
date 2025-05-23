@@ -20,6 +20,7 @@ const config = {
       },
     },
     extend: {
+      /*
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -123,6 +124,7 @@ const config = {
           "900": "hsl(var(--warning-900) / <alpha-value>)",
         },
       },
+      */
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
         mono: ['var(--font-geist-mono)'],
