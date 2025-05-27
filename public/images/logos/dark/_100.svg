@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="100" viewBox="0 0 600 100">
+  <style>
+    .text { font-family: Arial, sans-serif; font-weight: bold; font-size: 60px; }
+    .wireframe line { stroke: black; stroke-width: 0.5; }
+  </style>
+  <g transform="translate(0,10)">
+    <!-- Wireframe Pyramid -->
+    <g class="wireframe">
+      <!-- Vertical and horizontal grid -->
+      <g>
+        <line x1="0" y1="0" x2="0" y2="80"/>
+        <line x1="10" y1="10" x2="10" y2="70"/>
+        <line x1="20" y1="20" x2="20" y2="60"/>
+        <line x1="30" y1="30" x2="30" y2="50"/>
+        <line x1="40" y1="40" x2="40" y2="40"/>
+        <line x1="0" y1="0" x2="80" y2="0"/>
+        <line x1="10" y1="10" x2="70" y2="10"/>
+        <line x1="20" y1="20" x2="60" y2="20"/>
+        <line x1="30" y1="30" x2="50" y2="30"/>
+        <line x1="40" y1="40" x2="40" y2="40"/>
+      </g>
+      <!-- Diagonal perspective lines -->
+      <g>
+        <line x1="0" y1="0" x2="40" y2="40"/>
+        <line x1="0" y1="80" x2="40" y2="40"/>
+        <line x1="80" y1="0" x2="40" y2="40"/>
+      </g>
+    </g>
+    <!-- Text -->
+    <text class="text" x="100" y="65" fill="black">SHOP</text>
+  </g>
+</svg>
+

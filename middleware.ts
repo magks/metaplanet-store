@@ -32,8 +32,8 @@ function getValidLocale(pathname: string) {
 
 export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  console.log(`middleware request:NextRequest:${request}`);
-  console.log(`middleware pathname: request.nextUrl:${pathname}`);
+  console.log(`middleware request:NextRequest=${request}`);
+  console.log(`middleware pathname: request.nextUrl=${pathname}`);
 
   // Redirect /ja or /en/ja to /jp
   if (pathname.includes("/ja") || pathname.includes("/en/ja")) {
@@ -45,17 +45,25 @@ export default function middleware(request: NextRequest) {
   const validLocale: "jp" | "en" = getValidLocale(pathname);
   console.log(`middleware validLocale:${validLocale}`);
 
-  const theme = getTheme(pathname);
-  console.log(`middleware theme:${theme}`);
+  //const theme = getTheme(request);
+  //console.log(`middleware theme:${theme}`);
   
-  // Set preferredLocale cookie for valid locale
+  // Create response using request
   const response = createMiddleware(routing)(request);
+
+  // Set preferredLocale cookie for valid locale
   response.cookies.set("preferredLocale", validLocale, {
     path: "/",
     sameSite: "lax",
     maxAge: 31536000, // 1 year
   });
-  response.cookies.set('theme', theme);
+
+  // Set theme cookie
+ //response.cookies.set('theme', theme);
+
+  // Add the pathname to headers
+  response.headers.set('x-pathname', request.nextUrl.pathname);
+  console.log(`middleware::request.nextUrl.pathname=${request.nextUrl.pathname}`);
 
   return response;
 }

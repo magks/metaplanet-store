@@ -3,18 +3,51 @@ import CartModal from 'components/cart/modal';
 import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
-import Link from 'next/link';
+
+import { Link } from '@/i18n/navigation';
+import themeData from '@/lib/theme-data';
+import { isHomePagePath } from '@/utils/is-homepage';
 import { Suspense } from 'react';
+import MenuListClient from './menu-list-client';
 import MobileMenu from './mobile-menu';
 import Search, { SearchSkeleton } from './search';
 
 const { SITE_NAME } = process.env;
+interface NavbarProps {
+  pathname: string;
+}
 
-export async function Navbar() {
-  const menu = await getMenu('next-js-frontend-header-menu');
+export async function Navbar(
+  { pathname }: NavbarProps
+) {
+   console.log(`NAVBARmenu::next-js-frontend-header-menu`);
+  const menu = await getMenu('nextjs-frontend-header-menu'); 
+  console.log(`NAVBARmenu::menulength=${menu.length}`);
 
-  return (
-    <nav className="relative flex items-center justify-between p-4 lg:px-6">
+menu.map((item: Menu) => {
+                console.log(`NAVBAR::menu item.title=${item.title}`);
+});
+
+  const useWhiteText = (
+    isHomePagePath(pathname) 
+    && themeData?.pages.home.dark
+  );
+
+   console.log(`NAVBARmenu::pathname=${pathname}`);
+   console.log(`NAVBARmenu::themeData?.pages.home.dark=${themeData?.pages.home.dark}`);
+   console.log(`NAVBARmenu::useWhiteText=${useWhiteText}`);
+   return (
+    <>
+    {/* <nav className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-4 lg:px-6 bg-transparent backdrop-blur-[3px]">*/}
+    {/* blur gradient in style*/}
+    {/*<nav className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-4 lg:px-6 pb-12 bg-black/10 backdrop-blur-[2px]"
+     style={{maskImage: 'linear-gradient(to bottom, white 70%, transparent 100%)'}}>*/}
+    {/*<nav className={`flex items-center justify-between p-4 lg:px-6 ${
+      isOverlay 
+        ? 'absolute top-0 left-0 right-0 z-30 bg-transparent backdrop-blur-[2px]' 
+        : 'relative bg-white dark:bg-black'
+    }`}>*/}
+    <nav className="flex items-center justify-between p-4 lg:px-6 bg-transparent">
       <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />
@@ -28,25 +61,11 @@ export async function Navbar() {
             className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
           >
             <LogoSquare />
-            <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
+            {/*<div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
               {SITE_NAME}
-            </div>
+            </div>*/}
           </Link>
-          {menu.length ? (
-            <ul className="hidden gap-6 text-sm md:flex md:items-center">
-              {menu.map((item: Menu) => (
-                <li key={item.title}>
-                  <Link
-                    href={item.path}
-                    prefetch={true}
-                    className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ) : null}
+          <MenuListClient menu={menu} />
         </div>
         <div className="hidden justify-center md:flex md:w-1/3">
           <Suspense fallback={<SearchSkeleton />}>
@@ -60,5 +79,10 @@ export async function Navbar() {
         </div>
       </div>
     </nav>
+    {/* second blur fade for natural taper 
+    <div className="absolute top-16 left-0 right-0 z-20 h-8 bg-gradient-to-b from-black/10 to-transparent backdrop-blur-[1px]" 
+       style={{maskImage: 'linear-gradient(to bottom, white, transparent)'}} />
+       */}
+    </>
   );
 }

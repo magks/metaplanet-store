@@ -1,5 +1,6 @@
 'use server';
-
+// todo these cart actions can throw errors: connectionTimeout, invalid cache
+// handle thrown errors
 import { TAGS } from 'lib/constants';
 import {
   addToCart,

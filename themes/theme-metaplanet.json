@@ -1,0 +1,23 @@
+{
+    "pages": {
+        "home": {
+            "dark": true,
+            "navbar": {
+                "transparent": true
+            },
+            "mobile_menu": {
+                "blurred": true
+            }
+        },
+        "default": {
+            "dark": false,
+            "navbar": {
+                "transparent": false,
+                "dark": false
+            },
+            "mobile_menu": {
+                "blurred": true
+            }
+        }
+    }
+}

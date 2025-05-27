@@ -32,29 +32,44 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import themeData from "@/lib/theme-data";
+import { isHomePagePath } from "@/utils/is-homepage";
 import { Settings } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 const ICON_SIZE = 16;
 
-const ICON = (
+const ICON_CONST = (
   <Button variant="ghost" size="sm">
-    <Settings size={ICON_SIZE} className="text-muted-foreground" />
+    <Settings size={ICON_SIZE} className="text-black" />
     <span className="sr-only">Settings</span>
   </Button>
 );
 
 
 export function SettingsMenu() {
+  const pathname = usePathname();
+  const useWhiteText = isHomePagePath(pathname) && themeData?.pages.home.dark;
+
+  const ICON = (
+    <Button className="h-4 transition-all ease-in-out hover:scale-110" variant="link" size="sm">
+      <Settings
+        size={ICON_SIZE}
+        className={twMerge(useWhiteText ? 'text-white' : 'text-black'
+        )}
+      />
+      <span className="sr-only">Settings</span>
+    </Button>
+  );
   const [mounted, setMounted] = useState(false);
   //const { theme, setTheme } = useTheme();
   const currentLocale = useLocale();
   const [selectedLocale, setSelectedLocale] = useState(currentLocale);
   const router = useRouter();
-  const pathname = usePathname();
   const t = useTranslations("navigation.settings");
 
   // Sync locale with URL and localStorage on mount
@@ -97,7 +112,7 @@ export function SettingsMenu() {
 
   return (
     <DropdownMenu>
-      <div className="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white">
+      <div className="backdrop-blur-[2px] relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white">
         <DropdownMenuTrigger asChild>{ICON}</DropdownMenuTrigger>
       </div>
       <DropdownMenuContent className="w-48" align="end">
