@@ -6,15 +6,16 @@ import defaultTheme from '@/themes/theme-default.json';
 import metaplanetTheme from '@/themes/theme-metaplanet.json';
 
 import appSettings from './app-settings';
+import { Theme } from './types/themes';
+
 // Infer the type of a single theme 
-type ThemeData = undefined 
-  | typeof defaultTheme 
+type ThemeData = typeof defaultTheme 
   | typeof metaplanetTheme 
   | typeof bmjTheme
   ;
 
 // Create a lookup object for themes
-const themes: Record<string, ThemeData> = {
+const themes: Record<Theme, ThemeData> = {
   default: defaultTheme,
   metaplanet: metaplanetTheme,
   bmj: bmjTheme,
@@ -23,7 +24,7 @@ const themes: Record<string, ThemeData> = {
 
 // Load theme-data (singleton)
 export const getThemeData = (): ThemeData  => {
-  const themeName = appSettings.siteTheme;
+  const themeName = appSettings.siteTheme as Theme;
   console.log(`settings.ts::getSettings::themeName=${themeName}`);
 
   const themeData = themes[themeName] ?? themes['default'];

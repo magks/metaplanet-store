@@ -1,5 +1,13 @@
 {
     "name": "bmj",
+    "components": {
+        "open_cart": {
+            "icon_color": "text-white"
+        },
+        "settings_menu": {
+            "icon_color": "text-white"
+        }
+    },
     "pages": {
         "home": {
             "dark": false,
@@ -25,3 +33,4 @@
         }
     }
 }
+

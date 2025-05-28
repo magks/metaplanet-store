@@ -2,10 +2,33 @@
 'use client';
 
 import themeData from '@/lib/theme-data';
+import { Theme } from '@/lib/types/themes';
 import { isHomePagePath } from '@/utils/is-homepage';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
+
+
+const selectCartMenuIconColor  = () => {
+  const pathname = usePathname();
+  const theme = themeData?.name as Theme;
+
+  const components: Record<Theme, string> = {
+    metaplanet: (
+      isHomePagePath(pathname) && themeData?.pages.home.dark 
+      ? "text-white"
+      : "text-black"
+    ),
+    bmj: (
+     themeData.components.open_cart.icon_color
+    ),
+    default: (
+      "text-black dark:text-white"
+    )
+  };
+
+  return components[theme] || components.default;
+};
 
 export default function OpenCart({
   className,
@@ -14,9 +37,8 @@ export default function OpenCart({
   className?: string;
   quantity?: number;
 }) {
-  const pathname = usePathname();
-  const useWhiteText = isHomePagePath(pathname) && themeData?.pages.home.dark;
-
+  const shoppingCartIconColor = selectCartMenuIconColor();
+  
   return (
     <div
       className={clsx(
@@ -26,7 +48,7 @@ export default function OpenCart({
     >
       <ShoppingCartIcon
         className={clsx(
-        useWhiteText ? 'text-white' : 'text-black', 
+        shoppingCartIconColor, 
         'h-4 transition-all ease-in-out hover:scale-110', 
         className)}
       />

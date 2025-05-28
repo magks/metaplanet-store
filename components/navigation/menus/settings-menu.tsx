@@ -33,6 +33,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import themeData from "@/lib/theme-data";
+import { Theme } from "@/lib/types/themes";
 import { isHomePagePath } from "@/utils/is-homepage";
 import { Settings } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -51,15 +52,35 @@ const ICON_CONST = (
 );
 
 
+
+const selectSettingsMenuColor  = ({ theme, pathname }: { theme: Theme; pathname: string }) => {
+  const components: Record<Theme, string> = {
+    metaplanet: (
+      isHomePagePath(pathname) && themeData?.pages.home.dark 
+      ? "text-white"
+      : "text-black"
+    ),
+    bmj: (
+     themeData?.components?.settings_menu?.icon_color ?? ""
+    ),
+    default: (
+     "text-black"
+    )
+  };
+
+  return components[theme] || components.default;
+};
+
+
 export function SettingsMenu() {
   const pathname = usePathname();
-  const useWhiteText = isHomePagePath(pathname) && themeData?.pages.home.dark;
+  const theme = themeData?.name as Theme;
 
   const ICON = (
     <Button className="h-4 transition-all ease-in-out hover:scale-110" variant="link" size="sm">
       <Settings
         size={ICON_SIZE}
-        className={twMerge(useWhiteText ? 'text-white' : 'text-black'
+        className={twMerge(selectSettingsMenuColor( {theme, pathname} )
         )}
       />
       <span className="sr-only">Settings</span>

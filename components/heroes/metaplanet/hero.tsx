@@ -1,7 +1,7 @@
 'use client';
 // components/hero.tsx
+import { MetaplanetLogo } from '@/components/metaplanet-logo';
 import clsx from 'clsx';
-import { MetaplanetLogo } from './metaplanet-logo';
 
 interface HeroProps {
   mobileImage: string;
@@ -96,21 +96,6 @@ export function Hero({
         )}
       </section>
     </>
-  );
-}
-
-// Usage examples for your storefronts:
-
-export function BitcoinMagazineHero() {
-  return (
-    <Hero
-      mobileImage="/images/restaurant-bitcoin-b.png"
-      desktopImage="/images/cartoon-btcmagjp-bitcoin-b-shirts-hats-books-lg.png"
-      alt="Bitcoin Magazine Japan"
-      title="Bitcoin Magazine Japan"
-      subtitle="The Latest in Bitcoin News and Analysis"
-      breakpoint="md" // Switch at 768px
-    />
   );
 }
 

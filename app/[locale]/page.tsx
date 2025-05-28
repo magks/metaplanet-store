@@ -1,6 +1,7 @@
-import { MetaplanetHero } from '@/components/hero';
+import appSettings from '@/lib/app-settings';
 import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
+import { HomePageHeroSelector } from 'components/heroes/home-page-hero-selector';
 import Footer from 'components/layout/footer';
 
 export const metadata = {
@@ -15,7 +16,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <>
-      <MetaplanetHero />
+      <HomePageHeroSelector theme={appSettings.siteTheme} />
       <div className="h-8 md:h-12 lg:h-16" />
       <ThreeItemGrid />
       <Carousel />

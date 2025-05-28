@@ -1,3 +1,7 @@
+//import { Navbar as BtcMagNavBar } from "@/components/navigation/navbars/bmj-navbar";
+//import { NavbarConditional as BtcMagNavbarConditional } from "@/components/navigation/navbars/bmj-navbar/navbar-conditional";
+
+
 import { CartProvider } from 'components/cart/cart-context';
 import { WelcomeToast } from 'components/welcome-toast';
 
@@ -18,8 +22,6 @@ const geist = Geist({
 })*/
 
 // i18n
-import { Navbar as MetaplanetNavbar } from '@/components/navigation/navbars/metaplanet-navbar';
-import { NavbarConditional as MetaplanetNavbarConditional } from '@/components/navigation/navbars/metaplanet-navbar/navbar-conditional';
 import { routing } from '@/i18n/routing';
 import appSettings from '@/lib/app-settings';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
@@ -27,7 +29,10 @@ import { headers } from 'next/headers';
 import { notFound } from 'next/navigation';
 const { SITE_NAME } = process.env;
 
+
+
 // metadata
+import { NavbarSelector } from '@/components/navigation/navbars/navbar-selector';
 import themeData from '@/lib/theme-data';
 import type { Metadata, ResolvingMetadata } from 'next';
 type MetadataProps = {
@@ -125,7 +130,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const theme = '${appSettings.siteTheme || 'theme-default'}';
+                const theme = '${appSettings.siteTheme || 'default'}';
                 document.documentElement.setAttribute('data-theme', theme);
               })();
             `,
@@ -142,9 +147,14 @@ export default async function RootLayout({
         >
           <NextIntlClientProvider>
           <CartProvider cartPromise={cart}>
-              <MetaplanetNavbarConditional>
-                <MetaplanetNavbar pathname={pathname}/>
-              </MetaplanetNavbarConditional>
+            {/*   */}
+            <NavbarSelector theme={appSettings.siteTheme} pathname={pathname} />
+         
+                   { /*
+                   <MetaplanetNavbarConditional>
+                      <MetaplanetNavbar pathname={pathname} />
+                    </MetaplanetNavbarConditional>
+                    */}
               <main>
                 {children}
                 <Toaster closeButton />

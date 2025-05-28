@@ -1,12 +1,21 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
-    "test": "pnpm prettier:check"
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "test": "pnpm prettier:check",
+    "dev:metaplanet": "dotenv -e .env.metaplanet -- next dev -p 3000 --turbopack",
+    "build:metaplanet": "dotenv -e .env.metaplanet -- next build --turbopack",
+    "start:metaplanet": "dotenv -e .env.metaplanet -- next start -p 3000", 
+    "full:metaplanet": "npm run build:metaplanet && npm run start:metaplanet",
+    "dev:bmj": "dotenv -e .env.bmj -- next dev -p 4000 --turbopack",
+    "build:bmj": "dotenv -e .env.bmj -- next build --turbopack",
+    "start:bmj": "next start -p 4000",
+    "full:bmj": "npm run build:bmj && npm run start:bmj"
+
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -35,6 +44,7 @@
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
     "autoprefixer": "^10.4.21",
+    "dotenv-cli": "^8.0.0",
     "postcss": "^8.5.3",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",

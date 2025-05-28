@@ -118,7 +118,7 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
   const t = await getTranslations('products');
   return (
-    <div className="py-8">
+    <div className="py-10">
       <h2 className="mb-4 text-2xl font-bold">{t('relatedProducts')}</h2>
       <ul className="flex w-full gap-4 overflow-x-auto pt-1">
         {relatedProducts.map((product) => (
