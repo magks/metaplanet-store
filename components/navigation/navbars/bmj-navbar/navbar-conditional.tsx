@@ -1,6 +1,7 @@
 // components/layout/navbar-conditional.tsx
 'use client';
 
+// This is needed because Navbar must be a server component to support lib/shopify cart tree
 import themeData from '@/lib/theme-data';
 import { isHomePagePath } from '@/utils';
 import { usePathname } from 'next/navigation';

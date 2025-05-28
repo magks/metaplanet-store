@@ -114,7 +114,7 @@ button {
 
 
 /* default Theme */
-[data-theme="theme-default"] {
+[data-theme="default"] {
   --background: oklch(0.8 0.19 67.87); /* orange background */
   --foreground: oklch(0.2 0.1 220); /* Darker text */
   --primary: oklch(0.5 0.21 240); /* Brand1 primary color */

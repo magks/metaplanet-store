@@ -1,19 +1,23 @@
 // lib/theme-data.ts
 
 // Import all theme JSON files directly
+import bmjTheme from '@/themes/theme-bmj.json';
 import defaultTheme from '@/themes/theme-default.json';
 import metaplanetTheme from '@/themes/theme-metaplanet.json';
+
 import appSettings from './app-settings';
 // Infer the type of a single theme 
 type ThemeData = undefined 
   | typeof defaultTheme 
   | typeof metaplanetTheme 
+  | typeof bmjTheme
   ;
 
 // Create a lookup object for themes
 const themes: Record<string, ThemeData> = {
   default: defaultTheme,
   metaplanet: metaplanetTheme,
+  bmj: bmjTheme,
   // Add more themes here as needed
 };
 

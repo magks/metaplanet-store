@@ -123,7 +123,7 @@ button {
 }
 
 
-[data-theme="theme-default"] {
+[data-theme="default"] {
   --background: oklch(0.8 0.19 67.87); /* klch(0.8 0.19 67.87) orange background */
   --foreground: oklch(0.2 0.1 220); /* Darker text */
   --primary: oklch(0.5 0.21 240); /* Brand1 primary color */
@@ -140,7 +140,7 @@ button {
   --radius: 0.6rem;
 }
 
-[data-theme="theme-metaplanet"] {
+[data-theme="metaplanet"] {
   --background: #ffffff; /* oklch(1 0 0) oklch(39.9857% 0.164082 29.2339) Dark warm for Brand2 oklch(0.3 0.1 50)*/
   --foreground: oklch(0.95 0 0); /* light text*/
   --primary: oklch(0.5 0.21 240);  /* orangeish primary color */
@@ -148,6 +148,13 @@ button {
   --radius: 0.6rem;
 }
 
+[data-theme="bmj"] {
+  --background: #ffffff; /* oklch(1 0 0) oklch(39.9857% 0.164082 29.2339) Dark warm for Brand2 oklch(0.3 0.1 50)*/
+  --foreground: oklch(0.95 0 0); /* light text*/
+  --primary: oklch(0.5 0.21 240);  /* orangeish primary color */
+  --primary-foreground: oklch(1 0 0);
+  --radius: 0.6rem;
+}
 
 .theme-brand1 {
   --background: oklch(0.95 0.05 200); /* Light blue background */

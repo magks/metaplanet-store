@@ -1,12 +1,14 @@
 {
-    "name": "metaplanet",
+    "name": "bmj",
     "pages": {
         "home": {
-            "dark": true,
+            "dark": false,
             "navbar": {
-                "transparent": true
+                "dark": true,
+                "transparent": false
             },
             "mobile_menu": {
+                "transparent": false,
                 "blurred": true
             }
         },
@@ -14,9 +16,10 @@
             "dark": false,
             "navbar": {
                 "transparent": false,
-                "dark": false
+                "dark": true
             },
             "mobile_menu": {
+                "transparent": false,
                 "blurred": true
             }
         }

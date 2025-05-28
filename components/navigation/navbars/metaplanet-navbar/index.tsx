@@ -20,7 +20,7 @@ interface NavbarProps {
 export async function Navbar(
   { pathname }: NavbarProps
 ) {
-   console.log(`NAVBARmenu::next-js-frontend-header-menu`);
+   console.log(`NAVBARmenu::nextjs-frontend-header-menu`);
   const menu = await getMenu('nextjs-frontend-header-menu'); 
   console.log(`NAVBARmenu::menulength=${menu.length}`);
 

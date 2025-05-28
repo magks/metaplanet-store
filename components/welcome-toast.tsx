@@ -6,8 +6,8 @@ import { toast } from 'sonner';
 export function WelcomeToast() {
   useEffect(() => {
     // ignore if screen height is too small
-    if (window.innerHeight < 650) return;
-    if (!document.cookie.includes('welcome-toast=2')) {
+    //if (window.innerHeight < 650) return;
+    if (true || !document.cookie.includes('welcome-toast=2')) {
       toast('🛍️ Welcome to Next.js Commerce!', {
         id: 'welcome-toast',
         duration: 10,
