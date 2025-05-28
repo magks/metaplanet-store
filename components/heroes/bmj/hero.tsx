@@ -48,12 +48,22 @@ export function Hero({
             background-image: url('${desktopImage}');
           }
         }
+
+        .stroke-shadow
+        {
+            color: #FFFFFF;
+            text-shadow:
+            -1px -1px 1 white,
+            2px -2px 2 blue,
+            -1px 1px 3 yellow,
+            1px 1px 4 red;  
+        }
       `}</style>
       
       <section 
         className={clsx(
           'hero-background relative w-full overflow-hidden',
-          'h-[100vh] ',
+          'h-[50vh] ',
           className
         )}
         role="img"
@@ -61,14 +71,15 @@ export function Hero({
       >
         {/* Content Overlay */}
         {(title || subtitle) && (
-          <div className="absolute inset-0 flex items-center justify-center z-10 pt-50">
+          <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/20 pt-30 ">
             {/*<div className="text-center text-white px-4">*/}
                             {/*<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
                   {title}
                 </h1>*/}
-            <div className="text-center text-white px-10 py-2 backdrop-blur-md rounded-sm border border-white border-opacity-10">
+            
+            <div className="uppercase stroke-shadow text-center text-white px-10 py-2 border border-white  transform translate-y-[60%]">
               {title && (
-                <h3 className="font-semibold text-lg">Global Shipping</h3>
+                <h1 className="font-semibold text-lg text-outline ">{title}</h1>
               )}
               
             </div>
@@ -86,11 +97,11 @@ export function BitcoinMagazineHero() {
   return (
     <Hero
       mobileImage="/images/restaurant-bitcoin-b.png"
-      desktopImage="/images/cartoon-btcmagjp-bitcoin-b-shirts-hats-books-lg.png"
+      desktopImage="/images/FinalDay_600x_486_3000x1638_crop_center.webp"
       alt="Bitcoin Magazine Japan"
       title="Bitcoin Magazine Japan"
       subtitle="The Latest in Bitcoin News and Analysis"
-      breakpoint="md" // Switch at 768px
+      breakpoint="sm" // Switch at 768px
     />
   );
 }
