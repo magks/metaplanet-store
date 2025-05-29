@@ -2,8 +2,8 @@
 //import { NavbarConditional as BtcMagNavbarConditional } from "@/components/navigation/navbars/bmj-navbar/navbar-conditional";
 
 
+import { WelcomeToast } from '@/components/shared/welcome-toast';
 import { CartProvider } from 'components/cart/cart-context';
-import { WelcomeToast } from 'components/welcome-toast';
 
 // todo: fix false "has no imported member Geist{Mono|Sans}" error message in linter
 import { GeistMono } from 'geist/font/mono';

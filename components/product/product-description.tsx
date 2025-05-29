@@ -1,6 +1,6 @@
+import Price from '@/components/shared/price';
+import Prose from '@/components/shared/prose';
 import { AddToCart } from 'components/cart/add-to-cart';
-import Price from 'components/price';
-import Prose from 'components/prose';
 import { Product } from 'lib/shopify/types';
 import { useTranslations } from 'next-intl';
 import { VariantSelector } from './variant-selector';

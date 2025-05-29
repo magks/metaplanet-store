@@ -35,7 +35,7 @@ export const getSettings = (): AppSettings => {
 
   return {
     darkHome: parseBoolean(darkHomeVar, false),
-    siteTheme: siteThemeVar || "theme-default",
+    siteTheme: siteThemeVar || "default",
   };
 };
 

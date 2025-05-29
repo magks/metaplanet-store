@@ -1,5 +1,5 @@
+import { Carousel } from '@/components/shared/carousel';
 import appSettings from '@/lib/app-settings';
-import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import { HomePageHeroSelector } from 'components/heroes/home-page-hero-selector';
 import Footer from 'components/layout/footer';

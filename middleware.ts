@@ -4,7 +4,7 @@ import { routing } from "./i18n/routing";
 
 function getTheme(request: NextRequest): string {; 
   const { SITE_THEME } = process.env;
-  let theme = `theme-${SITE_THEME ? SITE_THEME : 'default'}`;
+  let theme = `${SITE_THEME ? SITE_THEME : 'default'}`;
   /*
   const requestHeaders = new Headers(request.headers)
   const hostname = requestHeaders.get('host') || ''; 

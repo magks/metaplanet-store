@@ -1,7 +1,7 @@
 import { getCollectionProducts } from 'lib/shopify';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
-import { GridTileImage } from './grid/tile';
+import { GridTileImage } from '../grid/tile';
 
 export async function Carousel() {
   // Collections that start with `hidden-*` are hidden from the search page.

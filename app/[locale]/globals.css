@@ -114,7 +114,7 @@ button {
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
- .theme-default {
+ .default {
   --background: oklch(0.8 0.19 67.87); /* orange background */
   --foreground: oklch(0.2 0.1 220); /* Darker text */
   --primary: oklch(0.5 0.21 240); /* Brand1 primary color */
@@ -132,9 +132,9 @@ button {
 }
 
 /* Metaplanet Theme */
-.theme-metaplanet {
+.metaplanet {
   --background: #ffffff; /* oklch(1 0 0) oklch(39.9857% 0.164082 29.2339) Dark warm for Brand2 oklch(0.3 0.1 50)*/
-  --foreground: oklch(0.95 0 0); /* light text*/
+  --foreground: oklch(0 0 255) /* light text*/
   --primary: oklch(0.5 0.21 240);  /* oklch(0.5 0.21 240) orangeish oklch(0.8 0.3 50);primary color */
   --primary-foreground: oklch(1 0 0);
   --radius: 0.6rem;
@@ -142,7 +142,7 @@ button {
 
 [data-theme="metaplanet"] {
   --background: #ffffff; /* oklch(1 0 0) oklch(39.9857% 0.164082 29.2339) Dark warm for Brand2 oklch(0.3 0.1 50)*/
-  --foreground: oklch(0.95 0 0); /* light text*/
+  --foreground: #000000; /* light text*/
   --primary: oklch(0.5 0.21 240);  /* orangeish primary color */
   --primary-foreground: oklch(1 0 0);
   --radius: 0.6rem;
@@ -150,13 +150,13 @@ button {
 
 [data-theme="bmj"] {
   --background: #ffffff; /* oklch(1 0 0) oklch(39.9857% 0.164082 29.2339) Dark warm for Brand2 oklch(0.3 0.1 50)*/
-  --foreground: oklch(0.95 0 0); /* light text*/
+  --foreground: #000000; /* light text*/
   --primary: oklch(0.5 0.21 240);  /* orangeish primary color */
   --primary-foreground: oklch(1 0 0);
   --radius: 0.6rem;
 }
 
-.theme-brand1 {
+.brand1 {
   --background: oklch(0.95 0.05 200); /* Light blue background */
   --foreground: oklch(0.2 0.1 220); /* Darker text */
   --primary: oklch(0.7 0.25 260); /* Brand1 primary color */
@@ -167,7 +167,7 @@ button {
 
 
 /* Brand 2 Theme */
-.theme-brand2 {
+.brand2 {
   --background: oklch(0.9 0.1 40); /* Warm background */
   --foreground: oklch(0.15 0.05 30); /* Dark text */
   --primary: oklch(0.75 0.3 50); /* Brand2 primary color */
@@ -176,7 +176,7 @@ button {
 }
 
 /* Brand 3 Theme */
-.theme-brand3 {
+.brand3 {
   --background: oklch(0.92 0.08 120); /* Greenish background */
   --foreground: oklch(0.18 0.06 130); /* Dark text */
   --primary: oklch(0.68 0.22 140); /* Brand3 primary color */

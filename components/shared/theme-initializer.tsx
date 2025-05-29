@@ -16,7 +16,7 @@ export default function ThemeInitializer() {
     '
       .split('; ')
       .find((row) => row.startsWith('theme='))
-      ?.split('=')[1] || 'theme-default';
+      ?.split('=')[1] || 'default';
 */
     console.log(`ThemeInitializer::useEffect::theme=${theme}`)
 
