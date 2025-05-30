@@ -1,47 +1,31 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+
+/* Custom dark mode variant */
 @custom-variant dark (&:is(.dark *));
 
-/*@plugin "@tailwindcss/container-queries";*/
-/*@plugin "@tailwindcss/typography";*/
+/* Optional: Enable plugins if needed */
+/* @plugin '@tailwindcss/container-queries'; */
+/* @plugin '@tailwindcss/typography'; */
+
+/* Theme configuration */
+
+
+/* Container styles */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--container-padding);
+}
+
 /*
-@layer base {
-  :root {
-    --background: 1 1% 1%; 
-    --popover: 0 0% 88%; 
-    --popover-foreground: 0 0% 23%; 
 
+@screen 2xl {
+  .container {
+    max-width: var(--container-max-width-2xl);
   }
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
+}*/
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
-@supports (font: -apple-system-body) and (-webkit-appearance: none) {
-  img[loading='lazy'] {
-    clip-path: inset(0.6px);
-  }
-}
-
-a,
-input,
-button {
-  @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
-}
-*/
-
-
-/*---break---*/
+/* Existing base styles */
 :root {
   --radius: 0.625rem;
   --background: oklch(0.8 0.10 37.87);
@@ -76,10 +60,7 @@ button {
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
-  
 
-
-/*---break---*/
 .dark {
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
@@ -114,105 +95,215 @@ button {
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
- .default {
-  --background: oklch(0.8 0.19 67.87); /* orange background */
-  --foreground: oklch(0.2 0.1 220); /* Darker text */
-  --primary: oklch(0.5 0.21 240); /* Brand1 primary color */
+.default {
+  --background: oklch(0.8 0.19 67.87);
+  --foreground: oklch(0.2 0.1 220);
+  --primary: oklch(0.5 0.21 240);
   --primary-foreground: oklch(1 0 0);
   --radius: 0.5rem;
 }
-
 
 [data-theme="default"] {
-  --background: oklch(0.8 0.19 67.87); /* klch(0.8 0.19 67.87) orange background */
-  --foreground: oklch(0.2 0.1 220); /* Darker text */
-  --primary: oklch(0.5 0.21 240); /* Brand1 primary color */
+  --background: oklch(0.8 0.19 67.87);
+  --foreground: oklch(0.2 0.1 220);
+  --primary: oklch(0.5 0.21 240);
   --primary-foreground: oklch(1 0 0);
   --radius: 0.5rem;
 }
 
-/* Metaplanet Theme */
 .metaplanet {
-  --background: #ffffff; /* oklch(1 0 0) oklch(39.9857% 0.164082 29.2339) Dark warm for Brand2 oklch(0.3 0.1 50)*/
-  --foreground: oklch(0 0 255) /* light text*/
-  --primary: oklch(0.5 0.21 240);  /* oklch(0.5 0.21 240) orangeish oklch(0.8 0.3 50);primary color */
+  --background: #ffffff;
+  --foreground: #000000;
+  --primary: oklch(0.5 0.21 240);
   --primary-foreground: oklch(1 0 0);
   --radius: 0.6rem;
 }
 
 [data-theme="metaplanet"] {
-  --background: #ffffff; /* oklch(1 0 0) oklch(39.9857% 0.164082 29.2339) Dark warm for Brand2 oklch(0.3 0.1 50)*/
-  --foreground: #000000; /* light text*/
-  --primary: oklch(0.5 0.21 240);  /* orangeish primary color */
+  --background: #ffffff;
+  --foreground: #000000;
+  --primary: oklch(0.5 0.21 240);
   --primary-foreground: oklch(1 0 0);
   --radius: 0.6rem;
 }
 
 [data-theme="bmj"] {
-  --background: #ffffff; /* oklch(1 0 0) oklch(39.9857% 0.164082 29.2339) Dark warm for Brand2 oklch(0.3 0.1 50)*/
-  --foreground: #000000; /* light text*/
-  --primary: oklch(0.5 0.21 240);  /* orangeish primary color */
+  --background: #ffffff;
+  --foreground: #000000;
+  --primary: oklch(0.5 0.21 240);
   --primary-foreground: oklch(1 0 0);
   --radius: 0.6rem;
 }
 
 .brand1 {
-  --background: oklch(0.95 0.05 200); /* Light blue background */
-  --foreground: oklch(0.2 0.1 220); /* Darker text */
-  --primary: oklch(0.7 0.25 260); /* Brand1 primary color */
+  --background: oklch(0.95 0.05 200);
+  --foreground: oklch(0.2 0.1 220);
+  --primary: oklch(0.7 0.25 260);
   --primary-foreground: oklch(1 0 0);
   --radius: 0.5rem;
 }
 
-
-
-/* Brand 2 Theme */
 .brand2 {
-  --background: oklch(0.9 0.1 40); /* Warm background */
-  --foreground: oklch(0.15 0.05 30); /* Dark text */
-  --primary: oklch(0.75 0.3 50); /* Brand2 primary color */
+  --background: oklch(0.9 0.1 40);
+  --foreground: oklch(0.15 0.05 30);
+  --primary: oklch(0.75 0.3 50);
   --primary-foreground: oklch(0.95 0 0);
   --radius: 0.75rem;
 }
 
-/* Brand 3 Theme */
 .brand3 {
-  --background: oklch(0.92 0.08 120); /* Greenish background */
-  --foreground: oklch(0.18 0.06 130); /* Dark text */
-  --primary: oklch(0.68 0.22 140); /* Brand3 primary color */
+  --background: oklch(0.92 0.08 120);
+  --foreground: oklch(0.18 0.06 130);
+  --primary: oklch(0.68 0.22 140);
   --primary-foreground: oklch(1 0 0);
   --radius: 0.6rem;
 }
 
-
-
-/* Dark Mode Overrides */
 .dark {
-  --background: oklch(0.2 0.05 260); /* Dark default background */
-  --foreground: oklch(0.95 0 0); /* Light text */
+  --background: oklch(0.2 0.05 260);
+  --foreground: oklch(0.95 0 0);
   --primary: oklch(0.7 0.2 270);
   --primary-foreground: oklch(0.2 0 0);
 }
 
 [data-theme="brand1"].dark {
-  --background: oklch(0.25 0.1 210); /* Dark blue for Brand1 */
+  --background: oklch(0.25 0.1 210);
   --foreground: oklch(0.95 0 0);
   --primary: oklch(0.75 0.25 260);
 }
 
 [data-theme="brand2"].dark {
-  --background: oklch(0.3 0.1 50); /* Dark warm for Brand2 */
+  --background: oklch(0.3 0.1 50);
   --foreground: oklch(0.95 0 0);
   --primary: oklch(0.8 0.3 50);
 }
 
 [data-theme="brand3"].dark {
-  --background: oklch(0.28 0.08 130); /* Dark green for Brand3 */
+  --background: oklch(0.28 0.08 130);
   --foreground: oklch(0.95 0 0);
   --primary: oklch(0.72 0.22 140);
 }
 
-@theme inline {
+/* Commented-out base styles */
+/*
+@layer base {
+  :root {
+    --background: 1 1% 1%;
+    --popover: 0 0% 88%;
+    --popover-foreground: 0 0% 23%;
+  }
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+*/
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  img[loading='lazy'] {
+    clip-path: inset(0.6px);
+  }
+}
+
+a,
+input,
+button {
+  @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.hero-background {
+  background-size: 100% 97%;
+  background-position: right 48% bottom 89%;
+}
+
+/* 768px */
+@media (max-width: 543px) {
+  .hero-background {
+    background-size: 100% 97%;
+    background-position: right 18% bottom 82%;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-background {
+    background-size: cover;
+    background-position: right 18% bottom 110%;
+  }
+}
+
+@media (max-width: 499px) {
+  .hero-background {
+    background-size: cover;
+    background-position: right 18% bottom 90%;
+  }
+}
+
+
+@theme {
+  /* Container */
+  --container-padding: 2rem;
+  --container-max-width-2xl: 1400px;
+
+  /* Font Families */
+  --font-family-sans: var(--font-geist-sans);
+  --font-family-mono: var(--font-geist-mono);
+
+  /* Border Radius (merged with existing --radius definitions) */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+
+  /* animates */
+  --animate-fadeIn: fadeIn 0.3s ease-in-out;
+  --animate-carousel: marquee 60s linear infinite;
+  --animate-blink: blink 1.4s both infinite;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  /* Keyframes */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  @keyframes blink {
+    0% { opacity: 0.2; }
+    20% { opacity: 1; }
+    100% { opacity: 0.2; }
+  }
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+
+
+  /* Existing theme variables */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -248,38 +339,6 @@ button {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+
 }
-
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-}
-
-.hero-background {
-  background-size: 100% 97%;
-  background-position: right 48% bottom 89%;
-}
-
-/*768px*/
-@media (max-width: 543px) {
-  .hero-background {
-    background-size: 100% 97%;
-    background-position: right 18% bottom 82%;
-  }
-}
-
-@media (max-width: 430px) {
-  .hero-background {
-    background-size: cover;
-    background-position: right 18% bottom 110%;
-  }
-}
-
-@media (max-width: 499px) {
-  .hero-background {
-    background-size: cover;
-    background-position: right 18% bottom 90%;
-  }
-}
-
-

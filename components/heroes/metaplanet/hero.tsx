@@ -57,7 +57,6 @@ export function Hero({
           className
         )}
         role="img"
-        aria-label={alt}
       >
         {/* Content Overlay */}
         {(title || subtitle) && (
