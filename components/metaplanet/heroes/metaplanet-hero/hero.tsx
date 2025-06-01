@@ -1,6 +1,6 @@
 'use client';
 // components/hero.tsx
-import { MetaplanetLogo } from '@/components/metaplanet-logo';
+import { MetaplanetLogo } from '@/components/metaplanet/metaplanet-logo';
 import clsx from 'clsx';
 
 interface HeroProps {

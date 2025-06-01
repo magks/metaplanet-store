@@ -2,8 +2,8 @@
 //import { NavbarConditional as BtcMagNavbarConditional } from "@/components/navigation/navbars/bmj-navbar/navbar-conditional";
 
 
+import { CartProvider } from '@/components/shared/cart/cart-context';
 import { WelcomeToast } from '@/components/shared/welcome-toast';
-import { CartProvider } from 'components/cart/cart-context';
 
 // todo: fix false "has no imported member Geist{Mono|Sans}" error message in linter
 import { GeistMono } from 'geist/font/mono';
@@ -32,7 +32,7 @@ const { SITE_NAME } = process.env;
 
 
 // metadata
-import { NavbarSelector } from '@/components/navigation/navbars/navbar-selector';
+import { NavbarSelector } from '@/components/shared/navigation/navbars/navbar-selector';
 import themeData from '@/lib/theme-data';
 import type { Metadata, ResolvingMetadata } from 'next';
 type MetadataProps = {

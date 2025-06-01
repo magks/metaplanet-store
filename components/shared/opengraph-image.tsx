@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises';
 import { ImageResponse } from 'next/og';
 import { join } from 'path';
-import LogoIcon from '../icons/logo';
+import LogoIcon from './icons/logo';
 
 export type Props = {
   title?: string;

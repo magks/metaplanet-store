@@ -1,6 +1,6 @@
+import { GridTileImage } from '@/components/shared/grid/tile';
 import appSettings from '@/lib/app-settings';
 import { translateOrDefault } from '@/utils/translate-or-default';
-import { GridTileImage } from 'components/grid/tile';
 import { getCollectionProducts } from 'lib/shopify';
 import type { Product } from 'lib/shopify/types';
 import { useTranslations } from 'next-intl';

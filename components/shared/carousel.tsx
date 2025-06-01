@@ -3,7 +3,7 @@ import appSettings from '@/lib/app-settings';
 import { translateOrDefault } from '@/utils/translate-or-default';
 import { getCollectionProducts } from 'lib/shopify';
 import { getTranslations } from 'next-intl/server';
-import { GridTileImage } from '../grid/tile';
+import { GridTileImage } from './grid/tile';
 
 export async function Carousel() {
   const brand = appSettings.siteTheme;

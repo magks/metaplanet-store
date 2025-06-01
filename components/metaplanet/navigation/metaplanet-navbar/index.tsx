@@ -1,6 +1,6 @@
-import { SettingsMenu } from '@/components/navigation/menus/settings-menu';
+import CartModal from '@/components/shared/cart/modal';
 import LogoSquare from '@/components/shared/logo-square';
-import CartModal from 'components/cart/modal';
+import { SettingsMenu } from '@/components/shared/navigation/menus/settings-menu';
 import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
 

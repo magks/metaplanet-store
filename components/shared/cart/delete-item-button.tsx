@@ -1,7 +1,7 @@
 'use client';
 
+import { removeItem } from '@/components/shared/cart/actions';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { removeItem } from 'components/cart/actions';
 import type { CartItem } from 'lib/shopify/types';
 import { useActionState } from 'react';
 

@@ -4,7 +4,6 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useTranslations } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback } from 'react';
 
 export default function Search() {
   const searchParams = useSearchParams();
@@ -12,14 +11,14 @@ export default function Search() {
   const t = useTranslations('navBar');
 
   // Handle form submission
-  const handleSubmit = useCallback(
+  const handleSubmit = 
     (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+      //e.preventDefault();
       const query = new FormData(e.currentTarget).get('q')?.toString() || '';
       router.push(`/search?q=${encodeURIComponent(query)}`);
-    },
-    [router]
-  );
+    }
+    //[router]
+  ;
 
   return (
     <form

@@ -5,7 +5,7 @@ import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useTranslations } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 
 export default function Search() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,20 +22,18 @@ export default function Search() {
   }, [isOpen]);
 
   // Handle form submission
-  const handleSubmit = useCallback(
+  const handleSubmit = 
     (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+      //e.preventDefault();
       console.log(`e.currentTarget=${e.currentTarget}`);
       console.log(`e.currentTarget.get('q')=${e.currentTarget.get('q')}`);
       const query = new FormData(e.currentTarget).get('q')?.toString() || '';
       console.log(`query=${query}`);
       //if (query) {
-        router.push(`/search?q=${encodeURIComponent(query)}`);
+        router.push(`/search?q=${encodeURIComponent(query)}&bid=1`);
         setIsOpen(false); // Close modal after submission
       //}
-    },
-    [router]
-  );
+    };
 
   // Close modal on Escape key (handled by Dialog, but kept for clarity)
   const closeModal = () => setIsOpen(false);

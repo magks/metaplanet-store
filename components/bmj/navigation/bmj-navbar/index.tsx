@@ -1,7 +1,7 @@
 // components/layout/navbar.tsx
-import { SettingsMenu } from '@/components/navigation/menus/settings-menu';
+import CartModal from '@/components/shared/cart/modal';
+import { SettingsMenu } from '@/components/shared/navigation/menus/settings-menu';
 import { Link } from '@/i18n/navigation';
-import CartModal from 'components/cart/modal';
 import { getMenu } from 'lib/shopify';
 import Image from 'next/image';
 import { Suspense } from 'react';

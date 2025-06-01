@@ -1,9 +1,9 @@
+import { Navbar as BtcMagNavBar } from "@/components/bmj/navigation/bmj-navbar";
+import { NavbarConditional as BtcMagNavbarConditional } from "@/components/bmj/navigation/bmj-navbar/navbar-conditional";
+import { Navbar as MetaplanetNavbar } from "@/components/metaplanet/navigation/metaplanet-navbar";
+import { NavbarConditional as MetaplanetNavbarConditional } from "@/components/metaplanet/navigation/metaplanet-navbar/navbar-conditional";
 import { Theme } from "@/lib/types/themes";
 import { ReactElement } from "react";
-import { Navbar as BtcMagNavBar } from "./bmj-navbar";
-import { NavbarConditional as BtcMagNavbarConditional } from "./bmj-navbar/navbar-conditional";
-import { Navbar as MetaplanetNavbar } from "./metaplanet-navbar";
-import { NavbarConditional as MetaplanetNavbarConditional } from "./metaplanet-navbar/navbar-conditional";
 
 export const NavbarSelector = ({ theme, pathname }: { theme: Theme; pathname: string }) => {
   const components: Record<Theme, ReactElement> = {

@@ -1,6 +1,6 @@
+import Grid from '@/components/shared/grid';
 import appSettings from '@/lib/app-settings';
-import Grid from 'components/grid';
-import ProductGridItems from 'components/layout/product-grid-items';
+import ProductGridItems from 'components/shared/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
 import { getTranslations } from 'next-intl/server';

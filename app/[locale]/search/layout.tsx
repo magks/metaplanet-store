@@ -1,6 +1,6 @@
-import Footer from 'components/layout/footer';
-import Collections from 'components/layout/search/collections';
-import FilterList from 'components/layout/search/filter';
+import Footer from 'components/shared/layout/footer';
+import Collections from 'components/shared/layout/search/collections';
+import FilterList from 'components/shared/layout/search/filter';
 import { sorting } from 'lib/constants';
 import { useTranslations } from 'next-intl';
 import { Suspense } from 'react';

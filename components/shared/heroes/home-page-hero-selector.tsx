@@ -1,7 +1,7 @@
+import { BitcoinMagazineHero } from "@/components/bmj/heroes/bmj-hero";
+import { MetaplanetHero } from "@/components/metaplanet/heroes/metaplanet-hero";
 import { Theme } from "@/lib/types/themes";
 import { ReactElement } from "react";
-import { BitcoinMagazineHero } from "./bmj/hero";
-import { MetaplanetHero } from "./metaplanet/hero";
 
 export const HomePageHeroSelector = ({ theme }: { theme: Theme;  }) => {
   const components: Record<Theme, ReactElement> = {

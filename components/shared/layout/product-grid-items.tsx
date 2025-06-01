@@ -1,6 +1,6 @@
+import Grid from '@/components/shared/grid';
+import { GridTileImage } from '@/components/shared/grid/tile';
 import { translateOrDefault } from '@/utils';
-import Grid from 'components/grid';
-import { GridTileImage } from 'components/grid/tile';
 import { Product } from 'lib/shopify/types';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';

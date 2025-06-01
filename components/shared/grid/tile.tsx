@@ -1,8 +1,8 @@
 import fallbackImg from '@/public/images/no-image-found.webp';
 import clsx from 'clsx';
 import Image from 'next/image';
-import ImageWithFallback from '../shared/image-with-fallback';
-import Label from '../shared/label';
+import ImageWithFallback from '../image-with-fallback';
+import Label from '../label';
 
 
 export function GridTileImage({
