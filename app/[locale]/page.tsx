@@ -12,12 +12,10 @@ export const metadata = {
   }
 };
 
-// cartoon-shop-metaplanet-m-logo-bitcoin-b-shirts-hats-books-lg.png
 export default function HomePage() {
   return (
     <>
       <HomePageHeroSelector theme={appSettings.siteTheme} />
-      <div className="h-8 md:h-12 lg:h-16" />
       <ThreeItemGrid />
       <Carousel />
       <Footer />

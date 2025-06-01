@@ -1,3 +1,4 @@
+import { translateOrDefault } from '@/utils';
 import Grid from 'components/grid';
 import { GridTileImage } from 'components/grid/tile';
 import { Product } from 'lib/shopify/types';
@@ -17,9 +18,9 @@ export default function ProductGridItems({ products }: { products: Product[] }) 
             prefetch={true}
           >
             <GridTileImage
-              alt={product.title}
+              alt={ translateOrDefault(t(`productHandles.${product.handle}`), product.title) }
               label={{
-                title: (typeof t(`productHandles.${product.handle}`) === 'string' ? t(`productHandles.${product.handle}`) : product.title),
+                title: translateOrDefault(t(`productHandles.${product.handle}`), product.title),
                 amount: product.priceRange.maxVariantPrice.amount,
                 currencyCode: product.priceRange.maxVariantPrice.currencyCode
               }}

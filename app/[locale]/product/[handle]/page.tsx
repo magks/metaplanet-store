@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { translateOrDefault } from '@/utils';
 import { GridTileImage } from 'components/grid/tile';
 import Footer from 'components/layout/footer';
 import { Gallery } from 'components/product/gallery';
@@ -132,9 +133,9 @@ async function RelatedProducts({ id }: { id: string }) {
               prefetch={true}
             >
               <GridTileImage
-                alt={product.title}
+                alt={translateOrDefault(t(`productHandles.${product.handle}`), product.title)}
                 label={{
-                  title: t(`productHandles.${product.handle}`),/*product.title,*/
+                  title: translateOrDefault(t(`productHandles.${product.handle}`), product.title),
                   amount: product.priceRange.maxVariantPrice.amount,
                   currencyCode: product.priceRange.maxVariantPrice.currencyCode
                 }}

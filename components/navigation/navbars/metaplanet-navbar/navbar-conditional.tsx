@@ -11,12 +11,16 @@ interface NavbarConditionalProps {
   children: ReactNode;
 }
 // Define the keys as a union type for type safety
-type NavbarPageType = 'TRANSPARENT_NAVBAR' | 'DEFAULT_LIGHT_BG' | 'DEFAULT_DARK_BG' | 'DEFAULT';
+type NavbarPageType = 'TRANSPARENT_NAVBAR' 
+  | 'DEFAULT_PAGE_DARK_NAVBAR'
+  | 'DEFAULT_PAGE_LIGHT_NAVBAR'  
+  | 'DEFAULT'
+;
 // Define the table using Record
 const navbarPageClsx: Record<NavbarPageType, string> = {
   TRANSPARENT_NAVBAR: 'absolute top-0 left-0 right-0 z-30' ,
-  DEFAULT_LIGHT_BG: 'relative bg-black dark:bg-white',
-  DEFAULT_DARK_BG:  'relative bg-white dark:bg-black',
+  DEFAULT_PAGE_DARK_NAVBAR: 'relative bg-black dark:bg-white',
+  DEFAULT_PAGE_LIGHT_NAVBAR:  'relative bg-primary dark:bg-black',
   DEFAULT:  'relative bg-black dark:bg-white',
 };
 
@@ -29,10 +33,10 @@ function getNavbarPageClsx(): string {
   }
   else {
     if (themeData?.pages.default.navbar.dark) {
-      navbarPageClsxStr = navbarPageClsx['DEFAULT_DARK_BG'];
+      navbarPageClsxStr = navbarPageClsx['DEFAULT_PAGE_DARK_NAVBAR'];
     }
     else {
-      navbarPageClsxStr = navbarPageClsx['DEFAULT_DARK_BG'];
+      navbarPageClsxStr = navbarPageClsx['DEFAULT_PAGE_LIGHT_NAVBAR'];
     }
   } 
   return navbarPageClsxStr;

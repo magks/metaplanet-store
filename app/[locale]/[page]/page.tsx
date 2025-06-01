@@ -10,7 +10,7 @@ export async function generateMetadata(props: {
   const params = await props.params;
   const page = await getPage(params.page);
 
-  console.log(`generateMetadata-pageSlug: ${params.page}`);
+  //console.log(`generateMetadata-pageSlug: ${params.page}`);
 
   if (!page) return notFound();
 
@@ -29,7 +29,7 @@ export default async function Page(props: {
   params: Promise<{ page: string }>;
 }) {
   const params = await props.params;
-  console.log(`pageSlug: ${params.page}`);
+  //console.log(`pageSlug: ${params.page}`);
   const page = await getPage(params.page);
 
   if (!page) return notFound();

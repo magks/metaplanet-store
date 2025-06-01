@@ -25,7 +25,7 @@ const themes: Record<Theme, ThemeData> = {
 // Load theme-data (singleton)
 export const getThemeData = (): ThemeData  => {
   const themeName = appSettings.siteTheme as Theme;
-  console.log(`settings.ts::getSettings::themeName=${themeName}`);
+  //console.log(`settings.ts::getSettings::themeName=${themeName}`);
 
   const themeData = themes[themeName] ?? themes['default'];
   if (!themes[themeName]) {

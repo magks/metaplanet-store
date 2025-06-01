@@ -1,5 +1,6 @@
 import Price from '@/components/shared/price';
 import Prose from '@/components/shared/prose';
+import { translateOrDefault } from '@/utils';
 import { AddToCart } from 'components/cart/add-to-cart';
 import { Product } from 'lib/shopify/types';
 import { useTranslations } from 'next-intl';
@@ -10,7 +11,7 @@ export function ProductDescription({ product }: { product: Product }) {
   return (
     <>
       <div className="mb-6 flex flex-col border-b pb-6 dark:border-neutral-700">
-        <h1 className="mb-2 text-5xl font-medium">{t(`productHandles.${product.handle}`)/*product.title*/}</h1>
+        <h1 className="mb-2 text-5xl font-medium">{translateOrDefault(t(`productHandles.${product.handle}`), product.title)}</h1>
         <div className="mr-auto w-auto rounded-full bg-blue-600 p-2 text-sm text-white">
           <Price
             amount={product.priceRange.maxVariantPrice.amount}

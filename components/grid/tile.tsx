@@ -1,6 +1,9 @@
+import fallbackImg from '@/public/images/no-image-found.webp';
 import clsx from 'clsx';
 import Image from 'next/image';
+import ImageWithFallback from '../shared/image-with-fallback';
 import Label from '../shared/label';
+
 
 export function GridTileImage({
   isInteractive = true,
@@ -20,7 +23,7 @@ export function GridTileImage({
   return (
     <div
       className={clsx(
-        'group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-w hite hover:border-blue-600 dark:bg-white',
+        'group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-primary hover:border-blue-600 dark:bg-white',
         {
           relative: label,
           'border-2 border-blue-600': active,
@@ -29,9 +32,10 @@ export function GridTileImage({
       )}
     >
       {props.src ? (
-        <Image
+        <ImageWithFallback
+          fallbackSrc={fallbackImg}
           className={clsx('relative h-full w-full object-contain', {
-            'transition duration-300 ease-in-out group-hover:scale-105': isInteractive
+            'transition duration-300 ease-in-out group-hover:scale-108': isInteractive
           })}
           {...props}
         />

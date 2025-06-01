@@ -119,8 +119,8 @@ export default async function RootLayout({
   
   // Check if it's homepage
   //const isHomepage = pathname === `/${locale}` || pathname === '/';
-  console.log(`rootLayout::x-pathname=${headersList.get('x-pathname') }`);
-  console.log(`rootLayout::settings.themeName=${appSettings.siteTheme}`)
+  //console.log(`rootLayout::x-pathname=${headersList.get('x-pathname') }`);
+  //console.log(`rootLayout::settings.themeName=${appSettings.siteTheme}`)
 
 
   return (

@@ -2,10 +2,9 @@
 // types/env.d.ts
 interface ProcessEnv {
   [key: string]: string | undefined;
-  DARK_HOME?: string;
   SITE_THEME?: string;
-  NEXT_PUBLIC_DARK_HOME?: string;
-  NEXT_PUBLIC_SITE_THEME?: string;
+  BRAND_ID?: string;
+  NEXT_PUBLIC_BRAND_ID?: string;
 }
 
 declare module "process" {

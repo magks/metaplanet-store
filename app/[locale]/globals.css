@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-
+@import 'tailwind-scrollbar-hide/v4';
 /* Custom dark mode variant */
 @custom-variant dark (&:is(.dark *));
 
@@ -120,17 +120,17 @@
 }
 
 [data-theme="metaplanet"] {
-  --background: #ffffff;
+  --background: #E0E0E0; /*#E0E0E0 = metaplanet light inner bento box; F7F7F7  outer*/
   --foreground: #000000;
-  --primary: oklch(0.5 0.21 240);
+  --primary: #F7F7F7;
   --primary-foreground: oklch(1 0 0);
   --radius: 0.6rem;
 }
 
 [data-theme="bmj"] {
-  --background: #ffffff;
+  --background: #FFFCF7; /* ##F7F7F7; */
   --foreground: #000000;
-  --primary: oklch(0.5 0.21 240);
+  --primary: oklch(1 0 0);
   --primary-foreground: oklch(1 0 0);
   --radius: 0.6rem;
 }

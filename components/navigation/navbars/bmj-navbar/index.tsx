@@ -16,7 +16,7 @@ interface NavbarProps {
 }
 
 export async function Navbar({ pathname }: NavbarProps) {
-  const menu = await getMenu('nextjs-frontend-header-menu');
+  const menu = await getMenu('bmj-frontend-header-menu');
   //const useWhiteText = isHomePagePath(pathname) && themeData?.pages.home.dark;
 
   return (

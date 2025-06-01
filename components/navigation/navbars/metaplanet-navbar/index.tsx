@@ -20,12 +20,12 @@ interface NavbarProps {
 export async function Navbar(
   { pathname }: NavbarProps
 ) {
-   console.log(`NAVBARmenu::nextjs-frontend-header-menu`);
-  const menu = await getMenu('nextjs-frontend-header-menu'); 
-  console.log(`NAVBARmenu::menulength=${menu.length}`);
+   //console.log(`NAVBARmenu::metaplanet-frontend-header-menu`);
+  const menu = await getMenu('metaplanet-frontend-header-menu'); 
+  //console.log(`NAVBARmenu::menulength=${menu.length}`);
 
 menu.map((item: Menu) => {
-                console.log(`NAVBAR::menu item.title=${item.title}`);
+                //console.log(`NAVBAR::menu item.title=${item.title}`);
 });
 
   const useWhiteText = (
@@ -33,9 +33,9 @@ menu.map((item: Menu) => {
     && themeData?.pages.home.dark
   );
 
-   console.log(`NAVBARmenu::pathname=${pathname}`);
-   console.log(`NAVBARmenu::themeData?.pages.home.dark=${themeData?.pages.home.dark}`);
-   console.log(`NAVBARmenu::useWhiteText=${useWhiteText}`);
+   //console.log(`NAVBARmenu::pathname=${pathname}`);
+   //console.log(`NAVBARmenu::themeData?.pages.home.dark=${themeData?.pages.home.dark}`);
+   //console.log(`NAVBARmenu::useWhiteText=${useWhiteText}`);
    return (
     <>
     {/* <nav className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between p-4 lg:px-6 bg-transparent backdrop-blur-[3px]">*/}

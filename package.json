@@ -7,14 +7,20 @@
     "build": "next build --turbopack",
     "start": "next start",
     "test": "pnpm prettier:check",
-    "dev:metaplanet": "dotenv -e .env.metaplanet -- next dev -p 3000 --turbopack",
-    "build:metaplanet": "dotenv -e .env.metaplanet -- next build --turbopack",
+    "dev:metaplanet": "dotenv -e .env.metaplanet -- next dev -p 3000",
+    "dev-turbo:metaplanet": "dotenv -e .env.metaplanet -- next dev -p 3000 --turbopack",
+    "build:metaplanet": "dotenv -e .env.metaplanet -- next build",
+    "build-turbo:metaplanet": "dotenv -e .env.metaplanet -- next build --turbopack",
     "start:metaplanet": "dotenv -e .env.metaplanet -- next start -p 3000",
     "full:metaplanet": "npm run build:metaplanet && npm run start:metaplanet",
-    "dev:bmj": "dotenv -e .env.bmj -- next dev -p 4000 --turbopack",
-    "build:bmj": "dotenv -e .env.bmj -- next build --turbopack",
+    "full-turbo:metaplanet": "npm run build-turbo:metaplanet && npm run start:metaplanet",
+    "dev:bmj": "dotenv -e .env.bmj -- next dev -p 4000",
+    "dev-turbo:bmj": "dotenv -e .env.bmj -- next dev -p 4000 --turbopack",
+    "build:bmj": "dotenv -e .env.bmj -- next build",
+    "build-turbo:bmj": "dotenv -e .env.bmj -- next build --turbopack",
     "start:bmj": "dotenv -e .env.bmj -- next start -p 4000",
-    "full:bmj": "npm run build:bmj && npm run start:bmj"
+    "full:bmj": "npm run build:bmj && npm run start:bmj",
+    "full-turbo:bmj": "npm run build-turbo:bmj && npm run start:bmj"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -34,6 +40,7 @@
     "react-dom": "19.0.0",
     "sonner": "^2.0.1",
     "tailwind-merge": "^3.3.0",
+    "tailwind-scrollbar-hide": "^4.0.0",
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {

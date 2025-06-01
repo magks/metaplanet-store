@@ -6,9 +6,9 @@ import {
 import { isShopifyError } from 'lib/type-guards';
 import { ensureStartsWith } from 'lib/utils';
 import {
-  revalidateTag,
+  unstable_cacheLife as cacheLife,
   unstable_cacheTag as cacheTag,
-  unstable_cacheLife as cacheLife
+  revalidateTag
 } from 'next/cache';
 import { cookies, headers } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
@@ -313,6 +313,7 @@ export async function getCollectionProducts({
   cacheTag(TAGS.collections, TAGS.products);
   cacheLife('days');
 
+
   const res = await shopifyFetch<ShopifyCollectionProductsOperation>({
     query: getCollectionProductsQuery,
     variables: {
@@ -321,9 +322,10 @@ export async function getCollectionProducts({
       sortKey: sortKey === 'CREATED_AT' ? 'CREATED' : sortKey
     }
   });
+  //console.log(`${JSON.stringify(res.body)}`);
 
   if (!res.body.data.collection) {
-    console.log(`No collection found for \`${collection}\``);
+    //console.log(`No collection found for \`${collection}\``);
     return [];
   }
 

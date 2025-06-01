@@ -1,7 +1,7 @@
 // components/layout/search.tsx
 'use client';
 
-import { Dialog, Transition } from '@headlessui/react';
+import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useTranslations } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -25,11 +25,14 @@ export default function Search() {
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      const query = new FormData(e.currentTarget).get('q')?.toString();
-      if (query) {
+      console.log(`e.currentTarget=${e.currentTarget}`);
+      console.log(`e.currentTarget.get('q')=${e.currentTarget.get('q')}`);
+      const query = new FormData(e.currentTarget).get('q')?.toString() || '';
+      console.log(`query=${query}`);
+      //if (query) {
         router.push(`/search?q=${encodeURIComponent(query)}`);
         setIsOpen(false); // Close modal after submission
-      }
+      //}
     },
     [router]
   );
@@ -54,7 +57,7 @@ export default function Search() {
       <Transition show={isOpen}>
         <Dialog onClose={closeModal} className="relative z-50">
           {/* Backdrop */}
-          <Transition.Child
+          <TransitionChild
             as={Fragment}
             enter="transition-all ease-in-out duration-300"
             enterFrom="opacity-0 backdrop-blur-none"
@@ -64,10 +67,10 @@ export default function Search() {
             leaveTo="opacity-0 backdrop-blur-none"
           >
             <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-          </Transition.Child>
+          </TransitionChild>
 
           {/* Modal Panel */}
-          <Transition.Child
+          <TransitionChild
             as={Fragment}
             enter="transition-all ease-in-out duration-300"
             enterFrom="translate-x-full"
@@ -76,11 +79,11 @@ export default function Search() {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel
+            <DialogPanel
               className="fixed bottom-0 right-0 top-0 flex h-full w-full max-w-md flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl dark:border-neutral-700 dark:bg-black/80 dark:text-white"
             >
               <div className="flex items-center justify-between mb-4">
-                <Dialog.Title className="text-lg font-semibold">{t('search')}</Dialog.Title>
+                <DialogTitle className="text-lg font-semibold">{t('search')}</DialogTitle>
                 <button
                   type="button"
                   onClick={closeModal}
@@ -90,22 +93,26 @@ export default function Search() {
                   <XMarkIcon className="h-6" />
                 </button>
               </div>
-              <form onSubmit={handleSubmit} className="relative">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  name="q"
-                  placeholder={`${t('search')}`}
-                  autoComplete="off"
-                  defaultValue={searchParams?.get('q') || ''}
-                  className="w-full rounded-lg border bg-white px-4 py-2 text-black placeholder:text-neutral-500 text-md md:text-sm dark:border-neutral-800 dark:bg-gray-900 dark:text-white dark:placeholder:text-neutral-400"
-                />
+              <form 
+                action="/search"
+                onSubmit={handleSubmit}
+                className="relative">
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    name="q"
+                    placeholder={`${t('search')}`}
+                    autoComplete="off"
+                    defaultValue={searchParams?.get('q') || ''}
+                    className="w-full rounded-lg border bg-white px-4 py-2 text-black placeholder:text-neutral-500 text-md md:text-sm dark:border-neutral-800 dark:bg-gray-900 dark:text-white dark:placeholder:text-neutral-400"
+                  />
                 <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
                   <MagnifyingGlassIcon className="h-4" />
                 </div>
+                <input type="submit" style={{ position: 'absolute', width: '1px', height: '1px', border: 'none', padding: '0', clip: 'rect(0 0 0 0)' }} />
               </form>
-            </Dialog.Panel>
-          </Transition.Child>
+            </DialogPanel>
+          </TransitionChild>
         </Dialog>
       </Transition>
     </>

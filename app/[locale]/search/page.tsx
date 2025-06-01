@@ -1,3 +1,4 @@
+import appSettings from '@/lib/app-settings';
 import Grid from 'components/grid';
 import ProductGridItems from 'components/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
@@ -9,14 +10,24 @@ export const metadata = {
   description: 'Search for products in the store.'
 };
 
+const includeTagsList = [`${appSettings.brandId}`];
+const includeTagsQuery = includeTagsList
+  .filter(tag => tag !== undefined && tag !== '') // Skip undefined or empty strings
+  .map(tag => `tag:${tag}`)
+  .join(' ');
+
 export default async function SearchPage(props: {
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
+  
   const searchParams = await props.searchParams;
   const { sort, q: searchValue } = searchParams as { [key: string]: string };
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
+  console.log(`searchPage::sortKey=${sortKey}\n\tsearchValue=${searchValue || 'empty'}`);
+  const queryString = `${(searchValue||'')} ${includeTagsQuery}`;
 
-  const products = await getProducts({ sortKey, reverse, query: searchValue });
+  console.log(`searchPage::queryString=${queryString || 'empty'}`);
+  const products = await getProducts({ sortKey, reverse, query: queryString });
   const resultsText = products.length > 1 ? 'results' : 'result';
   const t = await getTranslations('searchPage');
   return (
@@ -37,3 +48,4 @@ export default async function SearchPage(props: {
     </>
   );
 }
+

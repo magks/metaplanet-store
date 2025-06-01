@@ -12,8 +12,8 @@ const parseBoolean = (value: string | undefined, defaultValue: boolean = false):
 export const getSettings = (): AppSettings => {
   const isClient = typeof window !== "undefined";
   if (isClient) {
-      console.log(`settings.ts::getEnvVar::isClient while getting NEXT_PUBLIC_SITE_THEME=${process.env.NEXT_PUBLIC_SITE_THEME}`);
-      console.log(`settings.ts::getEnvVar::isClient while getting NEXT_PUBLIC_DARK_HOME=${process.env.NEXT_PUBLIC_DARK_HOME}`);
+      //console.log(`settings.ts::getEnvVar::isClient while getting NEXT_PUBLIC_SITE_THEME=${process.env.NEXT_PUBLIC_SITE_THEME}`);
+      //console.log(`settings.ts::getEnvVar::isClient while getting NEXT_PUBLIC_DARK_HOME=${process.env.NEXT_PUBLIC_DARK_HOME}`);
   }
   // Helper to get variable with fallback
   const getEnvVar = (key: string, publicKey: string, defaultValue: string | undefined): string | undefined => {
@@ -30,7 +30,7 @@ export const getSettings = (): AppSettings => {
   const darkHomeVar = getEnvVar("DARK_HOME", "NEXT_PUBLIC_DARK_HOME", process.env.NEXT_PUBLIC_DARK_HOME);
   const siteThemeVar = getEnvVar("SITE_THEME", "NEXT_PUBLIC_SITE_THEME", process.env.NEXT_PUBLIC_SITE_THEME);   
 
-  console.log(`settings.ts::after getEnvVar::siteThemeVar=${siteThemeVar}`);
+  //console.log(`settings.ts::after getEnvVar::siteThemeVar=${siteThemeVar}`);
   
 
   return {
