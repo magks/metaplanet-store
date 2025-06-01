@@ -68,7 +68,11 @@ type ExtractVariables<T> = T extends { variables: object }
   ? T['variables']
   : never;
 
-export async function shopifyFetch<T>({
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export async function shopifyFetchBase<T>({
   headers,
   query,
   variables
@@ -115,6 +119,45 @@ export async function shopifyFetch<T>({
       error: e,
       query
     };
+  }
+}
+
+// 3) A wrapper that retries on ConnectTimeoutError
+export async function shopifyFetch<T>(
+  params: {
+    headers?: HeadersInit;
+    query: string;
+    variables?: ExtractVariables<T>;
+  },
+  maxRetries = 3,
+  baseDelayMs = 500
+): Promise<{ status: number; body: T }> {
+  let attempt = 0;
+
+  while (true) {
+    try {
+      // Attempt the original shopifyFetch
+      return await shopifyFetchBase<T>(params);
+    } catch (e: any) {
+      attempt++;
+
+      // If the error has a cause containing "ConnectTimeoutError", we'll retry
+      const isTimeout =
+        e?.cause && String(e.cause).includes('ConnectTimeoutError');
+
+      // If it's not a timeout or we've exhausted retries, rethrow
+      if (!isTimeout || attempt > maxRetries) {
+        throw e;
+      }
+
+      // Exponential backoff: baseDelayMs * 2^(attempt-1)
+      const waitTime = baseDelayMs * 2 ** (attempt - 1);
+      console.warn(
+        `shopifyFetch timeout on attempt ${attempt}. Retrying in ${waitTime}ms…`
+      );
+      await delay(waitTime);
+      // loop to try again
+    }
   }
 }
 
