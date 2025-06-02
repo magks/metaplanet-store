@@ -2,9 +2,9 @@
 'use client';
 
 import themeData from '@/lib/theme-data';
-import { isHomePagePath } from '@/utils';
 import { usePathname } from 'next/navigation';
 import { ReactNode } from 'react';
+import { isHomePagePath } from 'utils';
 
 interface NavbarConditionalProps {
   children: ReactNode;

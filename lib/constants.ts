@@ -1,3 +1,5 @@
+import appSettings from "./app-settings";
+
 export type SortFilterItem = {
   title: string;
   slug: string | null;
@@ -28,7 +30,7 @@ export const TAGS = {
   cart: 'cart'
 };
 
-export const HIDDEN_PRODUCT_TAG = 'nextjs-frontend-hidden';
+export const HIDDEN_PRODUCT_TAG = `frontend-hidden-${appSettings.brandId}`;
 export const DEFAULT_OPTION = 'Default Title';
 export const SHOPIFY_GRAPHQL_API_ENDPOINT = '/api/2023-01/graphql.json';
 

@@ -21,6 +21,8 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
+      "utils": ["lib/utils"],
+      "utils/*": ["lib/utils/*"],
       "@/*": [
         "./*"
       ]

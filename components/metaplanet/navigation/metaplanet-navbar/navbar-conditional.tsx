@@ -3,9 +3,9 @@
 
 // This is needed because Navbar must be a server component to support lib/shopify cart tree
 import themeData from '@/lib/theme-data';
-import { isHomePagePath } from '@/utils';
 import { usePathname } from 'next/navigation';
 import { ReactNode } from 'react';
+import { isHomePagePath } from 'utils';
 
 interface NavbarConditionalProps {
   children: ReactNode;
@@ -18,7 +18,7 @@ type NavbarPageType = 'TRANSPARENT_NAVBAR'
 ;
 // Define the table using Record
 const navbarPageClsx: Record<NavbarPageType, string> = {
-  TRANSPARENT_NAVBAR: 'absolute top-0 left-0 right-0 z-30' ,
+  TRANSPARENT_NAVBAR: 'absolute top-11 left-0 right-0 z-30',
   DEFAULT_PAGE_DARK_NAVBAR: 'relative bg-black dark:bg-white',
   DEFAULT_PAGE_LIGHT_NAVBAR:  'relative bg-background dark:bg-black',
   DEFAULT:  'relative bg-black dark:bg-white',

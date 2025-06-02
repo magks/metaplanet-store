@@ -21,13 +21,13 @@ export default {
 
 import { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
-const brand = process.env.NEXT_PUBLIC_THEME_NAME || 'default';
+import appSettings from './lib/app-settings';
 const nextConfig: NextConfig =  {}
  
 const withNextIntl = createNextIntlPlugin();
 export default withNextIntl({
 
-  distDir: `.next-${brand}`,
+  distDir: `.next-${appSettings.brandId}`,
   transpilePackages: ["geist"],
   eslint: {
     ignoreDuringBuilds: true,

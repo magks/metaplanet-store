@@ -6,9 +6,9 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { Fragment, Suspense, useEffect, useState } from 'react';
 
 import themeData from '@/lib/theme-data';
-import { isHomePagePath } from '@/utils';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Menu } from 'lib/shopify/types';
+import { isHomePagePath } from 'utils';
 import Search, { SearchSkeleton } from './search';
 
 export default function MobileMenu({ menu }: { menu: Menu[] }) {

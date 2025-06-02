@@ -1,6 +1,6 @@
 import { Link } from '@/i18n/navigation';
 import appSettings from '@/lib/app-settings';
-import { translateOrDefault } from '@/utils/translate-or-default';
+import { translateOrDefault } from '@/lib/utils/translate-or-default';
 import { getCollectionProducts } from 'lib/shopify';
 import { getTranslations } from 'next-intl/server';
 import { GridTileImage } from './grid/tile';

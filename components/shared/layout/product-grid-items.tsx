@@ -1,9 +1,9 @@
 import Grid from '@/components/shared/grid';
 import { GridTileImage } from '@/components/shared/grid/tile';
-import { translateOrDefault } from '@/utils';
 import { Product } from 'lib/shopify/types';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { translateOrDefault } from 'utils';
 
 export default function ProductGridItems({ products }: { products: Product[] }) {
   

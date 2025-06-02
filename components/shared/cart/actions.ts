@@ -1,6 +1,6 @@
 'use server';
-// todo these cart actions can throw errors: connectionTimeout, invalid cache
-// handle thrown errors
+// todo these cart actions can hrow errors: connectionTimeout, invalid cache
+// setup observability logging / system on error via e.g. splunk/datadog etc.
 import { TAGS } from 'lib/constants';
 import {
   addToCart,

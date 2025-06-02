@@ -6,7 +6,7 @@ import { Menu } from 'lib/shopify/types';
 
 import { Link } from '@/i18n/navigation';
 import themeData from '@/lib/theme-data';
-import { isHomePagePath } from '@/utils/is-homepage';
+import { isHomePagePath } from '@/lib/utils/is-homepage';
 import { Suspense } from 'react';
 import MenuListClient from './menu-list-client';
 import MobileMenu from './mobile-menu';

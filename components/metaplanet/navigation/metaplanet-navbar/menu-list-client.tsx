@@ -3,7 +3,7 @@
 
 import { Link, usePathname } from '@/i18n/navigation';
 import themeData from '@/lib/theme-data';
-import { isHomePagePath } from '@/utils/is-homepage';
+import { isHomePagePath } from '@/lib/utils/is-homepage';
 import { Menu } from 'lib/shopify/types';
 
 interface MenuListClientProps {

@@ -1,9 +1,9 @@
 import { AddToCart } from '@/components/shared/cart/add-to-cart';
 import Price from '@/components/shared/price';
 import Prose from '@/components/shared/prose';
-import { translateOrDefault } from '@/utils';
 import { Product } from 'lib/shopify/types';
 import { useTranslations } from 'next-intl';
+import { translateOrDefault } from 'utils';
 import { VariantSelector } from './variant-selector';
 
 export function ProductDescription({ product }: { product: Product }) {

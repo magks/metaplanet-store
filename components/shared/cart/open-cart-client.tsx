@@ -3,7 +3,7 @@
 
 import themeData from '@/lib/theme-data';
 import { Theme } from '@/lib/types/themes';
-import { isHomePagePath } from '@/utils/is-homepage';
+import { isHomePagePath } from '@/lib/utils/is-homepage';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';

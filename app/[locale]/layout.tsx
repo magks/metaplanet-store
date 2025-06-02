@@ -32,6 +32,7 @@ const { SITE_NAME } = process.env;
 
 
 // metadata
+import SiteSwitcher from '@/components/shared/navigation/navbars/banner/site-switcher';
 import { NavbarSelector } from '@/components/shared/navigation/navbars/navbar-selector';
 import themeData from '@/lib/theme-data';
 import type { Metadata, ResolvingMetadata } from 'next';
@@ -148,6 +149,7 @@ export default async function RootLayout({
           <NextIntlClientProvider>
           <CartProvider cartPromise={cart}>
             {/*   */}
+            <SiteSwitcher/>
             <NavbarSelector theme={appSettings.siteTheme} pathname={pathname} />
          
                    { /*

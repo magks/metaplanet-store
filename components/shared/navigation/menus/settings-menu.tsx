@@ -34,7 +34,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import themeData from "@/lib/theme-data";
 import { Theme } from "@/lib/types/themes";
-import { isHomePagePath } from "@/utils/is-homepage";
+import { isHomePagePath } from "@/lib/utils/is-homepage";
 import { Settings } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";

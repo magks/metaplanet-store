@@ -5,7 +5,6 @@ import { GridTileImage } from '@/components/shared/grid/tile';
 import { Gallery } from '@/components/shared/product/gallery';
 import { ProductProvider } from '@/components/shared/product/product-context';
 import { ProductDescription } from '@/components/shared/product/product-description';
-import { translateOrDefault } from '@/utils';
 import Footer from 'components/shared/layout/footer';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
@@ -13,6 +12,7 @@ import { Image } from 'lib/shopify/types';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import { translateOrDefault } from 'utils';
 
 export async function generateMetadata(props: {
   params: Promise<{ handle: string }>;

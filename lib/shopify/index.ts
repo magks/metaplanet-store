@@ -129,7 +129,7 @@ export async function shopifyFetch<T>(
     query: string;
     variables?: ExtractVariables<T>;
   },
-  maxRetries = 3,
+  maxRetries = 4,
   baseDelayMs = 500
 ): Promise<{ status: number; body: T }> {
   let attempt = 0;
@@ -153,7 +153,7 @@ export async function shopifyFetch<T>(
       // Exponential backoff: baseDelayMs * 2^(attempt-1)
       const waitTime = baseDelayMs * 2 ** (attempt - 1);
       console.warn(
-        `shopifyFetch timeout on attempt ${attempt}. Retrying in ${waitTime}ms…`
+        `shopifyFetch timeout on attempt ${attempt} of ${maxRetries}. Retrying in ${waitTime}ms…`
       );
       await delay(waitTime);
       // loop to try again
