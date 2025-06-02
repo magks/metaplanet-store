@@ -1,3 +1,4 @@
+import { appSettings } from '@/lib/app-settings';
 import {
   HIDDEN_PRODUCT_TAG,
   SHOPIFY_GRAPHQL_API_ENDPOINT,
@@ -401,7 +402,7 @@ export async function getCollections(): Promise<Collection[]> {
     // Filter out the `hidden` collections.
     // Collections that start with `hidden-*` need to be hidden on the search page.
     ...reshapeCollections(shopifyCollections).filter(
-      (collection) => !collection.handle.startsWith('hidden')
+      (collection) => !collection.handle.startsWith('hidden') && collection.handle.startsWith(appSettings.brandId)
     )
   ];
 
