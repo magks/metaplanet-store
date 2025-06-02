@@ -76,7 +76,7 @@ export default function BannerLogoLink({
   ].join(" ");
 
   return (
-    <Link href={href} passHref>
+    <a href={href}>
       <div className={outerClasses}>
         <div className={middleClasses}>
           <div className={innerClasses}>
@@ -85,7 +85,7 @@ export default function BannerLogoLink({
           </div>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
 
