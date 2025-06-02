@@ -4,7 +4,7 @@
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
     "test": "pnpm prettier:check",
     "dev:metaplanet": "dotenv -e .env.metaplanet -- next dev -p 3000",
