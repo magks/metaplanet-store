@@ -16,6 +16,12 @@ const includeTagsQuery = includeTagsList
   .map(tag => `tag:${tag}`)
   .join(' ');
 
+const excludeTagsList = ['hidden'];
+const excludeTagsQuery = excludeTagsList
+  .filter(tag => tag !== undefined && tag !== '') // Skip undefined or empty strings
+  .map(tag => `-tag:${tag}`)
+  .join(' ');
+
 export default async function SearchPage(props: {
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
@@ -24,7 +30,7 @@ export default async function SearchPage(props: {
   const { sort, q: searchValue } = searchParams as { [key: string]: string };
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
   console.log(`searchPage::sortKey=${sortKey}\n\tsearchValue=${searchValue || 'empty'}`);
-  const queryString = `${(searchValue||'')} ${includeTagsQuery}`;
+  const queryString = `${(searchValue||'')} ${includeTagsQuery} ${excludeTagsQuery}`;
 
   console.log(`searchPage::queryString=${queryString || 'empty'}`);
   const products = await getProducts({ sortKey, reverse, query: queryString });
