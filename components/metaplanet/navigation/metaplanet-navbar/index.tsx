@@ -5,6 +5,7 @@ import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
 
 import { Link } from '@/i18n/navigation';
+import appSettings from '@/lib/app-settings';
 import themeData from '@/lib/theme-data';
 import { isHomePagePath } from '@/lib/utils/is-homepage';
 import { Suspense } from 'react';
@@ -21,7 +22,7 @@ export async function Navbar(
   { pathname }: NavbarProps
 ) {
    //console.log(`NAVBARmenu::metaplanet-frontend-header-menu`);
-  const menu = await getMenu('metaplanet-frontend-header-menu'); 
+  const menu = await getMenu(`${appSettings.brandId}-frontend-header-menu`); 
   //console.log(`NAVBARmenu::menulength=${menu.length}`);
 
 menu.map((item: Menu) => {
@@ -72,7 +73,7 @@ menu.map((item: Menu) => {
             <Search />
           </Suspense>
         </div>
-        <div className="flex justify-end md:w-1/3 gap-2">
+        <div className="flex justify-end md:w-1/3 gap-4">
           <CartModal />
           <SettingsMenu />
 

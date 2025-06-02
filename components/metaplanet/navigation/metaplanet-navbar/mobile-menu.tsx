@@ -5,13 +5,17 @@ import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { Fragment, Suspense, useEffect, useState } from 'react';
 
+import appSettings from '@/lib/app-settings';
 import themeData from '@/lib/theme-data';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Menu } from 'lib/shopify/types';
-import { isHomePagePath } from 'utils';
+import { useTranslations } from 'next-intl';
+import { isHomePagePath, translateOrDefault } from 'utils';
 import Search, { SearchSkeleton } from './search';
 
 export default function MobileMenu({ menu }: { menu: Menu[] }) {
+  const mm = useTranslations(`${appSettings.brandId}.navbar.mobile-menu`);
+  const m = useTranslations(`${appSettings.brandId}.navbar.menu`);
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +46,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
     <>
       <button
         onClick={openMobileMenu}
-        aria-label="Open mobile menu"
+        aria-label={translateOrDefault(mm("Open mobile menu"), "Open mobile menu")}
         className={`${useWhiteText ? 'text-white dark:text-white': 'text-black dark:text-white'} flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 transition-colors md:hidden dark:border-neutral-700`}
       >
         <Bars3Icon className="h-4" />
@@ -74,7 +78,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                 <button
                   className="mb-4 flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-white transition-colors dark:border-neutral-700 dark:text-white"
                   onClick={closeMobileMenu}
-                  aria-label="Close mobile menu"
+                  aria-label={translateOrDefault(mm("Close mobile menu"), "Close mobile menu")}
                 >
                   <XMarkIcon className="h-6" />
                 </button>
@@ -92,7 +96,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                         key={item.title}
                       >
                         <Link href={item.path} prefetch={true} onClick={closeMobileMenu}>
-                          {item.title}
+                          {translateOrDefault(m(item.title), item.title)}
                         </Link>
                       </li>
                     ))}

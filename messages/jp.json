@@ -1,13 +1,47 @@
 {
   "default": "test",
   "metaplanet": {
-    "name": "メタプラネット"
+    "name": "メタプラネット",
+    "navbar" : {
+      "menu": {
+        "All": "全て",
+        "Apparel": "衣服",
+        "Accessories": "付属品",
+        "Gear": "もの"
+      },
+      "mobile-menu": {
+        "Open mobile menu": "モバイルメニューを開く",
+        "Close mobile menu":"モバイルメニューを閉じる"
+      }
+    }
   },
-  "btcmagjp": {},
+  "bmj": {
+    "navbar" : {
+      "menu": {
+        "Apparel": "衣服",
+        "Accessories": "付属品",
+        "Gear": "もの"
+      },      
+      "mobile-menu": {
+        "Open mobile menu": "モバイルメニューを開く",
+        "Close mobile menu":"モバイルメニューを閉じる"
+      }
+
+    }
+  },
   "homePage": {
     "carousel": "注目の製品"
   },
   "cart": {
+    "modal": {
+      "My Cart": "私のカート",
+      "Taxes": "税金",
+      "Shipping": "送料",
+      "Calculated at checkout": "チェックアウト時に計算されます",
+      "Total": "合計",
+      "Your cart is empty": "カートには何も入っていません。",
+      "Proceed to Checkout": "チェックアウトに進む"
+    },
     "submit": {
       "outOfStock": "在庫切れ",
       "addToCart": "カートに追加"
@@ -15,6 +49,7 @@
 
   },
   "collections": {
+    "Collections": "コレクション",
     "noProductsFound": "このコレクションには製品が見つかりません"
   },
   "products": {

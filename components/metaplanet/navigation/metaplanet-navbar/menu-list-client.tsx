@@ -2,9 +2,12 @@
 'use client';
 
 import { Link, usePathname } from '@/i18n/navigation';
+import appSettings from '@/lib/app-settings';
 import themeData from '@/lib/theme-data';
 import { isHomePagePath } from '@/lib/utils/is-homepage';
 import { Menu } from 'lib/shopify/types';
+import { useTranslations } from 'next-intl';
+import { translateOrDefault } from 'utils';
 
 interface MenuListClientProps {
   menu: Menu[];
@@ -13,7 +16,7 @@ interface MenuListClientProps {
 export default function MenuListClient({ menu }: MenuListClientProps) {
   const pathname = usePathname();
   const useWhiteText = isHomePagePath(pathname) && themeData?.pages.home.dark;
-
+  const t = useTranslations(`${appSettings.brandId}.navbar.menu`);
   return (
     <>
       {menu.length ? (
@@ -25,7 +28,7 @@ export default function MenuListClient({ menu }: MenuListClientProps) {
                 prefetch={true}
                 className={`${useWhiteText ? 'text-white' : 'text-black'} underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300`}
               >
-                {item.title}
+                {translateOrDefault(t(item.title), item.title)}
               </Link>
             </li>
           ))}

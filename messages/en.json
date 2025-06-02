@@ -1,13 +1,46 @@
 {
   "metaplanet": {
-    "name": "Metaplanet"
+    "name": "Metaplanet",
+    "navbar" : {
+      "menu": {
+        "All": "All",
+        "Apparel": "Apparel",
+        "Accessories": "Accessories",
+        "Gear": "Gear"
+      },     
+      "mobile-menu": {
+        "Open mobile menu": "Open mobile menu",
+        "Close mobile menu": "Close mobile menu"
+      }
+    }
 
   },
-  "btcmagjp": {},
+  "bmj": {
+    "navbar" : {
+      "menu": {
+        "Apparel": "Apparel",
+        "Accessories": "Accessories",
+        "Gear": "Gear"
+      },
+      "mobile-menu": {
+        "Open mobile menu":   "Open mobile menu",
+        "Close mobile menu":  "Close mobile menu"
+      }
+    }
+  },
   "homePage": {
     "carousel": "Featured Products"
   },
   "cart": {
+    "modal": {
+      "My Cart": "My Cart",
+      "Taxes": "Taxes",
+      "Shipping": "Shipping",
+      "Calculated at checkout": "Calculated at checkout",
+      "Total": "Total",
+      "Your cart is empty": "Your cart is empty.",
+      "Proceed to Checkout": "Proceed to Checkout"
+    },
     "submit": {
       "outOfStock": "Out of Stock",
       "addToCart": "Add to Cart"
@@ -15,6 +48,7 @@
 
   },
   "collections": {
+    "Collections": "Collections",
     "noProductsFound": "No products found in this collection"
   },
   "products":{

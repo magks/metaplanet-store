@@ -1,12 +1,13 @@
 'use client';
 
+import LoadingDots from '@/components/shared/loading-dots';
+import Price from '@/components/shared/price';
 import { Dialog, Transition } from '@headlessui/react';
 import { ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import LoadingDots from '@/components/shared/loading-dots';
-import Price from '@/components/shared/price';
 import { DEFAULT_OPTION } from 'lib/constants';
-import { createUrl } from 'lib/utils';
+import { createUrl, translateOrDefault } from 'lib/utils';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, useEffect, useRef, useState } from 'react';
@@ -22,6 +23,8 @@ type MerchandiseSearchParams = {
 };
 
 export default function CartModal() {
+  const t = useTranslations(`cart.modal`);
+  const m = useTranslations(`cart.modal`);
   const { cart, updateCartItem } = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const quantityRef = useRef(cart?.totalQuantity);
@@ -76,7 +79,7 @@ export default function CartModal() {
           >
             <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl md:w-[390px] dark:border-neutral-700 dark:bg-black/80 dark:text-white">
               <div className="flex items-center justify-between">
-                <p className="text-lg font-semibold">My Cart</p>
+                <p className="text-lg font-semibold">{translateOrDefault(t("My Cart"), "My Cart")}</p>
                 <button aria-label="Close cart" onClick={closeCart}>
                   <CloseCart />
                 </button>
@@ -86,7 +89,7 @@ export default function CartModal() {
                 <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
                   <ShoppingCartIcon className="h-16" />
                   <p className="mt-6 text-center text-2xl font-bold">
-                    Your cart is empty.
+                    {translateOrDefault(t("Your cart is empty"),"Your cart is empty.")}
                   </p>
                 </div>
               ) : (
@@ -195,7 +198,7 @@ export default function CartModal() {
                   </ul>
                   <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400">
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 dark:border-neutral-700">
-                      <p>Taxes</p>
+                      <p>{translateOrDefault(t("Taxes"), "Taxes")}</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
                         amount={cart.cost.totalTaxAmount.amount}
@@ -203,11 +206,11 @@ export default function CartModal() {
                       />
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
-                      <p>Shipping</p>
-                      <p className="text-right">Calculated at checkout</p>
+                      <p>{translateOrDefault(t("Shipping"),"Shipping")}</p>
+                      <p className="text-right">{translateOrDefault(t("Calculated at checkout"),"Calculated at checkout")}</p>
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
-                      <p>Total</p>
+                      <p>{translateOrDefault(t("Total"), "Total")}</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
                         amount={cart.cost.totalAmount.amount}
@@ -216,7 +219,7 @@ export default function CartModal() {
                     </div>
                   </div>
                   <form action={redirectToCheckout}>
-                    <CheckoutButton />
+                    <CheckoutButton proceedStr={translateOrDefault(t('Proceed to Checkout'),'Proceed to Checkout')}/>
                   </form>
                 </div>
               )}
@@ -241,7 +244,7 @@ function CloseCart({ className }: { className?: string }) {
   );
 }
 
-function CheckoutButton() {
+function CheckoutButton({proceedStr = "Proceed to Checkout"}: {proceedStr?: string}) {
   const { pending } = useFormStatus();
 
   return (
@@ -250,7 +253,7 @@ function CheckoutButton() {
       type="submit"
       disabled={pending}
     >
-      {pending ? <LoadingDots className="bg-white" /> : 'Proceed to Checkout'}
+      {pending ? <LoadingDots className="bg-white" /> : proceedStr}
     </button>
   );
 }
