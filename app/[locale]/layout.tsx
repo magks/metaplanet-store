@@ -3,7 +3,6 @@
 
 
 import { CartProvider } from '@/components/shared/cart/cart-context';
-import { WelcomeToast } from '@/components/shared/welcome-toast';
 
 // todo: fix false "has no imported member Geist{Mono|Sans}" error message in linter
 import { GeistMono } from 'geist/font/mono';
@@ -12,7 +11,6 @@ import { GeistSans } from 'geist/font/sans';
 import { getCart } from 'lib/shopify';
 import { baseUrl } from 'lib/utils';
 import { ReactNode } from 'react';
-import { Toaster } from 'sonner';
 
 import { ThemeProvider } from 'next-themes';
 import './globals.css';
@@ -159,8 +157,8 @@ export default async function RootLayout({
                     */}
               <main>
                 {children}
-                <Toaster closeButton />
-                <WelcomeToast />
+                {/*<Toaster closeButton />
+                <WelcomeToast />*/}
               </main>
             </CartProvider>
           </NextIntlClientProvider>
