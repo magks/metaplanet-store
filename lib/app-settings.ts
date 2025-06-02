@@ -76,8 +76,8 @@ const BRAND_ID = appSettings.brandId as BrandKey;
  // bmj: bmjBaseUrl 
 //} = allBaseUrls;
 
-const metaplanetDomain= (environ == "PROD" ? process.env.NEXT_PUBLIC_METAPLANET_STORE_PROD_URL : process.env.NEXT_PUBLIC_METAPLANET_STORE_DEV_URL) ?? "https://metaplanet-store.vercel.app";
-const bmjBaseDomain = environ == "PROD" ? process.env.NEXT_PUBLIC_BMJ_STORE_PROD_URL : process.env.NEXT_PUBLIC_BMJ_STORE_DEV_URL ?? "https://bmj-store.vercel.app";
+const metaplanetDomain= (environ == "PROD" ? process.env.NEXT_PUBLIC_METAPLANET_STORE_PROD_URL : process.env.NEXT_PUBLIC_METAPLANET_STORE_DEV_URL) ?? "metaplanet-store.vercel.app";
+const bmjBaseDomain = environ == "PROD" ? process.env.NEXT_PUBLIC_BMJ_STORE_PROD_URL : process.env.NEXT_PUBLIC_BMJ_STORE_DEV_URL ?? "bmj-store.vercel.app";
 export const metaplanetBaseUrl = (environ == "PROD" ? `https://${metaplanetDomain}` :`http://${metaplanetDomain}`) ;
 export const bmjBaseUrl = (environ == "PROD" ? `https://${bmjBaseDomain}`:`http://${bmjBaseDomain}`);
 export const allBaseUrls = {
