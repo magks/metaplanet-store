@@ -23,8 +23,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
   const closeMobileMenu = () => setIsOpen(false);
   const useWhiteText = (
     isHomePagePath(pathname) 
-    && themeData?.pages.home.dark 
-    && (themeData?.pages.home?.mobile_menu.transparent || themeData?.pages.home?.mobile_menu?.blurred)
+    && (themeData?.pages.home?.mobile_menu.useLightIcons)
   );
  // const useWhiteText = isHomePage || settings.darkHome ;
 
