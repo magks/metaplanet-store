@@ -90,6 +90,7 @@
   "searchPage": { 
     "noProductsFoundDescription": "フィルターを調整するか、他のカテゴリーをお試しください。",
     "noMatches": "申し訳ございませんが、キーワードに一致する製品はありません ",
+    "searchResultsRichText": "{count, plural, =0 {<searchParams>\"{params}\"</searchParams>を検索しましたが...} =1 {<searchParams>\"{params}\"</searchParams>の検索結果1件} other {<searchParams>\"{params}\"</searchParams>の検索結果#件}}",
     "noMatchesTitle":"<searchParams>\"{params}\"</searchParams>に一致する商品はありません",
     "filter": {
       "sortBy": "並べ替え",
