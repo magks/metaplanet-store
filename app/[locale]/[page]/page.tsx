@@ -36,7 +36,6 @@ export default async function Page(props: {
 
   return (
     <>
-      <h1>HELLO WORLD</h1>
       <h1 className="mb-8 text-5xl font-bold">{page.title}</h1>
       <Prose className="mb-8" html={page.body} />
       <p className="text-sm italic">

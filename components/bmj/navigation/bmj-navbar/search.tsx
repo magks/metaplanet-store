@@ -24,15 +24,9 @@ export default function Search() {
   // Handle form submission
   const handleSubmit = 
     (e: React.FormEvent<HTMLFormElement>) => {
-      //e.preventDefault();
-      console.log(`e.currentTarget=${e.currentTarget}`);
-      console.log(`e.currentTarget.get('q')=${e.currentTarget.get('q')}`);
       const query = new FormData(e.currentTarget).get('q')?.toString() || '';
-      console.log(`query=${query}`);
-      //if (query) {
         router.push(`/search?q=${encodeURIComponent(query)}&bid=1`);
         setIsOpen(false); // Close modal after submission
-      //}
     };
 
   // Close modal on Escape key (handled by Dialog, but kept for clarity)

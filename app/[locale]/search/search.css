@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+
+/*----------------------------------------
+  1) Define the “ellipsis” keyframes
+  2) Create a utility class “.ellipsis-anim” whose ::after runs that animation
+----------------------------------------*/
+@layer utilities {
+  @keyframes ellipsis {
+    0%   { content: "";   }
+    25%  { content: ".";  }
+    50%  { content: ".."; }
+    75%  { content: "..."; }
+    100% { content: "";   }
+  }
+
+  .ellipsis-anim::after {
+    content: "";
+    animation: ellipsis 1s steps(4, end) infinite;
+  }
+}

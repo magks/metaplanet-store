@@ -16,7 +16,7 @@ function ThreeItemGridItem({
   priority?: boolean;
 }) {
   const t = useTranslations('products');
-  const labelTitle=translateOrDefault(t(`productHandle`), item.title);
+  const labelTitle=translateOrDefault(t(`productHandles.${item.handle}`), item.title);
   //console.log(`3gridItem::labelTitle==${labelTitle}`)
   return (
     <div

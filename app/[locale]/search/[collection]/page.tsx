@@ -3,9 +3,11 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import Grid from '@/components/shared/grid';
+import NoneFound from '@/components/shared/layout/search/none-found';
 import ProductGridItems from 'components/shared/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
 import { getTranslations } from 'next-intl/server';
+import './search.css';
 
 export async function generateMetadata(props: {
   params: Promise<{ collection: string }>;
@@ -33,14 +35,24 @@ export default async function CategoryPage(props: {
   const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse });
   const t = await getTranslations('collections');
   return (
+  <>
     <section>
       {products.length === 0 ? (
-        <p className="py-3 text-lg">{t('noProductsFound')}</p>
+        <>
+        {/*
+          <p className="py-3 text-lg">
+          {t('noProductsFound')} 
+          <span className="ellipsis-anim" /></p>
+        */}
+        <NoneFound />
+        </>
       ) : (
         <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <ProductGridItems products={products} />
         </Grid>
       )}
     </section>
+    
+  </>
   );
 }

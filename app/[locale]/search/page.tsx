@@ -1,4 +1,5 @@
 import Grid from '@/components/shared/grid';
+import NoneFound from '@/components/shared/layout/search/none-found';
 import appSettings from '@/lib/app-settings';
 import ProductGridItems from 'components/shared/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
@@ -38,19 +39,33 @@ export default async function SearchPage(props: {
   const t = await getTranslations('searchPage');
   return (
     <>
-      {searchValue ? (
+      {searchValue ? (<>
         <p className="mb-4">
-          {products.length === 0
-            ? t('noMatches')
-            : `Showing ${products.length} ${resultsText} for `}
-          <span className="font-bold">&quot;{searchValue}&quot;</span>
+          {t.rich('searchResultsRichText', {
+              count: products.length,
+              params: searchValue,
+              searchParams: (chunks) => (
+                <span className="font-bold">{chunks}</span>
+              )
+            })
+          }
         </p>
-      ) : null}
-      {products.length > 0 ? (
-        <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {products.length === 0 
+        ?  <NoneFound 
+            namespace='searchPage'
+            titleTranslation = 'noMatchesTitle'
+            titleSearchParams = {searchValue}
+            titleDefault = {`There are no products that match "${searchValue}"`}
+            titleKey = 'noMatchesTitle'
+          />
+        : null
+        }
+        </>
+      ) : 
+      <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           <ProductGridItems products={products} />
         </Grid>
-      ) : null}
+      }
     </>
   );
 }

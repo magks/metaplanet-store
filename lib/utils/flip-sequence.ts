@@ -35,7 +35,7 @@ export const getFlipSequence = (
   // Always do a full cycle, even if same letter
   let currentIndex = startIndex;
   for (let i = 0; i <= alphabet[locale].length; i++) {
-    sequence.push(alphabet[locale][currentIndex]);
+    sequence.push(alphabet[locale][currentIndex] as string);
     currentIndex = (currentIndex + 1) % alphabet[locale].length;
     if (currentIndex === endIndex && i > 0) break; // Stop after reaching end
   }

@@ -49,19 +49,48 @@
   },
   "collections": {
     "Collections": "Collections",
-    "noProductsFound": "No products found in this collection"
+    "noProductsFound": "No products found in this collection",
+    "noProductsFoundDescription": "Try adjusting your filters or explore other categories.",
+    "clearFilters": "Clear Filters"
   },
   "products":{
     "relatedProducts": "Related Products",
     "productHandles": {
-      "bitcoin-orange-b-shirt": "Bitcoin Orange ₿ Shirt",
       "bitcoin-mug": "Bitcoin Mug",
-      "metaplanet-hat": "Metaplanet ₿ Hat",
-      "metaplanet-mens-senkai-tee": "Metaplanet Men's Senkai Tee"
+      "bitcoin-orange-b-shirt": "Bitcoin Shirt with Bitcoin ₿",
+      "bmj-bitcoinb-black-hat": "Bitcoin Magazine Japan Hat with Bitcoin ₿",
+      "bmj-black-backpack": "Bitcoin Magazine Japan Backpack",
+      "bmj-black-beanie": "Bitcoin Magazine Japan Beanie",
+      "bmj-black-hoodie": "Bitcoin Magazine Japan Hoodie",
+      "bmj-black-joggers": "Bitcoin Magazine Japan Joggers",
+      "bmj-black-keychain": "Bitcoin Magazine Japan Keychain",
+      "bmj-black-shirt": "Bitcoin Magazine Japan Shirt",
+      "bmj-black-socks": "Bitcoin Magazine Japan Socks",
+      "bmj-black-tie": "Bitcoin Magazine Japan Tie",
+      "bmj-black-tote": "Bitcoin Magazine Japan Tote Bag",
+      "bmj-white-mug": "Bitcoin Magazine Japan Mug",
+      "metaplanet-beanie-mlogo-orange-on-black": "Metaplanet Beanie with Metaplanet M",
+      "metaplanet-hat": "Metaplanet Hat",
+      "metaplanet-hat-mlogo-orange-on-black": "Metaplanet Hat with Metaplanet M",
+      "metaplanet-hoodie-mlogo-white-on-black": "Metaplanet Hoodie with Metaplanet M",
+      "metaplanet-keychain-mlogo-orange-on-black": "Metaplanet Keychain with Metaplanet M",
+      "metaplanet-keychain-mlogo-white-on-black": "Metaplanet Keychain with Metaplanet M",
+      "metaplanet-mens-senkai-tee": "Metaplanet Men's Senkai T-Shirt",
+      "metaplanet-mug-mlogo-twotone-orange-black-on-white": "Metaplanet Mug with Metaplanet M",
+      "metaplanet-shirt-mlogo-orange-on-black": "Metaplanet Shirt with Metaplanet M",
+      "metaplanet-socks-mlogo-orange-on-black": "Metaplanet Socks with Metaplanet M",
+      "metaplanet-sweatpants-mlogo-orange-on-black": "Metaplanet Sweatpants with Metaplanet M",
+      "metaplanet-tie-mlogo-orange-on-black-long": "Metaplanet Long Tie with Metaplanet M",
+      "metaplanet-tie-mlogo-orange-on-black-short": "Metaplanet Short Tie with Metaplanet M",
+      "metaplanet-tote-mlogo-orange-on-black": "Metaplanet Tote Bag with Metaplanet M",
+      "metaplanet-tote-mlogo-white-on-black": "Metaplanet Tote Bag with Metaplanet M"
     }
   },
   "searchPage": { 
+    "noProductsFoundDescription": "Try adjusting your filters or explore other categories.",
     "noMatches": "There are no products that match",
+    "searchResultsRichText": "{count, plural, =0 {Searched for <searchParams>\"{params}\"</searchParams> but...} =1 {Showing 1 result for <searchParams>\"{params}\"</searchParams>} other {Showing # results for <searchParams>\"{params}\"</searchParams>}}",
+    "noMatchesTitle": "There are no products matching <searchParams>\"{params}\"</searchParams>",
     "filter": {
       "sortBy": "Sort by",
       "sortTitles": {

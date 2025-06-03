@@ -1,5 +1,5 @@
 //import { brandBaseUrl } from '@/lib/app-settings';
-
+// todo refactor url setting
 // lib/app-settings.ts
 import { Theme } from "./types/themes";
 import { getThemeName } from "./utils/get-theme-name";
@@ -67,7 +67,7 @@ function getBaseUrlForBrand(brand: BrandKey): string {
 
 export const appSettings = getAppSettings();
 //  Read the “active” brand from NEXT_PUBLIC_BRAND_ID (fallback to "metaplanet" if undefined)
-const BRAND_ID = appSettings.brandId as BrandKey;
+export const BRAND_ID = appSettings.brandId as BrandKey;
 
 
 // Export each brand’s URL and the “active” one:

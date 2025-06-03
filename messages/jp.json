@@ -50,19 +50,47 @@
   },
   "collections": {
     "Collections": "コレクション",
-    "noProductsFound": "このコレクションには製品が見つかりません"
+    "noProductsFound": "このコレクションに商品が見つかりません",
+    "noProductsFoundDescription": "フィルターを調整するか、他のカテゴリーをお試しください。",
+    "clearFilters": "フィルターをクリア"
   },
   "products": {
     "relatedProducts": "関連製品",
     "productHandles": {
-      "bitcoin-orange-b-shirt": "ビットコインオレンジ₿シャツ",
-      "bitcoin-mug": "ビットコインマグ",
-      "metaplanet-hat": "メタプラネットハット",
-      "metaplanet-mens-senkai-tee": "男性用メタプラネットTシャツ"
+      "bitcoin-mug": "ビットコインマグカップ",
+      "bitcoin-orange-b-shirt": "ビットコイン₿付きシャツ",
+      "bmj-bitcoinb-black-hat": "ビットコイン・マガジン ジャパン ハットビットコイン₿付き",
+      "bmj-black-backpack": "ビットコイン・マガジン ジャパン バックパック",
+      "bmj-black-beanie": "ビットコイン・マガジン ジャパン ビーニー",
+      "bmj-black-hoodie": "ビットコイン・マガジン ジャパン フーディー",
+      "bmj-black-joggers": "ビットコイン・マガジン ジャパン ジョガーパンツ",
+      "bmj-black-keychain": "ビットコイン・マガジン ジャパン キーチェーン",
+      "bmj-black-shirt": "ビットコイン・マガジン ジャパン シャツ",
+      "bmj-black-socks": "ビットコイン・マガジン ジャパン ソックス",
+      "bmj-black-tie": "ビットコイン・マガジン ジャパン ネクタイ",
+      "bmj-black-tote": "ビットコイン・マガジン ジャパン トートバッグ",
+      "bmj-white-mug": "ビットコイン・マガジン ジャパン マグカップ",
+      "metaplanet-beanie-mlogo-orange-on-black": "メタプラネット メタプラネットのM付きビーニー",
+      "metaplanet-hat": "メタプラネット ハット",
+      "metaplanet-hat-mlogo-orange-on-black": "メタプラネット メタプラネットのM付きハット",
+      "metaplanet-hoodie-mlogo-white-on-black": "メタプラネット メタプラネットのM付きフーディー",
+      "metaplanet-keychain-mlogo-orange-on-black": "メタプラネット メタプラネットのM付きキーチェーン",
+      "metaplanet-keychain-mlogo-white-on-black": "メタプラネット メタプラネットのM付きキーチェーン",
+      "metaplanet-mens-senkai-tee": "メタプラネット メンズ戦海Tシャツ",
+      "metaplanet-mug-mlogo-twotone-orange-black-on-white": "メタプラネット メタプラネットのM付きマグカップ",
+      "metaplanet-shirt-mlogo-orange-on-black": "メタプラネット メタプラネットのM付きシャツ",
+      "metaplanet-socks-mlogo-orange-on-black": "メタプラネット メタプラネットのM付きソックス",
+      "metaplanet-sweatpants-mlogo-orange-on-black": "メタプラネット メタプラネットのM付きスウェットパンツ",
+      "metaplanet-tie-mlogo-orange-on-black-long": "メタプラネット メタプラネットのM付きロングネクタイ",
+      "metaplanet-tie-mlogo-orange-on-black-short": "メタプラネット メタプラネットのM付きショートネクタイ",
+      "metaplanet-tote-mlogo-orange-on-black": "メタプラネット メタプラネットのM付きトートバッグ",
+      "metaplanet-tote-mlogo-white-on-black": "メタプラネット メタプラネットのM付きトートバッグ"
     }
   },
   "searchPage": { 
+    "noProductsFoundDescription": "フィルターを調整するか、他のカテゴリーをお試しください。",
     "noMatches": "申し訳ございませんが、キーワードに一致する製品はありません ",
+    "noMatchesTitle":"<searchParams>\"{params}\"</searchParams>に一致する商品はありません",
     "filter": {
       "sortBy": "並べ替え",
       "sortTitles": {

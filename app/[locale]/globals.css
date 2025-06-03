@@ -126,6 +126,13 @@
   --primary-foreground: oklch(1 0 0);
   --radius: 0.6rem;
 }
+[data-theme="metaplanet"].dark {
+  --background: #212121; /*#E0E0E0 = metaplanet light inner bento box; F7F7F7  outer*/
+  --foreground: #F7F7F7;
+  --primary: #212121;
+  --primary-foreground: oklch(1 0 0);
+  --radius: 0.6rem;
+}
 
 [data-theme="bmj"] {
   --background: #FFFCF7; /* ##F7F7F7; */
