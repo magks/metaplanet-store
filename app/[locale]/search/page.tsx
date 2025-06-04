@@ -39,32 +39,30 @@ export default async function SearchPage(props: {
   const t = await getTranslations('searchPage');
   return (
     <>
-      {searchValue ? (<>
-        <p className="mb-4">
+      { searchValue 
+        ? <><p className="mb-4">
           {t.rich('searchResultsRichText', {
               count: products.length,
-              params: searchValue,
+              params: searchValue ?? "",
               searchParams: (chunks) => (
                 <span className="font-bold">{chunks}</span>
               )
             })
           }
-        </p>
-        {products.length === 0 
-        ?  <NoneFound 
+          </p></>
+        : null 
+        }
+      { products.length === 0 
+        ? <NoneFound 
             namespace='searchPage'
             titleTranslation = 'noMatchesTitle'
             titleSearchParams = {searchValue}
             titleDefault = {`There are no products that match "${searchValue}"`}
             titleKey = 'noMatchesTitle'
           />
-        : null
-        }
-        </>
-      ) : 
-      <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          <ProductGridItems products={products} />
-        </Grid>
+        : <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <ProductGridItems products={products} />
+          </Grid>
       }
     </>
   );

@@ -51,7 +51,8 @@
     "Collections": "Collections",
     "noProductsFound": "No products found in this collection",
     "noProductsFoundDescription": "Try adjusting your filters or explore other categories.",
-    "clearFilters": "Clear Filters"
+    "clearFilters": "Clear Filters",
+    "errorCollectionDoesNotExist": "That collection doesn't exist" 
   },
   "products":{
     "relatedProducts": "Related Products",

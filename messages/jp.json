@@ -52,7 +52,8 @@
     "Collections": "コレクション",
     "noProductsFound": "このコレクションに商品が見つかりません",
     "noProductsFoundDescription": "フィルターを調整するか、他のカテゴリーをお試しください。",
-    "clearFilters": "フィルターをクリア"
+    "clearFilters": "フィルターをクリア",
+    "errorCollectionDoesNotExist": "そのコレクションは存在しません" 
   },
   "products": {
     "relatedProducts": "関連製品",
