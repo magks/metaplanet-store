@@ -58,6 +58,7 @@ export async function Navbar({ pathname }: NavbarProps) {
           <div className="hidden md:block">
             <MenuListClient menu={menu} />
           </div>
+          <div className="px-1"></div>
           <CartModal />
           <SettingsMenu />
         </div>
