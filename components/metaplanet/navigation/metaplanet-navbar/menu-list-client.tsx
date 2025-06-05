@@ -7,7 +7,7 @@ import themeData from '@/lib/theme-data';
 import { isHomePagePath } from '@/lib/utils/is-homepage';
 import { Menu } from 'lib/shopify/types';
 import { useTranslations } from 'next-intl';
-import { translateOrDefault } from 'utils';
+import { cn, translateOrDefault } from 'utils';
 
 interface MenuListClientProps {
   menu: Menu[];
@@ -26,7 +26,10 @@ export default function MenuListClient({ menu }: MenuListClientProps) {
               <Link
                 href={item.path}
                 prefetch={true}
-                className={`${useWhiteText ? 'text-white' : 'text-black'} underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300`}
+                className={cn(
+                  useWhiteText ? 'text-white' : 'text-black',
+                  "underline-offset-4  hover:underline dark:hover:text-neutral-300"
+                )}
               >
                 {translateOrDefault(t(item.title), item.title)}
               </Link>
