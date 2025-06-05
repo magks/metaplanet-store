@@ -42,7 +42,7 @@ export default function OpenCart({
   return (
     <div
       className={clsx(
-        'relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 transition-colors dark:border-neutral-700',
+        'relative flex h-11 w-11 items-center justify-center rounded-md transition-colors ',
         'backdrop-blur-[2px]'
       )}
     >
