@@ -8,8 +8,8 @@ import BannerLogoLink from "./banner-logo-link";
 //h-10 bg-black border-b border-white z-40 relative
 export default function SiteSwitcher() {
   return (
-    <div className="h-8 bg-black border-b border-white z-40 relative">
-      <div className="flex items-center justify-between px-4 h-9">
+    <div className="h-8 bg-[linear-gradient(#252725,#000)] bg-transparent border-b  z-40 relative">
+      <div className="flex items-center justify-between px-2 h-9">
         
         {/* Left side: empty */}
         <div className="text-white text-lg font-bold"></div>

@@ -18,7 +18,7 @@ type NavbarPageType = 'TRANSPARENT_NAVBAR'
 ;
 // Define the table using Record
 const navbarPageClsx: Record<NavbarPageType, string> = {
-  TRANSPARENT_NAVBAR: 'absolute top-9 left-0 right-0 z-30',
+  TRANSPARENT_NAVBAR: 'absolute top-8 left-0 right-0 z-30',
   DEFAULT_PAGE_DARK_NAVBAR: 'relative bg-black dark:bg-white',
   DEFAULT_PAGE_LIGHT_NAVBAR:  'relative bg-background dark:bg-black',
   DEFAULT:  'relative bg-black dark:bg-white',

@@ -27,13 +27,13 @@ export default function BannerLogoLink({
     "group inline-flex w-max overflow-hidden transition-all duration-300",
      "",
     // active: fill parent’s height; inactive: fixed 8
-    isCurrentSite ? " rounded-t" : " rounded-full ",
+    isCurrentSite ? " rounded-t-2xl" : " rounded-full ",
     // opacity / pointer logic
     isCurrentSite
       ? "opacity-90 cursor-default pointer-events-none"
       : "opacity-45 hover:opacity-90",
     // dark gradient background
-    "bg-[linear-gradient(#000000,#1a1a1a_50%,#000000_99%,#228B22_100%)]",
+    "bg-[linear-gradient(#000000,#1a1a1a_50%,#1a1a1a_80%,#0d0d0d_95%,#000000_100%)]",
   ].join(" ");
 
   //
@@ -41,15 +41,15 @@ export default function BannerLogoLink({
   //
   const heavyDarkShadow =
     "hover:shadow-[0_0_1px_rgba(0,0,0,0.5),0_0_1px_rgba(0,0,0,1.4),0_3px_3px_rgba(0,0,0,0.7)]";
-
+    //heavyDarkShadow,
   const middleClasses = [
     "w-full",
     // active: full parent height; inactive: fill outer’s h-8
     isCurrentSite ? "" : "",
     // rounded top if active, otherwise fully pill shaped
-    isCurrentSite ? "rounded-t " : "rounded-full",
-    "bg-[linear-gradient(to_top,#000,#011)] px-[0.0rem] ",
-    heavyDarkShadow,
+    isCurrentSite ? "rounded-t-full " : "rounded-full",
+    "bg-[linear-gradient(to_top,#1a1a1a,#011)] px-[0.0rem] ",
+
     isCurrentSite ? "" : "",
     "duration-300",
   ].join(" ");
@@ -78,7 +78,7 @@ export default function BannerLogoLink({
   return (
     <a href={href}>
       <div className={outerClasses}>
-        <div className={middleClasses}>
+        <div className={""/*middleClasses*/}>
           <div className={innerClasses}>
             {/* Shrink SVG slightly */}
             <Image src={src} alt={alt} className="h-4 w-auto" />
@@ -137,6 +137,7 @@ export function BannerLogoLink_DarkBg_NeedsLightSvg({
     isCurrentSite ?  "" : "group-hover:bg-[linear-gradient(#333,#111)]",
     // If it’s current, add a   ring
     isCurrentSite ? "ring-2 ring-white" : "",
+    isCurrentSite ? "" : "",
   ].join(" ");
 
   return (
