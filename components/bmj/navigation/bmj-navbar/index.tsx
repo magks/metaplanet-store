@@ -17,13 +17,23 @@ interface NavbarProps {
 
 export async function Navbar({ pathname }: NavbarProps) {
   const menu = await getMenu('bmj-frontend-header-menu');
-  //const useWhiteText = isHomePagePath(pathname) && themeData?.pages.home.dark;
 
   return (
     <nav className="flex items-center justify-between p-4 lg:px-6 shadow-lg">
       <div className="flex w-full items-center">
-        {/* Logo on the left */}
-        <Link href="/" prefetch={true} className="flex items-center">
+        {/* Mobile: Hamburger Menu (left) */}
+        <div className="flex md:hidden items-center">
+          <Suspense fallback={null}>
+            <MobileMenu menu={menu} />
+          </Suspense>
+        </div>
+
+        {/* Logo: Left on desktop, center on mobile */}
+        <Link
+          href="/"
+          prefetch={true}
+          className="flex items-center md:flex-none flex-1 justify-center md:justify-start"
+        >
           <Image
             src="/images/BM_Japan_White.webp"
             alt={`${SITE_NAME} Logo`}
@@ -33,30 +43,22 @@ export async function Navbar({ pathname }: NavbarProps) {
           />
         </Link>
 
-        {/* Spacer to push other items to the right */}
-        <div className="flex-1"></div>
-
-        {/* Mobile Menu (visible only on mobile) */}
-        <div className="block md:hidden">
-          <Suspense fallback={null}>
-            <MobileMenu menu={menu} />
-          </Suspense>
+        {/* Desktop: Search (center); Mobile: Hidden */}
+        <div className="hidden md:flex flex-1 items-center justify-center">
+          <div className="w-80">
+            <Suspense fallback={<SearchSkeleton />}>
+              <Search />
+            </Suspense>
+          </div>
         </div>
 
-        {/* Right-side components: Menu, Search, Cart, Settings */}
-        <div className="hidden md:flex items-center gap-4">
-          {/* Menu List (Collections) */}
-          <MenuListClient menu={menu} />
-
-          {/* Search */}
-          <Suspense fallback={<SearchSkeleton />}>
-            <Search />
-          </Suspense>
-
-          {/* Cart */}
+        {/* Desktop: Menu, Cart, Settings (right); Mobile: Cart, Settings (right) */}
+        <div className="flex items-center ">
+          {/* Menu List: Hidden on mobile */}
+          <div className="hidden md:block">
+            <MenuListClient menu={menu} />
+          </div>
           <CartModal />
-
-          {/* Settings */}
           <SettingsMenu />
         </div>
       </div>

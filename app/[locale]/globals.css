@@ -27,6 +27,7 @@
 
 /* Existing base styles */
 :root {
+  --navbar-black: oklch(0.2111 0.0061 236.86); /* #16191b */
   --radius: 0.625rem;
   --background: oklch(0.8 0.10 37.87);
   --foreground: oklch(0.129 0.042 264.695);
@@ -315,6 +316,7 @@ body {
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-mobile-menu: var(--navbar-black);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -347,5 +349,127 @@ body {
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  --shadow-offset: 2px;       /* the magnitude of your inset offset */
+  --shadow-thin-offset: 1px;         /* blur radius */
+  --shadow-thin-blur: 1px;         /* blur radius */
+  --shadow-blur: 3px;         /* blur radius */
+  --shadow-color: var(--navbar-black); /*  rgba(0, 0, 0, 0.2) default black shadow */
+}
+
+/* inset shadows */
+@layer utilities {
+  .shadow-color-dark {
+    /* explicitly set “black” shadow */
+    --shadow-color: var(--navbar-black);
+  }
+  .shadow-color-light {
+    /* explicitly set “white” shadow */
+    --shadow-color: rgba(255, 255, 255, 0.2);
+  }
+  .shadow-inset-top {
+    /* X = 0, Y = +1 →  0 * 2px,  1 * 2px */
+    --sx: 0;
+    --sy: 1;
+    box-shadow: inset
+      calc(var(--sx) * var(--shadow-offset))
+      calc(var(--sy) * var(--shadow-offset))
+      var(--shadow-blur)
+      var(--shadow-color);
+  }
+  .shadow-inset-bottom {
+    /* X = 0, Y = -1 */
+    --sx: 0;
+    --sy: -1;
+    box-shadow: inset
+      calc(var(--sx) * var(--shadow-offset))
+      calc(var(--sy) * var(--shadow-offset))
+      var(--shadow-blur)
+      var(--shadow-color);
+  }
+
+  .shadow-thin-inset-bottom {
+        /* X = 0, Y = -1 */
+    --sx: 0;
+    --sy: -1;
+    box-shadow: inset
+      calc(var(--sx) * var(--shadow-thin-offset))
+      calc(var(--sy) * var(--shadow-thin-offset))
+      var(--shadow-thin-blur)
+      var(--shadow-color);
+
+  }
+
+  .shadow-inset-left {
+    /* X = +1, Y = 0 */
+    --sx: 1;
+    --sy: 0;
+    box-shadow: inset
+      calc(var(--sx) * var(--shadow-offset))
+      calc(var(--sy) * var(--shadow-offset))
+      var(--shadow-blur)
+      var(--shadow-color);
+  }
+  .shadow-inset-right {
+    /* X = -1, Y = 0 */
+    --sx: -1;
+    --sy: 0;
+    box-shadow: inset
+      calc(var(--sx) * var(--shadow-offset))
+      calc(var(--sy) * var(--shadow-offset))
+      var(--shadow-blur)
+      var(--shadow-color);
+  }
+  .shadow-inset-top-left {
+    /* X = +1, Y = +1 */
+    --sx: 1;
+    --sy: 1;
+    box-shadow: inset
+      calc(var(--sx) * var(--shadow-offset))
+      calc(var(--sy) * var(--shadow-offset))
+      var(--shadow-blur)
+      var(--shadow-color);
+  }
+  .shadow-inset-top-right {
+    /* X = -1, Y = +1 */
+    --sx: -1;
+    --sy: 1;
+    box-shadow: inset
+      calc(var(--sx) * var(--shadow-offset))
+      calc(var(--sy) * var(--shadow-offset))
+      var(--shadow-blur)
+      var(--shadow-color);
+  }
+  .shadow-inset-bottom-left {
+    /* X = +1, Y = -1 */
+    --sx: 1;
+    --sy: -1;
+    box-shadow: inset
+      calc(var(--sx) * var(--shadow-offset))
+      calc(var(--sy) * var(--shadow-offset))
+      var(--shadow-blur)
+      var(--shadow-color);
+  }
+  .shadow-inset-bottom-right {
+    /* X = -1, Y = -1 */
+    --sx: -1;
+    --sy: -1;
+    box-shadow: inset
+      calc(var(--sx) * var(--shadow-offset))
+      calc(var(--sy) * var(--shadow-offset))
+      var(--shadow-blur)
+      var(--shadow-color);
+  }
+
+  .shadow-inset-all {
+    /*    inset 6px 5px 5px 0 rgb(0 0 0),  left and top
+    inset -6px 5px 5px 0 rgb(0 0 0)  /* right and top */
+    box-shadow:
+      /* top */
+     inset calc(var(--shadow-offset)) var(--shadow-thin-blur)  var(--shadow-blur) var(--shadow-color),
+     inset calc(-1 * var(--shadow-offset)) calc( -1* var(--shadow-thin-blur)) var(--shadow-thin-blur) var(--shadow-color)
+
+     ;
+
+  }
 
 }

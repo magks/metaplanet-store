@@ -16,6 +16,7 @@
                 "transparent": false
             },
             "mobile_menu": {
+                "useDarkMenuList": true,
                 "useLightIcons": true,
                 "transparent": false,
                 "blurred": true
