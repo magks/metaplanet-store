@@ -10,6 +10,8 @@
 
 /* Import component files */
 @import './navbar.css';
+@import './cart.css';
+
 
 @theme {
   /* Container */
