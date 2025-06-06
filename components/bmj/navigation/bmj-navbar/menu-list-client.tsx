@@ -3,6 +3,7 @@
 
 import { Link } from '@/i18n/navigation';
 import appSettings from '@/lib/app-settings';
+import clsx from 'clsx';
 import { Menu } from 'lib/shopify/types';
 import { useTranslations } from 'next-intl';
 import { translateOrDefault } from 'utils';
@@ -16,20 +17,26 @@ export default function MenuListClient({ menu }: MenuListClientProps) {
   return (
     <>
       {menu.length ? (
-        <ul className="hidden gap-6 text-sm md:flex md:items-center">
-          {menu.map((item: Menu) => (
-            <li key={item.title}>
-              <Link
-                href={item.path}
-                prefetch={true}
-                className={`${'text-white'} underline-offset-4 hover:text-black hover:underline dark:hover:text-neutral-300`}
-              >
-                {translateOrDefault(t(item.title), item.title)}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      ) : null}
+  <ul className="hidden gap-6 text-sm md:flex md:items-center">
+    {menu.map((item: Menu) => (
+      <li key={item.title}>
+        <Link
+          href={item.path}
+          prefetch={true}
+          className={clsx(
+            'inline-block px-2 py-1 transition-all duration-200',
+            'text-navbar', // Custom utility for navbar text color
+            'navbar-bottom-indicator', // Custom utility for bottom indicator
+            'hover:scale-105',
+            'hover:bg-theme-hover'
+          )}
+        >
+          {translateOrDefault(t(item.title), item.title)}
+        </Link>
+      </li>
+    ))}
+  </ul>
+) : null}
     </>
   );
 }

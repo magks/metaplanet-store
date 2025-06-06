@@ -12,8 +12,9 @@ import { getCart } from 'lib/shopify';
 import { baseUrl } from 'lib/utils';
 import { ReactNode } from 'react';
 
+import '@/styles/globals.css';
 import { ThemeProvider } from 'next-themes';
-import './globals.css';
+
 /*
 const geist = Geist({
   subsets: ['latin'],

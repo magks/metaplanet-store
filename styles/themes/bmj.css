@@ -1,0 +1,89 @@
+/* BMJ Theme Variables */
+@theme {
+  /* BMJ theme tokens - these become Tailwind utilities */
+  --color-bmj-primary: ##FFFCF7;
+  --color-bmj-secondary: #BC012E;
+  --color-bmj-background: #FFFCF7;
+  --color-bmj-foreground: #000000;
+  --color-bmj-navbar-text: oklch(1 0 0);
+  --radius-bmj: 0.6rem;
+}
+
+/* BMJ Theme Overrides */
+[data-theme="bmj"] {
+  /* Override base theme variables */
+  --color-background: var(--color-bmj-background);
+  --color-foreground: var(--color-bmj-foreground);
+  --color-primary: var(--color-bmj-primary);
+  --color-secondary: var(--color-bmj-secondary);
+  --color-primary-foreground: oklch(1 0 0);
+  --radius: var(--radius-bmj);
+  --navbar-menulist-hover-bg: 255,255,255;
+  --navbar-menulist-foreground: var(--color-bmj-navbar-text);
+  --color-navbar-menulist-foreground: var(--navbar-menulist-foreground);
+}
+
+[data-theme="bmj"].dark {
+  --color-background: #FFFCF7;
+  --color-foreground: #000000;
+  --color-primary: oklch(1 0 0);
+  --navbar-menulist-hover-bg: 255,255,255;
+  --navbar-menulist-foreground: oklch(1 0 0);
+}
+
+/* BMJ-specific component styles */
+[data-theme="bmj"] .bmj-navbar {
+  background-color: var(--navbar-black);
+  border-bottom: 1px solid var(--color-primary);
+}
+
+[data-theme="bmj"] .bmj-navbar .nav-link {
+  color: var(--navbar-menulist-foreground);
+  transition: all 0.2s ease;
+}
+
+[data-theme="bmj"] .bmj-navbar .nav-link:hover {
+  background-color: rgba(var(--navbar-menulist-hover-bg), 0.1);
+  color: var(--color-primary);
+}
+
+[data-theme="bmj"] .bmj-navbar .nav-link.active {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+/* BMJ-specific button styles */
+[data-theme="bmj"] .btn-bmj-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+}
+
+[data-theme="bmj"] .btn-bmj-primary:hover {
+  background-color: color-mix(in oklch, var(--color-primary) 90%, black);
+  transform: translateY(-1px);
+}
+
+/* BMJ-specific card styles */
+[data-theme="bmj"] .bmj-card {
+  background-color: var(--color-background);
+  border: 1px solid color-mix(in oklch, var(--color-primary) 20%, transparent);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(188, 1, 46, 0.1);
+}
+
+[data-theme="bmj"] .bmj-card:hover {
+  box-shadow: 0 4px 16px rgba(188, 1, 46, 0.15);
+  transform: translateY(-2px);
+}
+
+/* BMJ-specific typography */
+[data-theme="bmj"] .bmj-heading {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+[data-theme="bmj"] .bmj-subtitle {
+  color: color-mix(in oklch, var(--color-foreground) 70%, var(--color-primary) 30%);
+}
