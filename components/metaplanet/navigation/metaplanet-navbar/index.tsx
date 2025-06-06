@@ -73,7 +73,7 @@ menu.map((item: Menu) => {
             <Search />
           </Suspense>
         </div>
-        <div className="flex justify-end md:w-1/3 gap-4">
+        <div className="flex justify-end md:w-1/3 ">
           <CartModal />
           <SettingsMenu />
 
