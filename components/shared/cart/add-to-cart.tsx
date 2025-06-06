@@ -18,8 +18,8 @@ function SubmitButton({
 }) {
   const t = useTranslations('cart.submit');
   const buttonClasses =
-    'relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white';
-  const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
+    'relative flex w-full items-center justify-center rounded-full bg-neutral-800 p-4 tracking-wide text-white hover:bg-neutral-700 transition-colors';
+  const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60 hover:bg-neutral-800';
 
   if (!availableForSale) {
     return (
@@ -47,9 +47,7 @@ function SubmitButton({
   return (
     <button
       aria-label="Add to cart"
-      className={clsx(buttonClasses, {
-        'hover:opacity-90': true
-      })}
+      className={buttonClasses}
     >
       <div className="absolute left-0 ml-4">
         <PlusIcon className="h-5" />
