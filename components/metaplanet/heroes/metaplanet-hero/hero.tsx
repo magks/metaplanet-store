@@ -53,7 +53,7 @@ export function Hero({
       <section 
         className={clsx(
           'hero-background relative w-full overflow-hidden',
-          'h-[100vh] ',
+          'h-[67vh] ',
           className
         )}
         role="img"

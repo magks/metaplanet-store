@@ -47,8 +47,8 @@ export function Hero({
 
       <section
         className={clsx(
-          'relative w-full overflow-hidden',
-          'h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]',
+          'relative w-full overflow-ellipsis',
+          'h-[40vh] sm:h-[40vh] md:h-[55vh] lg:h-[45vh]',
           className
         )}
         role="img"
@@ -76,15 +76,15 @@ export function Hero({
             priority
             className="object-cover object-center"
             sizes="100vw"
-            quality={75}
+            quality={85}
             placeholder="blur"
           />
         </div>
 
         {/* Content Overlay */}
         {(title || subtitle) && (
-          <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/20 pt-30">
-            <div className="uppercase stroke-shadow text-center text-white px-10 py-2 border border-white transform translate-y-[60%]">
+          <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/40 pt-1">
+            <div className="uppercase stroke-shadow text-center text-white px-10 py-2 border border-white transform translate-y-[10%]">
               {title && <h1 className="font-semibold text-lg text-outline">{title}</h1>}
             </div>
           </div>
