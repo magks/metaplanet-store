@@ -1,15 +1,25 @@
+/* ===== metaplanet.css ===== */
 /* Metaplanet Theme Variables */
 @theme {
   /* Metaplanet theme tokens - these become Tailwind utilities */
   --color-metaplanet-primary: #F7F7F7;
   --color-metaplanet-secondary: #F7F7F7;
   --color-metaplanet-secondary-foreground: #000000;
-  --color-metaplanet-primary-dark: #212121;
+  --color-metaplanet-primary-dark: oklch(0.2478 0 0);
+  --color-metaplanet-secondary-dark: oklch(0.2478 0 0);  /* New for bottom indicator */
+  --color-metaplanet-primary-light: oklch(0.9067 0 0);   /* New for cart badge */
   --color-metaplanet-background: #E0E0E0;
   --color-metaplanet-background-outer: #F7F7F7;
   --color-metaplanet-background-dark: #212121;
   --color-metaplanet-foreground: oklch(0 0 0);
   --color-metaplanet-foreground-dark: #F7F7F7;
+  
+  /* Cart badge variables */
+  --color-metaplanet-cart-badge-dark: var(--navbar-black);  /* Use navbar black */
+  --color-metaplanet-cart-badge-light: var(--color-metaplanet-primary-light);
+  --color-metaplanet-cart-badge-dark-fg: oklch(1 0 0);      /* White text */
+  --color-metaplanet-cart-badge-light-fg: oklch(0 0 0);     /* Black text */
+  
   --color-metaplanet-navbar-text: oklch(0 0 0);
   --radius-metaplanet: 0.6rem;
 }
@@ -23,6 +33,11 @@
   --color-secondary: var(--color-metaplanet-secondary);
   --color-secondary-foreground: oklch(0 0 0);
   --radius: var(--radius-metaplanet);
+  
+  /* Default cart badge (non-homepage) - always dark */
+  --color-cart-badge: var(--color-metaplanet-cart-badge-dark);
+  --color-cart-badge-fg: var(--color-metaplanet-cart-badge-dark-fg);
+  
   --navbar-menulist-hover-bg: 0,0,0;
   --navbar-menulist-foreground: var(--color-metaplanet-navbar-text);
   --color-navbar-menulist-foreground: var(--navbar-menulist-foreground);
@@ -34,6 +49,10 @@
   --color-primary: var(--color-metaplanet-primary-dark);
   --navbar-menulist-hover-bg: 255,255,255;
   --navbar-menulist-foreground: var(--color-metaplanet-navbar-text);
+  
+  /* Dark mode cart badge - still dark bg with light text */
+  --color-cart-badge: var(--color-metaplanet-cart-badge-dark);
+  --color-cart-badge-fg: var(--color-metaplanet-cart-badge-dark-fg);
 }
 
 /* Metaplanet-specific component styles */

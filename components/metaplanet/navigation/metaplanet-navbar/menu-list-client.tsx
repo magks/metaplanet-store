@@ -1,4 +1,4 @@
-// app/components/MenuListClient.tsx
+// components/metaplanet/navigation/metaplanet-navbar/menu-list-client.tsx
 'use client';
 
 import { Link, usePathname } from '@/i18n/navigation';

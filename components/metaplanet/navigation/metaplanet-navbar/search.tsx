@@ -1,4 +1,5 @@
-// components/layout/search.tsx
+// components/metaplanet/navigation/metaplanet-navbar/search.tsx
+
 'use client';
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';

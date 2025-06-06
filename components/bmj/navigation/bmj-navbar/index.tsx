@@ -1,4 +1,4 @@
-// components/layout/navbar.tsx
+// components/bmj/navigation/bmj-navbar/index.tsx 
 import CartModal from '@/components/shared/cart/modal';
 import { SettingsMenu } from '@/components/shared/navigation/menus/settings-menu';
 import { Link } from '@/i18n/navigation';

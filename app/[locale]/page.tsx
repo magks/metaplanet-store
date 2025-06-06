@@ -1,3 +1,4 @@
+// app/[locale]/page.tsx
 import { Carousel } from '@/components/shared/carousel';
 import { ThreeItemGrid } from '@/components/shared/grid/three-items';
 import { HomePageHeroSelector } from '@/components/shared/heroes/home-page-hero-selector';

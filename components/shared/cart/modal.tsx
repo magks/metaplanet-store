@@ -1,3 +1,4 @@
+// components/shared/cart/modal.tsx
 'use client';
 
 import LoadingDots from '@/components/shared/loading-dots';

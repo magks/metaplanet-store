@@ -1,13 +1,15 @@
 @import 'tailwindcss';
 @import 'tailwind-scrollbar-hide/v4';
+/* Custom dark mode variant */
+@custom-variant dark (&:is(.dark *));
 
 /* Import theme files */
 @import './themes/bmj.css';
 @import './themes/metaplanet.css';
 /* @import './themes/brand1.css'; */
 
-/* Custom dark mode variant */
-@custom-variant dark (&:is(.dark *));
+/* Import component files */
+@import './navbar.css';
 
 @theme {
   /* Container */
@@ -39,14 +41,20 @@
   --shadow-blur: 3px;
   --shadow-color: oklch(0.2111 0.0061 236.86); /* navbar-black */
 
-  /* Navbar */
+  /* General Navbar */
   --navbar-black: oklch(0.2111 0.0061 236.86);
   --navbar-menulist-foreground: oklch(1 0 0);
   --navbar-menulist-hover-bg: 0,0,0;
   --navbar-menulist-hover-bg-dark: 255,255,255;
+
+  /* Cart - these will be overridden by themes */
+  --cart-badge: oklch(0.2111 0.0061 236.86);
+  --cart-badge-fg: oklch(1 0 0); 
   
   /* Add navbar colors to Tailwind's color system */
   --color-navbar-menulist-foreground: var(--navbar-menulist-foreground);
+  --color-cart-badge: var(--cart-badge);
+  --color-cart-badge-fg: var(--cart-badge-fg);
 
   /* Base Color Palette */
   --color-background: oklch(0.8 0.10 37.87);
@@ -261,13 +269,14 @@ body {
   }
 }
 
-/* Utility classes */
+/* Utility classes - UPDATED to be theme-aware */
 @layer utilities {
-  /* Navbar utilities */
+  /* Navbar utilities - Now handled by theme-specific CSS variants */
   .text-navbar {
     color: var(--navbar-menulist-foreground);
   }
   
+  /* Basic bottom indicator fallback - themes override this */
   .navbar-bottom-indicator {
     position: relative;
   }
@@ -288,13 +297,13 @@ body {
     transform: scaleX(1);
   }
 
-  /* Theme hover backgrounds */
+  /* Theme hover backgrounds - Updated to use new variable structure */
   [data-theme] .hover\:bg-theme-hover:hover {
     background-color: rgba(var(--navbar-menulist-hover-bg, 0,0,0), 0.1);
   }
   
-  .dark .hover\:bg-theme-hover:hover {
-    background-color: rgba(var(--navbar-menulist-hover-bg, 255,255,255), 0.1);
+  [data-theme].dark .hover\:bg-theme-hover:hover {
+    background-color: rgba(var(--navbar-menulist-hover-bg-dark, 255,255,255), 0.1);
   }
 
   /* Shadow utilities */

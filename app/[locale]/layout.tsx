@@ -1,6 +1,4 @@
-//import { Navbar as BtcMagNavBar } from "@/components/navigation/navbars/bmj-navbar";
-//import { NavbarConditional as BtcMagNavbarConditional } from "@/components/navigation/navbars/bmj-navbar/navbar-conditional";
-
+// app/[locale]/layout.tsx
 
 import { CartProvider } from '@/components/shared/cart/cart-context';
 
@@ -31,8 +29,9 @@ const { SITE_NAME } = process.env;
 
 
 // metadata
+import { NavbarConditional } from '@/components/shared/navigation/navbar-conditional';
 import SiteSwitcher from '@/components/shared/navigation/navbars/banner/site-switcher';
-import { NavbarSelector } from '@/components/shared/navigation/navbars/navbar-selector';
+import { UniversalNavbar } from '@/components/shared/navigation/navbars/universal-navbar';
 import themeData from '@/lib/theme-data';
 import type { Metadata, ResolvingMetadata } from 'next';
 type MetadataProps = {
@@ -149,8 +148,13 @@ export default async function RootLayout({
           <CartProvider cartPromise={cart}>
             {/*   */}
             <SiteSwitcher/>
-            <NavbarSelector theme={appSettings.siteTheme} pathname={pathname} />
-         
+            {/* <NavbarSelector theme={appSettings.siteTheme} pathname={pathname} /> */}
+            <NavbarConditional>
+                <UniversalNavbar 
+                  pathname={pathname} 
+                  theme={appSettings.siteTheme} 
+                />
+            </NavbarConditional>
                    { /*
                    <MetaplanetNavbarConditional>
                       <MetaplanetNavbar pathname={pathname} />

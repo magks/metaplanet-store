@@ -1,3 +1,4 @@
+// components/shared/navigation/navbars/navbar-selector.tsx
 import { Navbar as BtcMagNavBar } from "@/components/bmj/navigation/bmj-navbar";
 import { NavbarConditional as BtcMagNavbarConditional } from "@/components/bmj/navigation/bmj-navbar/navbar-conditional";
 import { Navbar as MetaplanetNavbar } from "@/components/metaplanet/navigation/metaplanet-navbar";

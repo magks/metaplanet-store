@@ -1,3 +1,4 @@
+// components/bmj/navigation/bmj-navbar/mobile-menu.tsx
 'use client';
 
 import { usePathname, useSearchParams } from 'next/navigation';

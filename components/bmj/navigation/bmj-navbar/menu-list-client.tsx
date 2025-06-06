@@ -1,4 +1,5 @@
-// app/components/MenuListClient.tsx
+// components/bmj/navigation/bmj-navbar/menu-list-client.tsx
+
 'use client';
 
 import { Link } from '@/i18n/navigation';

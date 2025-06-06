@@ -1,3 +1,5 @@
+// components/metaplanet/navigation/metaplanet-navbar/index.tsx
+
 import CartModal from '@/components/shared/cart/modal';
 import LogoSquare from '@/components/shared/logo-square';
 import { SettingsMenu } from '@/components/shared/navigation/menus/settings-menu';
