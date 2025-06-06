@@ -1,7 +1,6 @@
 // app/[locale]/layout.tsx
-
 import { CartProvider } from '@/components/shared/cart/cart-context';
-
+import { getFaviconConfig } from '@/lib/favicon-config';
 // todo: fix false "has no imported member Geist{Mono|Sans}" error message in linter
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
@@ -32,36 +31,53 @@ const { SITE_NAME } = process.env;
 import { NavbarConditional } from '@/components/shared/navigation/navbar-conditional';
 import SiteSwitcher from '@/components/shared/navigation/navbars/banner/site-switcher';
 import { UniversalNavbar } from '@/components/shared/navigation/navbars/universal-navbar';
-import themeData from '@/lib/theme-data';
 import type { Metadata, ResolvingMetadata } from 'next';
 type MetadataProps = {
   params: Promise<{ id: string }>
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
+
 export async function generateMetadata(
   { params, searchParams }: MetadataProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const faviconConfig = getFaviconConfig();
 
   return {
-  metadataBase: new URL(baseUrl),
-  title: {
-    default: SITE_NAME!,
-    template: `%s | ${SITE_NAME}`
-  },
-  robots: {
-    follow: true,
-    index: true
-  },
-  icons: {
-  icon: [
-    {
-      url: `/${themeData?.name}-favicon.ico`,
-      media: '(prefers-color-scheme: light)',
+    metadataBase: new URL(baseUrl),
+    title: {
+      default: SITE_NAME!,
+      template: `%s | ${SITE_NAME}`
     },
-  ],
-},
-};
+    robots: {
+      follow: true,
+      index: true
+    },
+    icons: {
+      icon: [
+        {
+          url: faviconConfig.favicon,
+          sizes: 'any',
+        },
+        {
+          url: faviconConfig.icon,
+          type: 'image/svg+xml',
+        },
+        {
+          url: faviconConfig.iconSizes.small,
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          url: faviconConfig.iconSizes.large,
+          sizes: '512x512', 
+          type: 'image/png',
+        },
+      ],
+      apple: faviconConfig.appleTouchIcon,
+    },
+    manifest: faviconConfig.manifest,
+  };
 }
 
 /*

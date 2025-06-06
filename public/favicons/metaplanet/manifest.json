@@ -1,0 +1,21 @@
+{
+  "name": "Metaplanet Store",
+  "short_name": "Store",
+  "icons": [
+    {
+      "src": "/favicons/metaplanet/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicons/metaplanet/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#E0E0E0",
+  "background_color": "#E0E0E0",
+  "display": "standalone"
+}
