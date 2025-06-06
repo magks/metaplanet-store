@@ -1,0 +1,206 @@
+/* Metaplanet Theme Variables */
+@theme {
+  /* Metaplanet theme tokens - these become Tailwind utilities */
+  --color-metaplanet-primary: #F7F7F7;
+  --color-metaplanet-secondary: #F7F7F7;
+  --color-metaplanet-secondary-foreground: #000000;
+  --color-metaplanet-primary-dark: #212121;
+  --color-metaplanet-background: #E0E0E0;
+  --color-metaplanet-background-outer: #F7F7F7;
+  --color-metaplanet-background-dark: #212121;
+  --color-metaplanet-foreground: oklch(0 0 0);
+  --color-metaplanet-foreground-dark: #F7F7F7;
+  --color-metaplanet-navbar-text: oklch(0 0 0);
+  --radius-metaplanet: 0.6rem;
+}
+
+/* Metaplanet Theme Overrides */
+[data-theme="metaplanet"] {
+  /* Override base theme variables */
+  --color-background: var(--color-metaplanet-background);
+  --color-foreground: var(--color-metaplanet-foreground);
+  --color-primary: var(--color-metaplanet-primary);
+  --color-secondary: var(--color-metaplanet-secondary);
+  --color-secondary-foreground: oklch(0 0 0);
+  --radius: var(--radius-metaplanet);
+  --navbar-menulist-hover-bg: 0,0,0;
+  --navbar-menulist-foreground: var(--color-metaplanet-navbar-text);
+  --color-navbar-menulist-foreground: var(--navbar-menulist-foreground);
+}
+
+[data-theme="metaplanet"].dark {
+  --color-background: var(--color-metaplanet-background-dark);
+  --color-foreground: var(--color-metaplanet-foreground-dark);
+  --color-primary: var(--color-metaplanet-primary-dark);
+  --navbar-menulist-hover-bg: 255,255,255;
+  --navbar-menulist-foreground: var(--color-metaplanet-navbar-text);
+}
+
+/* Metaplanet-specific component styles */
+[data-theme="metaplanet"] .metaplanet-bento-box {
+  background-color: var(--color-metaplanet-background);
+  border: 1px solid color-mix(in srgb, var(--color-metaplanet-foreground) 10%, transparent);
+  border-radius: var(--radius-metaplanet);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+}
+
+[data-theme="metaplanet"] .metaplanet-bento-box:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="metaplanet"].dark .metaplanet-bento-box {
+  background-color: var(--color-metaplanet-background-dark);
+  border-color: color-mix(in srgb, var(--color-metaplanet-foreground-dark) 20%, transparent);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="metaplanet"].dark .metaplanet-bento-box:hover {
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Metaplanet navbar styles */
+[data-theme="metaplanet"] .metaplanet-navbar {
+  background-color: var(--color-metaplanet-background-outer);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-metaplanet-foreground) 15%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+[data-theme="metaplanet"] .metaplanet-navbar .nav-link {
+  color: var(--color-metaplanet-navbar-text);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+[data-theme="metaplanet"] .metaplanet-navbar .nav-link:hover {
+  background-color: rgba(var(--navbar-menulist-hover-bg), 0.08);
+  color: color-mix(in srgb, var(--color-metaplanet-navbar-text) 80%, var(--color-metaplanet-primary));
+}
+
+[data-theme="metaplanet"] .metaplanet-navbar .nav-link.active {
+  background-color: var(--color-metaplanet-background);
+  color: var(--color-metaplanet-navbar-text);
+  border-radius: calc(var(--radius-metaplanet) - 2px);
+}
+
+[data-theme="metaplanet"].dark .metaplanet-navbar {
+  background-color: color-mix(in srgb, var(--color-metaplanet-background-dark) 95%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--color-metaplanet-foreground-dark) 20%, transparent);
+}
+
+[data-theme="metaplanet"].dark .metaplanet-navbar .nav-link:hover {
+  background-color: rgba(var(--navbar-menulist-hover-bg), 0.08);
+  color: var(--color-metaplanet-foreground-dark);
+}
+
+/* Metaplanet button styles */
+[data-theme="metaplanet"] .btn-metaplanet-primary {
+  background-color: var(--color-metaplanet-foreground);
+  color: var(--color-metaplanet-background);
+  border-radius: var(--radius-metaplanet);
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+[data-theme="metaplanet"] .btn-metaplanet-primary:hover {
+  background-color: color-mix(in srgb, var(--color-metaplanet-foreground) 90%, transparent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="metaplanet"] .btn-metaplanet-secondary {
+  background-color: transparent;
+  color: var(--color-metaplanet-foreground);
+  border: 1px solid color-mix(in srgb, var(--color-metaplanet-foreground) 30%, transparent);
+  border-radius: var(--radius-metaplanet);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+[data-theme="metaplanet"] .btn-metaplanet-secondary:hover {
+  background-color: color-mix(in srgb, var(--color-metaplanet-foreground) 5%, transparent);
+  border-color: var(--color-metaplanet-foreground);
+}
+
+[data-theme="metaplanet"].dark .btn-metaplanet-primary {
+  background-color: var(--color-metaplanet-foreground-dark);
+  color: var(--color-metaplanet-background-dark);
+}
+
+[data-theme="metaplanet"].dark .btn-metaplanet-secondary {
+  color: var(--color-metaplanet-foreground-dark);
+  border-color: color-mix(in srgb, var(--color-metaplanet-foreground-dark) 30%, transparent);
+}
+
+[data-theme="metaplanet"].dark .btn-metaplanet-secondary:hover {
+  background-color: color-mix(in srgb, var(--color-metaplanet-foreground-dark) 10%, transparent);
+  border-color: var(--color-metaplanet-foreground-dark);
+}
+
+/* Metaplanet card styles */
+[data-theme="metaplanet"] .metaplanet-card {
+  background: linear-gradient(145deg, 
+    var(--color-metaplanet-background), 
+    color-mix(in srgb, var(--color-metaplanet-background) 95%, var(--color-metaplanet-primary))
+  );
+  border: 1px solid color-mix(in srgb, var(--color-metaplanet-foreground) 8%, transparent);
+  border-radius: var(--radius-metaplanet);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+[data-theme="metaplanet"] .metaplanet-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="metaplanet"].dark .metaplanet-card {
+  background: linear-gradient(145deg, 
+    var(--color-metaplanet-background-dark), 
+    color-mix(in srgb, var(--color-metaplanet-background-dark) 105%, white)
+  );
+  border-color: color-mix(in srgb, var(--color-metaplanet-foreground-dark) 15%, transparent);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="metaplanet"].dark .metaplanet-card:hover {
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Metaplanet typography */
+[data-theme="metaplanet"] .metaplanet-heading {
+  color: var(--color-metaplanet-foreground);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+[data-theme="metaplanet"] .metaplanet-subtitle {
+  color: color-mix(in srgb, var(--color-metaplanet-foreground) 70%, transparent);
+  font-weight: 400;
+}
+
+[data-theme="metaplanet"].dark .metaplanet-heading {
+  color: var(--color-metaplanet-foreground-dark);
+}
+
+[data-theme="metaplanet"].dark .metaplanet-subtitle {
+  color: color-mix(in srgb, var(--color-metaplanet-foreground-dark) 70%, transparent);
+}
