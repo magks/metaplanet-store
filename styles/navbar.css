@@ -50,11 +50,22 @@
   @variant metaplanet {
     /* Metaplanet: Transparent background (especially on homepage) */
     background-color: transparent;
+    font-family: var(--font-space-grotesk);
+  }
+}
+
+.metaplanet-m-logo {
+  @variant metaplanet {
+    fill: black;
+    @variant homepage {
+      fill: white
+    }
   }
 }
 
 /* Custom Utility: text-navbar */
 .text-navbar {
+  font-family: var(--font-headline);
   @variant bmj {
     color: white;
     
@@ -65,6 +76,7 @@
   
   @variant metaplanet {
     color: black;
+    
     
     @variant homepage {
       color: white;
@@ -112,15 +124,17 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 2px;
-      background-color: var(--color-metaplanet-secondary-dark); /* Use metaplanet secondary dark */
-      transform: scaleX(0);
+      height: 0px;
+      background-color:  red;/*var(--color-metaplanet-secondary-dark); /* Use metaplanet secondary dark */
+      transform: scaleX(1.1);
       transition: transform 0.2s ease;
+      
     }
     
     @variant hover {
       &::after {
         transform: scaleX(1);
+        border-radius: calc(infinity * 1px);
       }
     }
   }
@@ -157,7 +171,17 @@
   
   @variant metaplanet {
     /* Metaplanet: NO underline, uses bottom indicator instead */
-    text-underline-offset: 4px;
+    text-underline-offset: 0px;
+    @variant hover {
+        @apply rounded-full;
+        background-color: rgba(var(--navbar-menulist-hover-bg, 0,0,0), 0.1);
+    }
+    @variant homepage {
+     @variant hover {
+        @apply rounded-full;
+        background-color: rgba(var(--navbar-menulist-hover-bg, 0,0,0), 0.45);
+      }
+    }
     
     /* Remove the underline hover */
     /* @variant hover {

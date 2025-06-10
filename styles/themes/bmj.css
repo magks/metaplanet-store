@@ -13,8 +13,16 @@
   --radius-bmj: 0.6rem;
 }
 
+
+
+
 /* BMJ Theme Overrides */
 [data-theme="bmj"] {
+  --font-headline: var(--font-inter), sans-serif;
+  --font-subheading: var(--font-space-grotesk);
+  --font-body: var(--font-ibm-plex-mono), monospace;  
+  /*--font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);*/
   /* Override base theme variables */
   --color-background: var(--color-bmj-background);
   --color-foreground: var(--color-bmj-foreground);
@@ -52,7 +60,7 @@
 
 [data-theme="bmj"] .bmj-navbar .nav-link {
   color: var(--navbar-menulist-foreground);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 [data-theme="bmj"] .bmj-navbar .nav-link:hover {

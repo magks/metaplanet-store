@@ -8,9 +8,31 @@
 @import './themes/metaplanet.css';
 /* @import './themes/brand1.css'; */
 
+
 /* Import component files */
 @import './navbar.css';
+
+
+@layer base {
+  html {
+    color-scheme: light; /* Force light theme for native elements */
+  }
+}
 @import './cart.css';
+
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-roboto-mono);
+}
+
+
+
+@theme inline {
+  --font-headline: var(--font-space-grotesk), sans-serif;
+  --font-subheading: var(--font-space-grotesk);
+  --font-body: var(--font-ibm-plex-mono), monospace;
+}
 
 
 @theme {
@@ -18,9 +40,6 @@
   --container-padding: 2rem;
   --container-max-width-2xl: 1400px;
 
-  /* Font Families */
-  --font-family-sans: var(--font-geist-sans);
-  --font-family-mono: var(--font-geist-mono);
 
   /* Border Radius */
   --radius: 0.625rem;
@@ -226,18 +245,16 @@
   }
 }
 
-/* Base styles */
+/* Base styles 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+}*/
 
-@supports (font: -apple-system-body) and (-webkit-appearance: none) {
-  img[loading='lazy'] {
-    clip-path: inset(0.6px);
-  }
-}
+/*@supports (font: -apple-system-body) and (-webkit-appearance: none) {*/
+
+
 
 body {
   background-color: var(--color-background);
@@ -276,6 +293,7 @@ body {
   /* Navbar utilities - Now handled by theme-specific CSS variants */
   .text-navbar {
     color: var(--navbar-menulist-foreground);
+    /*font-family: var(--font-headline);works*/
   }
   
   /* Basic bottom indicator fallback - themes override this */
@@ -357,5 +375,21 @@ body {
     box-shadow: 
       inset var(--shadow-offset) var(--shadow-thin-blur) var(--shadow-blur) var(--shadow-color),
       inset calc(-1 * var(--shadow-offset)) calc(-1 * var(--shadow-thin-blur)) var(--shadow-thin-blur) var(--shadow-color);
+  }
+}
+
+@layer base {
+  h1, h2 {
+    @apply font-headline;
+  }
+
+  h3, h4 {
+    @apply font-subheading;
+  }
+  body {
+    @apply font-body;
+  }
+  code, pre {
+    @apply font-mono;
   }
 }

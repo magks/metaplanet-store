@@ -202,9 +202,9 @@
 }
 */
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
 }
 
@@ -258,9 +258,7 @@ body {
   --container-padding: 2rem;
   --container-max-width-2xl: 1400px;
 
-  /* Font Families */
-  --font-family-sans: var(--font-geist-sans);
-  --font-family-mono: var(--font-geist-mono);
+  /* Font Families  --font-family-sans: var(--font-geist-sans); --font-family-mono: var(--font-geist-mono); */
 
   /* Border Radius (merged with existing --radius definitions) */
   --radius-lg: var(--radius);

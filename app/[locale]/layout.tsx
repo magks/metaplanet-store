@@ -2,8 +2,8 @@
 import { CartProvider } from '@/components/shared/cart/cart-context';
 import { getFaviconConfig } from '@/lib/favicon-config';
 // todo: fix false "has no imported member Geist{Mono|Sans}" error message in linter
-import { GeistMono } from 'geist/font/mono';
-import { GeistSans } from 'geist/font/sans';
+//import { GeistMono } from 'geist/font/mono';
+//import { GeistSans } from 'geist/font/sans';
 
 import { getCart } from 'lib/shopify';
 import { baseUrl } from 'lib/utils';
@@ -12,7 +12,11 @@ import { ReactNode } from 'react';
 import '@/styles/globals.css';
 import { ThemeProvider } from 'next-themes';
 
+import { inter, orbitron, roboto_mono, spaceGrotesk } from 'styles/fonts';
+
+
 /*
+
 const geist = Geist({
   subsets: ['latin'],
 })*/
@@ -139,7 +143,7 @@ export default async function RootLayout({
 
 
   return (
-    <html lang={locale}  className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+    <html lang={locale}  className={`${inter.variable} ${roboto_mono.variable} ${orbitron.variable} ${spaceGrotesk.variable} antialiased`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

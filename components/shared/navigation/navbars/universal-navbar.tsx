@@ -69,7 +69,7 @@ function MetaplanetLayout({ logoComponent, searchComponent, menuComponent, cartC
           <Link
             href="/"
             prefetch={true}
-            className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
+            className="nav-link mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
           >
             {logoComponent}
           </Link>

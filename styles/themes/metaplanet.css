@@ -26,6 +26,8 @@
 
 /* Metaplanet Theme Overrides */
 [data-theme="metaplanet"] {
+   --font-headline: var(--font-orbitron), sans-serif;
+   --font-subheading: var(--font-space-grotesk);
   /* Override base theme variables */
   --color-background: var(--color-metaplanet-background);
   --color-foreground: var(--color-metaplanet-foreground);
@@ -87,39 +89,6 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* Metaplanet navbar styles */
-[data-theme="metaplanet"] .metaplanet-navbar {
-  background-color: var(--color-metaplanet-background-outer);
-  border-bottom: 1px solid color-mix(in srgb, var(--color-metaplanet-foreground) 15%, transparent);
-  backdrop-filter: blur(8px);
-}
-
-[data-theme="metaplanet"] .metaplanet-navbar .nav-link {
-  color: var(--color-metaplanet-navbar-text);
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-[data-theme="metaplanet"] .metaplanet-navbar .nav-link:hover {
-  background-color: rgba(var(--navbar-menulist-hover-bg), 0.08);
-  color: color-mix(in srgb, var(--color-metaplanet-navbar-text) 80%, var(--color-metaplanet-primary));
-}
-
-[data-theme="metaplanet"] .metaplanet-navbar .nav-link.active {
-  background-color: var(--color-metaplanet-background);
-  color: var(--color-metaplanet-navbar-text);
-  border-radius: calc(var(--radius-metaplanet) - 2px);
-}
-
-[data-theme="metaplanet"].dark .metaplanet-navbar {
-  background-color: color-mix(in srgb, var(--color-metaplanet-background-dark) 95%, transparent);
-  border-bottom-color: color-mix(in srgb, var(--color-metaplanet-foreground-dark) 20%, transparent);
-}
-
-[data-theme="metaplanet"].dark .metaplanet-navbar .nav-link:hover {
-  background-color: rgba(var(--navbar-menulist-hover-bg), 0.08);
-  color: var(--color-metaplanet-foreground-dark);
-}
 
 /* Metaplanet button styles */
 [data-theme="metaplanet"] .btn-metaplanet-primary {
