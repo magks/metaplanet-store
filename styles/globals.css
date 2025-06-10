@@ -2,7 +2,11 @@
 @import 'tailwind-scrollbar-hide/v4';
 /* Custom dark mode variant */
 @custom-variant dark (&:is(.dark *));
-
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-roboto-mono);
+  --font-metaplanet-mono: var(--font-ibm-plex-mono);
+}
 /* Import theme files */
 @import './themes/bmj.css';
 @import './themes/metaplanet.css';
@@ -11,6 +15,7 @@
 
 /* Import component files */
 @import './navbar.css';
+@import './search-layout.css';
 
 
 @layer base {
@@ -21,10 +26,7 @@
 @import './cart.css';
 
 
-@theme inline {
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-roboto-mono);
-}
+
 
 
 

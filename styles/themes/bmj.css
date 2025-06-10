@@ -20,7 +20,8 @@
 [data-theme="bmj"] {
   --font-headline: var(--font-inter), sans-serif;
   --font-subheading: var(--font-space-grotesk);
-  --font-body: var(--font-ibm-plex-mono), monospace;  
+  --font-body: var(--font-roboto-mono), monospace;  
+  --font-mono: var(--font-roboto-mono), monospace;  
   /*--font-sans: var(--font-geist);
   --font-mono: var(--font-geist-mono);*/
   /* Override base theme variables */

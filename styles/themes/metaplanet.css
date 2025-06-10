@@ -24,10 +24,17 @@
   --radius-metaplanet: 0.6rem;
 }
 
+@theme inline {
+  --font-metaplanet-mono: var(--font-ibm-plex-mono);
+}
+
+
 /* Metaplanet Theme Overrides */
 [data-theme="metaplanet"] {
-   --font-headline: var(--font-orbitron), sans-serif;
-   --font-subheading: var(--font-space-grotesk);
+  --font-headline: var(--font-orbitron), sans-serif;
+  --font-subheading: var(--font-space-grotesk);
+  --font-body: var(--font-ibm-plex-mono), monospace;  
+  --font-mono: var(--font-ibm-plex-mono), monospace; 
   /* Override base theme variables */
   --color-background: var(--color-metaplanet-background);
   --color-foreground: var(--color-metaplanet-foreground);

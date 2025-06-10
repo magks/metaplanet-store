@@ -45,6 +45,7 @@
   @variant bmj {
     /* BMJ: Has shadow and solid background */
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+    font-family: var(--font-roboto-mono);
   }
   
   @variant metaplanet {
@@ -173,15 +174,13 @@
     /* Metaplanet: NO underline, uses bottom indicator instead */
     text-underline-offset: 0px;
     @variant hover {
-        @apply rounded-full;
-        background-color: rgba(var(--navbar-menulist-hover-bg, 0,0,0), 0.1);
+        @apply rounded-sm;
+        background-color: rgba(var(--navbar-menulist-hover-bg, 0,0,0), 0.1);   
+        @variant homepage {
+          background-color: rgba(var(--navbar-menulist-hover-bg, 0,0,0), 0.45);
+        }
     }
-    @variant homepage {
-     @variant hover {
-        @apply rounded-full;
-        background-color: rgba(var(--navbar-menulist-hover-bg, 0,0,0), 0.45);
-      }
-    }
+
     
     /* Remove the underline hover */
     /* @variant hover {
