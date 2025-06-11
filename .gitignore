@@ -40,11 +40,9 @@ yarn-error.log*
 next-env.d.ts
 .env*.local
 
-# vscode
-.vscode
-.vscode/*
-./.vscode
-.vscode/settings.json
+# vscode temporarily stop ignoring to remove from remote
+#.vscode
+#.vscode/*
 
 # ignored themes
 styles/brands/**/dark
