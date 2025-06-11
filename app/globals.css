@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @import 'tailwind-scrollbar-hide/v4';
 /* Custom dark mode variant */
-@custom-variant dark (&:is(.dark *));
+@custom-variant ignoredark (&:is(.ignoreme *));
 
 /* Optional: Enable plugins if needed */
 /* @plugin '@tailwindcss/container-queries'; */
@@ -61,7 +61,7 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
 
-.dark {
+.ignoredark {
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
@@ -159,26 +159,26 @@
   --radius: 0.6rem;
 }
 
-.dark {
+.ignoredark {
   --background: oklch(0.2 0.05 260);
   --foreground: oklch(0.95 0 0);
   --primary: oklch(0.7 0.2 270);
   --primary-foreground: oklch(0.2 0 0);
 }
 
-[data-theme="brand1"].dark {
+[data-theme="brand1"].ignoredark {
   --background: oklch(0.25 0.1 210);
   --foreground: oklch(0.95 0 0);
   --primary: oklch(0.75 0.25 260);
 }
 
-[data-theme="brand2"].dark {
+[data-theme="brand2"].ignoredark {
   --background: oklch(0.3 0.1 50);
   --foreground: oklch(0.95 0 0);
   --primary: oklch(0.8 0.3 50);
 }
 
-[data-theme="brand3"].dark {
+[data-theme="brand3"].ignoredark {
   --background: oklch(0.28 0.08 130);
   --foreground: oklch(0.95 0 0);
   --primary: oklch(0.72 0.22 140);
@@ -202,6 +202,9 @@
 }
 */
 
+  html {
+    color-scheme: light;
+  }
 @media (prefers-color-scheme: light) {
   html {
     color-scheme: light;
@@ -217,7 +220,7 @@
 a,
 input,
 button {
-  @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+  @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 ignoredark:focus-visible:ring-neutral-600 ignoredark:focus-visible:ring-offset-neutral-900;
 }
 
 body {

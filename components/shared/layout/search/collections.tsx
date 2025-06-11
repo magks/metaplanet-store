@@ -12,8 +12,8 @@ async function CollectionList({collectionsTitle = "Collections"}: {collectionsTi
 }
 
 const skeleton = 'mb-3 h-4 w-5/6 animate-pulse rounded-sm';
-const activeAndTitles = 'bg-neutral-800 dark:bg-neutral-300';
-const items = 'bg-neutral-400 dark:bg-neutral-700';
+const activeAndTitles = 'bg-neutral-800 ignoredark:bg-neutral-300';
+const items = 'bg-neutral-400 ignoredark:bg-neutral-700';
 
 export default function Collections() {
   const t = useTranslations('collections');

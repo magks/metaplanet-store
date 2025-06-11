@@ -1,0 +1,28 @@
+/* Metaplanet theme overrides */
+@layer base {
+  [data-theme="metaplanet"] {
+    /* Light mode colors - Override the base variables directly */
+    --background: #E0E0E0;
+    --foreground: #000000;
+    --primary: #F7F7F7;
+    --primary-foreground: oklch(1 0 0);
+    
+    /* Also set brand-prefixed versions for reference */
+    --brand-background: #E0E0E0;
+    --brand-foreground: #000000;
+    --brand-primary: #F7F7F7;
+    --brand-primary-foreground: oklch(1 0 0);
+    
+    /* Brand-specific tokens */
+    --color-metaplanet-secondary-dark: #1a1a1a;
+    --color-metaplanet-cart-badge-light: #ffffff;
+    --color-metaplanet-cart-badge-light-fg: #212121;
+    --color-metaplanet-cart-badge-dark: #212121;
+    --color-metaplanet-cart-badge-dark-fg: #ffffff;
+    --navbar-menulist-hover-bg: 0,0,0;
+    
+    /* Font stacks */
+    --font-space-grotesk: "Space Grotesk", sans-serif;
+    --font-headline: var(--font-space-grotesk);
+  }
+}

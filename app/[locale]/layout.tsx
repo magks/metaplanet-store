@@ -9,10 +9,22 @@ import { getCart } from 'lib/shopify';
 import { baseUrl } from 'lib/utils';
 import { ReactNode } from 'react';
 
+// In your root layout or app entry
 import '@/styles/globals.css';
 import { ThemeProvider } from 'next-themes';
-
 import { inter, orbitron, roboto_mono, spaceGrotesk } from 'styles/fonts';
+
+
+
+// Conditionally import brand styles based on env var
+if (process.env.NEXT_PUBLIC_BRAND_ID === 'metaplanet') {
+  require('@/styles/brands/metaplanet/index.css');
+  console.log(`importing brand styles for metaplanet`);
+} else if (process.env.NEXT_PUBLIC_BRAND_ID === 'bmj') {
+  require('@/styles/brands/bmj/index.css');
+  console.log(`importing brand styles for bmj`);
+}
+console.log(`done conditionally setting styling `);
 
 
 /*
@@ -156,13 +168,14 @@ export default async function RootLayout({
           }}
         />
       </head>
-      {/*<body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">*/}
+      {/*<body className="bg-neutral-50 text-black selection:bg-teal-300 ignoredark:bg-neutral-900 ignoredark:text-white ignoredark:selection:bg-pink-500 ignoredark:selection:text-white">*/}
         <body suppressHydrationWarning>
         <ThemeProvider 
          attribute="data-theme"
           defaultTheme={appSettings.siteTheme}
           enableSystem={false}
           disableTransitionOnChange
+          forcedTheme={appSettings.siteTheme}
         >
           <NextIntlClientProvider>
           <CartProvider cartPromise={cart}>

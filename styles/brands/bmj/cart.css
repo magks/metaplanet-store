@@ -1,0 +1,115 @@
+/* BMJ-specific cart variants */
+@custom-variant bmj (&:where([data-theme="bmj"], [data-theme="bmj"] *));
+
+/* Cart Modal Overlay */
+.cart-modal-overlay {
+  @variant bmj {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Cart Modal Panel */
+.cart-modal-panel {
+  @variant bmj {
+    background-color: rgba(33, 33, 33, 0.95);
+    color: white;
+    border-color: rgba(33, 33, 33, 0.95);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Cart Modal Text */
+.cart-modal-text {
+  @variant bmj {
+    color: white;
+  }
+}
+
+/* Cart Modal Secondary Text */
+.cart-modal-text-secondary {
+  @variant bmj {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* Cart Modal Borders */
+.cart-modal-border {
+  @variant bmj {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Cart Item Borders */
+.cart-item-border {
+  @variant bmj {
+    border-color: rgba(255, 255, 255, 0.2);
+
+  }
+}
+
+/* Cart Empty Icon */
+.cart-empty-icon {
+  @variant bmj {
+    color: rgba(255, 255, 255, 0.5);
+
+  }
+}
+
+/* Cart Price Text */
+.cart-price-text {
+  @variant bmj {
+    color: white;
+
+  }
+}
+
+/* Cart Product Image Container */
+.cart-product-image-container {
+  @variant bmj {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Cart Action Buttons (Edit Quantity) */
+.cart-action-button {
+  @variant bmj {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    
+    @variant hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+  }
+}
+
+/* Cart Delete Button */
+.cart-delete-button {
+  @variant bmj {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: var(--color-bmj-navbar-black);
+    
+    @variant hover {
+      background-color: #ef4444;
+      color: white;
+    }
+
+  }
+}
+
+/* Cart Modal Button (Checkout) */
+.cart-modal-button {
+  @variant bmj {
+    background-color: var(--color-bmj-secondary);
+    color: black;
+    
+    @variant hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+  }
+}

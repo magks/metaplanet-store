@@ -1,0 +1,25 @@
+/* BMJ theme overrides */
+@layer base {
+  [data-theme="bmj"] {
+    /* Light mode colors - Override the base variables directly */
+    --background: #FFFCF7;
+    --foreground: #000000;
+    --primary: oklch(1 0 0);
+    --primary-foreground: oklch(1 0 0);
+    
+    /* Also set brand-prefixed versions */
+    --brand-background: #FFFCF7;
+    --brand-foreground: #000000;
+    --brand-primary: oklch(1 0 0);
+    --brand-primary-foreground: oklch(1 0 0);
+    
+    /* Brand-specific tokens */
+    --color-bmj-navbar-black: #212121;
+    --color-bmj-secondary: #FDB813;
+    --navbar-menulist-hover-bg: 255,255,255;
+    
+    /* Font stacks */
+    --font-roboto-mono: "Roboto Mono", monospace;
+    --font-headline: var(--font-roboto-mono);
+  }
+}

@@ -20,7 +20,7 @@ export default function SearchLayout({
     <>
       <div className={clsx(`${ibmPlexMono.variable}`,
         "search-layout-container",
-        "mx-auto flex max-w-(--breakpoint-2xl) flex-col gap-8 px-4 pt-2 pb-4 text-black md:flex-row dark:text-white",
+        "mx-auto flex max-w-(--breakpoint-2xl) flex-col gap-8 px-4 pt-2 pb-4 text-black md:flex-row ignoredark:text-white",
       "antialiased"
       )}>
         <div className="order-first w-full flex-none md:max-w-[125px]">

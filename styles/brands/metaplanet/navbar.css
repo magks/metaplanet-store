@@ -1,0 +1,170 @@
+/* Metaplanet-specific navbar variants */
+@custom-variant metaplanet (&:where([data-theme="metaplanet"], [data-theme="metaplanet"] *));
+@custom-variant homepage (&:where([data-page="homepage"], [data-page="homepage"] *));
+
+/*@custom-variant md (&:where(@media (min-width: 768px)));*/
+
+/* Navbar Container Positioning & Background */
+.navbar-container {
+  @variant metaplanet {
+    /* Metaplanet: Default relative with light background */
+    position: relative;
+    background-color: rgb(var(--color-background));
+    
+    @variant homepage {
+      /* Metaplanet Homepage: Absolute floating navbar */
+      position: absolute;
+      top: 2rem; /* top-8 */
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background-color: transparent;
+    }
+  }
+}
+
+/* Navbar Element Styling */
+.navbar-nav {
+  @variant metaplanet {
+    /* Metaplanet: Transparent background (especially on homepage) */
+    background-color: transparent;
+    font-family: var(--font-space-grotesk);
+  }
+}
+
+.metaplanet-m-logo {
+  @variant metaplanet {
+    fill: black;
+    @variant homepage {
+      fill: white;
+    }
+  }
+}
+
+/* Custom Utility: text-navbar */
+.text-navbar {
+  @variant metaplanet {
+    color: black;
+    
+    @variant homepage {
+      color: white;
+    }
+  }
+}
+
+/* Custom Utility: navbar-bottom-indicator */
+.navbar-bottom-indicator {
+  @variant metaplanet {
+    /* Metaplanet now DOES use bottom indicator with secondary-dark color */
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0px;
+      background-color: red; /*var(--color-metaplanet-secondary-dark); /* Use metaplanet secondary dark */
+      transform: scaleX(1.1);
+      transition: transform 0.2s ease;
+    }
+    
+    @variant hover {
+      &::after {
+        transform: scaleX(1);
+        border-radius: calc(infinity * 1px);
+      }
+    }
+  }
+}
+
+/* Navigation Menu Links - Theme-specific hover behaviors */
+.nav-link {
+  @variant metaplanet {
+    /* Metaplanet: NO underline, uses bottom indicator instead */
+    text-underline-offset: 0px;
+    @variant hover {
+      @apply rounded-sm;
+      background-color: rgba(var(--navbar-menulist-hover-bg, 0,0,0), 0.1);   
+      @variant homepage {
+        background-color: rgba(var(--navbar-menulist-hover-bg, 0,0,0), 0.25);
+      }
+    }
+  }
+}
+
+/* Cart Icon Styling */
+.cart-icon {
+  @variant metaplanet {
+    /* Metaplanet: Default black, white on homepage */
+    color: black;
+    
+    @variant homepage {
+      color: white;
+    }
+  }
+}
+
+/* Cart Badge Styling - Fixed for both themes */
+.cart-badge {
+  @variant metaplanet {
+    /* Metaplanet: Default (non-homepage) - dark bg with light text */
+    background-color: var(--color-metaplanet-cart-badge-dark);
+    color: var(--color-metaplanet-cart-badge-dark-fg);
+    
+    @variant homepage {
+      /* Homepage: Light badge on mobile, dark on desktop */
+      background-color: var(--color-metaplanet-cart-badge-light);
+      color: var(--color-metaplanet-cart-badge-light-fg);
+      
+      @variant md {
+        /* Desktop: Switch to dark badge */
+        background-color: var(--color-metaplanet-cart-badge-dark);
+        color: var(--color-metaplanet-cart-badge-dark-fg);
+      }
+    }
+  }
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+  @variant metaplanet {
+    color: black;
+    
+    @variant homepage {
+      color: white;
+    }
+  }
+}
+
+/* Logo Styling */
+.navbar-logo {
+  @variant metaplanet {
+    /* Metaplanet logo - default styling */
+    filter: none;
+    
+  }
+}
+
+/* Search Input Styling */
+.search-input {
+  @variant metaplanet {
+    background-color: white;
+    color: black;
+    border-color: rgb(229 229 229);
+    
+    &::placeholder {
+      color: rgb(115 115 115);
+    }
+  }
+}
+
+
+/* Main content spacing for absolute navbars */
+.main-content {
+  @variant metaplanet {
+    @variant homepage {
+      /* Add top margin when navbar is absolute */
+      margin-top: 6rem; /* Adjust based on your navbar height + top offset */
+    }
+  }
+}

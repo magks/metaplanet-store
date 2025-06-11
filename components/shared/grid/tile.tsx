@@ -23,11 +23,11 @@ export function GridTileImage({
   return (
     <div
       className={clsx(
-        'group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-primary hover:border-orange-300 dark:bg-white',
+        'group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-primary hover:border-orange-300 ignoredark:bg-white',
         {
           relative: label,
           'border-2 border-orange-300': active,
-          'border-neutral-200 dark:border-neutral-800': !active
+          'border-neutral-200 ignoredark:border-neutral-800': !active
         }
       )}
     >

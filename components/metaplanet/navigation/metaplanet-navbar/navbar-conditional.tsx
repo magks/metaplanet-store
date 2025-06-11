@@ -18,7 +18,7 @@ function getNavbarPageClsx(): string {
     navbarPageClsxStr = 'absolute top-8 left-0 right-0 z-30';
   }
   else {
-      navbarPageClsxStr =  'relative bg-background dark:bg-black';
+      navbarPageClsxStr =  'relative bg-background ignoredark:bg-black';
   } 
   return navbarPageClsxStr;
 }

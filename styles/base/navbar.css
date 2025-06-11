@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+
+/* Define all the class names with their base structure */
+.navbar-container {
+  /* Base positioning that all brands share */
+  position: relative;
+}
+
+.navbar-nav {
+  /* Base nav structure */
+}
+
+.metaplanet-m-logo {
+  /* Base logo structure */
+}
+
+.text-navbar {
+  font-family: var(--font-headline);
+}
+
+.navbar-bottom-indicator {
+  position: relative;
+}
+
+.nav-link {
+  transition: all 0.2s ease;
+}
+
+.cart-icon {
+  /* Base cart icon */
+}
+
+.cart-badge {
+  /* Base badge structure */
+}
+
+.mobile-menu-button {
+  /* Base mobile menu */
+}
+
+.navbar-logo {
+  /* Base logo */
+}
+
+.search-input {
+  /* Base search input */
+}
+
+.search-icon {
+  /* Base search icon */
+}

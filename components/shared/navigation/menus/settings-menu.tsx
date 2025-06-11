@@ -77,7 +77,7 @@ export function SettingsMenu() {
   const theme = themeData?.name as Theme;
 
   const ICON = (
-    <Button className="h-4 transition-all ease-in-out hover:scale-110" variant="link" size="sm">
+    <Button  variant="ghostier" className="h-4 transition-all ease-in-out hover:scale-110" size="sm">
       <Settings
         size={ICON_SIZE}
         className={twMerge(selectSettingsMenuColor( {theme, pathname} )

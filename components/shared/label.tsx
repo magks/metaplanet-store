@@ -18,7 +18,7 @@ const Label = ({
         'lg:px-20 lg:pb-[35%]': position === 'center'
       })}
     >
-      <div className="flex items-center rounded-full  bg-black/70 p-1 text-xs font-semibold text-white  dark:border-neutral-800 dark:bg-black/70 dark:text-white">
+      <div className="flex items-center rounded-full  bg-black/70 p-1 text-xs font-semibold text-white  ignoredark:border-neutral-800 ignoredark:bg-black/70 ignoredark:text-white">
         <h3 className="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">{title}</h3>
         <Price
           className="flex-none rounded-full bg-white p-2 text-black text-shadow"

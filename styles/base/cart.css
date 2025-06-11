@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+/* Base cart utilities without brand variants */
+.cart-modal-overlay {
+  /* Base overlay structure */
+}
+
+.cart-modal-panel {
+  /* Base panel structure */
+}
+
+.cart-modal-text {
+  /* Base text */
+}
+
+.cart-modal-text-secondary {
+  /* Base secondary text */
+}
+
+.cart-modal-border {
+  /* Base border */
+}
+
+.cart-item-border {
+  /* Base item border */
+}
+
+.cart-empty-icon {
+  /* Base empty icon */
+}
+
+.cart-price-text {
+  /* Base price text */
+}
+
+.cart-product-image-container {
+  /* Base image container */
+}
+
+.cart-action-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.cart-delete-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.cart-modal-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  
+  /* Gradient shwoop effect base */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease-in-out;
+    z-index: 1;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+  
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+}

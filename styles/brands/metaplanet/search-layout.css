@@ -1,0 +1,40 @@
+/* Metaplanet-specific search layout variants */
+@custom-variant metaplanet (&:where([data-theme="metaplanet"], [data-theme="metaplanet"] *));
+
+.search-layout-container {
+  @variant metaplanet {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+.search-filter-panel {
+  @variant metaplanet {
+    background-color: rgba(var(--color-background), 0.95);
+    border-color: var(--border);
+  }
+}
+
+.search-input {
+  @variant metaplanet {
+    background-color: white;
+    color: black;
+    border-color: rgb(229 229 229);
+    
+    &::placeholder {
+      color: rgb(115 115 115);
+    }
+  }
+}
+
+.search-icon {
+  @variant metaplanet {
+    color: black;
+  }
+}
+
+.search-loading {
+  @variant metaplanet {
+    color: var(--muted-foreground);
+  }
+}

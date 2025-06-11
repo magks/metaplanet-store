@@ -1,0 +1,122 @@
+/* BMJ-specific navbar variants */
+@custom-variant bmj (&:where([data-theme="bmj"], [data-theme="bmj"] *));
+
+/* Navbar Container Positioning & Background */
+.navbar-container {
+  @variant bmj {
+    /* BMJ: Always relative with bmj-navbar-black background */
+    position: relative;
+    background-color: var(--color-bmj-navbar-black);
+  }
+}
+
+/* Navbar Element Styling */
+.navbar-nav {
+  @variant bmj {
+    /* BMJ: Has shadow and solid background */
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+    font-family: var(--font-roboto-mono);
+  }
+}
+
+/* Custom Utility: text-navbar */
+.text-navbar {
+  @variant bmj {
+    color: white;
+  }
+}
+
+/* Custom Utility: navbar-bottom-indicator */
+.navbar-bottom-indicator {
+  @variant bmj {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-bmj-secondary); /* Use BMJ secondary */
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+    
+    @variant hover {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+/* Custom Utility: hover:bg-theme-hover */
+.hover\:bg-theme-hover {
+  @variant bmj {
+    @variant hover {
+      background-color: rgba(var(--navbar-menulist-hover-bg, 255,255,255), 0.1);
+    }
+  }
+}
+
+/* Navigation Menu Links - Theme-specific hover behaviors */
+.nav-link {
+  @variant bmj {
+    /* BMJ: Uses scale + background hover + bottom indicator */
+    @variant hover {
+      transform: scale(1.05);
+      /* bg-theme-hover and bottom indicator handled by separate utilities */
+    }
+  }
+}
+
+/* Cart Icon Styling */
+.cart-icon {
+  @variant bmj {
+    /* BMJ: Always white icon (visible on dark navbar) */
+    color: white;
+  }
+}
+
+/* Cart Badge Styling - Fixed for both themes */
+.cart-badge {
+  @variant bmj {
+    /* BMJ: Always use bmj-secondary background with white text */
+    background-color: var(--color-bmj-secondary);
+    color: white;
+  }
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+  @variant bmj {
+    color: white;
+  }
+}
+
+/* Logo Styling - FIXED: BMJ logo should NOT be inverted */
+.navbar-logo {
+  @variant bmj {
+    /* BMJ logo - DO NOT invert, show original colors (red on transparent) */
+    filter: none;
+  }
+}
+
+/* Search Input Styling */
+.search-input {
+  @variant bmj {
+    background-color: white;
+    color: black;
+    border-color: rgb(229 229 229); /* neutral-200 */
+    
+    &::placeholder {
+      color: rgb(115 115 115); /* neutral-500 */
+    }
+  }
+}
+
+/* Search Icon */
+.search-icon {
+  @variant bmj {
+    color: black;
+  }
+}

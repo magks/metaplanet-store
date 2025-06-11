@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+/* BMJ brand bundle */
+@import './theme.css';
+@import './navbar.css';
+@import './cart.css';
+@import './search-layout.css';
+/* Add other BMJ-specific styles */

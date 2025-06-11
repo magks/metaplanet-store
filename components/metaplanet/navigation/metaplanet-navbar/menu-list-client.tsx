@@ -28,7 +28,7 @@ export default function MenuListClient({ menu }: MenuListClientProps) {
                 prefetch={true}
                 className={cn(
                   useWhiteText ? 'text-white' : 'text-black',
-                  "underline-offset-4  hover:underline dark:hover:text-neutral-300"
+                  "underline-offset-4  hover:underline ignoredark:hover:text-neutral-300"
                 )}
               >
                 {translateOrDefault(t(item.title), item.title)}

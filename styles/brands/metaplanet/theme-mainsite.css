@@ -1,0 +1,162 @@
+/* Metaplanet theme overrides */
+@layer base {
+  [data-theme="metaplanet"] {
+    /* Light mode colors - Override the base variables directly */
+    --background: 0 0% 97%; /* #F7F7F7 neutral-050 */
+    --foreground: 0 0% 13%; /* #222222 neutral-900 */
+    --card: 0 0% 88%; /* #E1E1E1 neutral-100 */
+    --card-foreground: 0 0% 23%; /* #3B3B3B neutral-800 */
+    --popover: 0 0% 88%; /* #E1E1E1 neutral-100 */
+    --popover-foreground: 0 0% 23%; /* #3B3B3B neutral-800 */
+    --primary: 0 0% 49%; /* #7E7E7E neutral-500 */
+    --primary-foreground: 0 0% 97%; /* #F7F7F7 neutral-050 */
+    --secondary: 33 91% 54%; /* #F7931A Bitcoin orange */
+    --secondary-foreground: 0 0% 97%; /* #F7F7F7 neutral-050 */
+    --muted: 0 0% 69%; /* #B1B1B1 neutral-300 */
+    --muted-foreground: 0 0% 49%; /* #7E7E7E neutral-500 */
+    --accent: 0 0% 81%; /* #CFCFCF neutral-200 */
+    --accent-foreground: 0 0% 32%; /* #515151 neutral-700 */
+    --destructive: 0 84.2% 60.2%; /* #EA5555 error-500 approx */
+    --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+    --border: 0 0% 62%; /* #9E9E9E neutral-400 */
+    --input: 0 0% 81%; /* #CFCFCF neutral-200 */
+    --ring: 0 0% 49%; /* #7E7E7E neutral-500 */
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%; /* #E17C6D */
+    --chart-2: 173 58% 39%; /* #2C9B92 */
+    --chart-3: 197 37% 24%; /* #205B74 */
+    --chart-4: 43 74% 66%; /* #E8B970 */
+    --chart-5: 27 87% 67%; /* #F5A660 */
+
+    /* Primary Colors (now matching neutral) */
+    --primary-050: 0 0% 97%; /* #F7F7F7 */
+    --primary-100: 0 0% 88%; /* #E1E1E1 */
+    --primary-200: 0 0% 81%; /* #CFCFCF */
+    --primary-300: 0 0% 69%; /* #B1B1B1 */
+    --primary-400: 0 0% 62%; /* #9E9E9E */
+    --primary-500: 0 0% 49%; /* #7E7E7E */
+    --primary-600: 0 0% 38%; /* #626262 */
+    --primary-700: 0 0% 32%; /* #515151 */
+    --primary-800: 0 0% 23%; /* #3B3B3B */
+    --primary-900: 0 0% 13%; /* #222222 */
+
+    /* Neutral Colors */
+    --neutral-050: 0 0% 97%; /* #F7F7F7 */
+    --neutral-100: 0 0% 88%; /* #E1E1E1 */
+    --neutral-200: 0 0% 81%; /* #CFCFCF */
+    --neutral-300: 0 0% 69%; /* #B1B1B1 */
+    --neutral-400: 0 0% 62%; /* #9E9E9E */
+    --neutral-500: 0 0% 49%; /* #7E7E7E */
+    --neutral-600: 0 0% 38%; /* #626262 */
+    --neutral-700: 0 0% 32%; /* #515151 */
+    --neutral-800: 0 0% 23%; /* #3B3B3B */
+    --neutral-900: 0 0% 13%; /* #222222 */
+
+    /* Secondary Colors (Bitcoin orange) */
+    --secondary-050: 35 100% 95%; /* #FFF5E1 */
+    --secondary-100: 34 100% 86%; /* #FFE4C4 */
+    --secondary-200: 34 100% 83%; /* #FFD8A8ರಕ್ಷಕ: 33 91% 54%; */
+    --secondary-500: 33 91% 54%; /* #F7931A Bitcoin orange */
+    --secondary-foreground: 0 0% 97%; /* #F7F7F7 neutral-050 */
+    --muted: 0 0% 69%; /* #B1B1B1 neutral-300 */
+    --muted-foreground: 0 0% 49%; /* #7E7E7E neutral-500 */
+    --accent: 0 0% 81%; /* #CFCFCF neutral-200 */
+    --accent-foreground: 0 0% 32%; /* #515151 neutral-700 */
+    --destructive: 0 84.2% 60.2%; /* #EA5555 error-500 approx */
+    --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+    --border: 0 0% 62%; /* #9E9E9E neutral-400 */
+    --input: 0 0% 81%; /* #CFCFCF neutral-200 */
+    --ring: 0 0% 49%; /* #7E7E7E neutral-500 */
+    --chart-1: 12 76% 61%; /* #E17C6D */
+    --chart-2: 173 58% 39%; /* #2C9B92 */
+    --chart-3: 197 37% 24%; /* #205B74 */
+    --chart-4: 43 74% 66%; /* #E8B970 */
+    --chart-5: 27 87% 67%; /* #F5A660 */
+
+    /* Success Colors (Green) */
+    --success-050: 125 65% 93%; /* #E3F9E5 */
+    --success-100: 127 65% 85%; /* #C1F2C7 */
+    --success-200: 124 63% 74%; /* #91E697 */
+    --success-300: 123 53% 55%; /* #51CA58 */
+    --success-400: 123 57% 45%; /* #31B237 */
+    --success-500: 122 73% 35%; /* #18981D */
+    --success-600: 122 80% 29%; /* #0F8613 */
+    --success-700: 125 79% 26%; /* #0E7817 */
+    --success-800: 125 86% 20%; /* #07600E */
+    --success-900: 125 97% 14%; /* #014807 */
+
+    /* Error Colors (Red) */
+    --error-050: 360 100% 97%; /* #FFEEEE */
+    --error-100: 360 82% 89%; /* #FACDCD */
+    --error-200: 360 77% 78%; /* #F29B9B */
+    --error-300: 360 71% 66%; /* #E66A6A */
+    --error-400: 360 64% 55%; /* #D64545 */
+    --error-500: 360 67% 44%; /* #BA2525 */
+    --error-600: 360 72% 38%; /* #A61B1B */
+    --error-700: 360 79% 32%; /* #911111 */
+    --error-800: 360 85% 25%; /* #780A0A */
+    --error-900: 360 92% 20%; /* #610404 */
+
+    /* Warning Colors (Yellow) */
+    --warning-050: 49 100% 96%; /* #FFFBEA */
+    --warning-100: 48 100% 88%; /* #FFF3C4 */
+    --warning-200: 48 95% 76%; /* #FCE588 */
+    --warning-300: 48 94% 68%; /* #FADB5F */
+    --warning-400: 44 92% 63%; /* #F7C948 */
+    --warning-500: 42 87% 55%; /* #F0B429 */
+    --warning-600: 36 77% 49%; /* #DE911D */
+    --warning-700: 29 80% 44%; /* #CB6E17 */
+    --warning-800: 22 82% 39%; /* #B44D12 */
+    --warning-900: 15 86% 30%; /* #8D2B0B */
+
+    /* Logo fill default */
+    --logo-fill: var(--neutral-900); /* Default to neutral-900 (#222222) */
+    /* Also set brand-prefixed versions for reference */
+    --brand-background: #E0E0E0;
+    --brand-foreground: #000000;
+    --brand-primary: #F7F7F7;
+    --brand-primary-foreground: oklch(1 0 0);
+    
+    /* Brand-specific tokens */
+    --color-metaplanet-secondary-dark: #1a1a1a;
+    --color-metaplanet-cart-badge-light: #ffffff;
+    --color-metaplanet-cart-badge-light-fg: #212121;
+    --color-metaplanet-cart-badge-dark: #212121;
+    --color-metaplanet-cart-badge-dark-fg: #ffffff;
+    --navbar-menulist-hover-bg: 0,0,0;
+    
+    /* Font stacks */
+    --font-space-grotesk: "Space Grotesk", sans-serif;
+    --font-headline: var(--font-space-grotesk);
+  }
+
+  [data-theme="metaplanet"].ignoredark {
+    --background: 0 0% 13%; /* #222222 neutral-900 */
+    --foreground: 0 0% 97%; /* #F7F7F7 neutral-050 */
+    --card: 0 0% 23%; /* #3B3B3B neutral-800 */
+    --card-foreground: 0 0% 88%; /* #E1E1E1 neutral-100 */
+    --popover: 0 0% 23%; /* #3B3B3B neutral-800 */
+    --popover-foreground: 0 0% 88%; /* #E1E1E1 neutral-100 */
+    --primary: 0 0% 49%; /* #7E7E7E neutral-500 */
+    --primary-foreground: 0 0% 97%; /* #F7F7F7 neutral-050 */
+    --secondary: 33 91% 54%; /* #F7931A Bitcoin orange */
+    --secondary-foreground: 0 0% 97%; /* #F7F7F7 neutral-050 */
+    --muted: 0 0% 49%; /* #7E7E7E neutral-500 */
+    --muted-foreground: 0 0% 69%; /* #B1B1B1 neutral-300 */
+    --accent: 0 0% 38%; /* #626262 neutral-600 */
+    --accent-foreground: 0 0% 81%; /* #CFCFCF neutral-200 */
+    --destructive: 0 62.8% 30.6%; /* #911111 error-700 approx */
+    --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+    --border: 0 0% 49%; /* #7E7E7E neutral-500 */
+    --input: 0 0% 38%; /* #626262 neutral-600 */
+    --ring: 0 0% 49%; /* #7E7E7E neutral-500 */
+    --chart-1: 220 70% 50%; /* #6496DC */
+    --chart-2: 160 60% 45%; /* #2CA893 */
+    --chart-3: 30 80% 55%; /* #E8A749 */
+    --chart-4: 280 65% 60%; /* #B399E0 */
+    --chart-5: 340 75% 55%; /* #E06DA5 */
+    /* Logo fill in dark mode */
+    --logo-fill: var(--neutral-050); /* Default to neutral-050 (#F7F7F7) */
+    }
+  
+}

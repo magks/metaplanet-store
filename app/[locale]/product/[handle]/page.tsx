@@ -84,7 +84,7 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
         }}
       />
       <div className="mx-auto max-w-(--breakpoint-2xl) px-4">
-        <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 md:p-12 lg:flex-row lg:gap-8 dark:border-neutral-800 dark:bg-black">
+        <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 md:p-12 lg:flex-row lg:gap-8 ignoredark:border-neutral-800 ignoredark:bg-black">
           <div className="h-full w-full basis-full lg:basis-4/6">
             <Suspense
               fallback={

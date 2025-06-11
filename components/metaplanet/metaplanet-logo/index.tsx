@@ -25,7 +25,7 @@ export function MetaplanetLogo({
       {/* Light mode logo */}
       <div
         className={`relative ${className} ${showDark ? "hidden" : "block"} ${
-          !showLight && "dark:hidden"
+          !showLight && "ignoredark:hidden"
         }`}
         style={{ width: width, height: height }}
       >
@@ -41,7 +41,7 @@ export function MetaplanetLogo({
       {/* Dark mode logo */}
       <div
         className={`relative ${className} ${showLight ? "hidden" : "block"} ${
-          !showDark && "dark:block hidden"
+          !showDark && "ignoredark:block hidden"
         }`}
         style={{ width: width, height: height }}
       >

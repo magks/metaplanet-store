@@ -1,0 +1,43 @@
+/* BMJ-specific search layout variants */
+@custom-variant bmj (&:where([data-theme="bmj"], [data-theme="bmj"] *));
+
+.search-layout-container {
+  @variant bmj {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-roboto-mono);
+  }
+}
+
+.search-filter-panel {
+  @variant bmj {
+    background-color: white;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+
+  }
+}
+
+.search-input {
+  @variant bmj {
+    background-color: white;
+    color: black;
+    border-color: rgb(229 229 229);
+    
+    &::placeholder {
+      color: rgb(115 115 115);
+    }
+  }
+}
+
+.search-icon {
+  @variant bmj {
+    color: black;
+  }
+}
+
+.search-loading {
+  @variant bmj {
+    color: var(--color-bmj-secondary);
+  }
+}

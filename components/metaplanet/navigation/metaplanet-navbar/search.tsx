@@ -34,7 +34,7 @@ export default function Search() {
         placeholder={`${t('search')}`}
         autoComplete="off"
         defaultValue={searchParams?.get('q') || ''}
-        className="text-md w-full rounded-lg border bg-white px-4 py-2 text-black placeholder:text-neutral-500 md:text-sm dark:border-neutral-800 dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
+        className="text-md w-full rounded-lg border bg-white px-4 py-2 text-black placeholder:text-neutral-500 md:text-sm ignoredark:border-neutral-800 ignoredark:bg-transparent ignoredark:text-white ignoredark:placeholder:text-neutral-400"
       />
       <input type="submit" style={{ position: 'absolute', width: '1px', height: '1px', border: 'none', padding: '0', clip: 'rect(0 0 0 0)' }} />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
@@ -49,7 +49,7 @@ export function SearchSkeleton() {
 
   return (
     <div className="flex items-center justify-center p-2">
-      <MagnifyingGlassIcon className="h-6 w-6 text-white dark:text-black" />
+      <MagnifyingGlassIcon className="h-6 w-6 text-white ignoredark:text-black" />
     </div>
   );
 }

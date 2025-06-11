@@ -1,0 +1,121 @@
+/* Metaplanet-specific cart variants */
+@custom-variant metaplanet (&:where([data-theme="metaplanet"], [data-theme="metaplanet"] *));
+
+/* Cart Modal Overlay */
+.cart-modal-overlay {
+  @variant metaplanet {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Cart Modal Panel */
+.cart-modal-panel {
+  @variant metaplanet {
+    background-color: rgba(33, 33, 33, 0.95);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Cart Modal Text */
+.cart-modal-text {
+  @variant metaplanet {
+    color: white;
+  }
+}
+
+/* Cart Modal Secondary Text */
+.cart-modal-text-secondary {
+  @variant metaplanet {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Cart Modal Borders */
+.cart-modal-border {
+  @variant metaplanet {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Cart Item Borders */
+.cart-item-border {
+  @variant metaplanet {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Cart Empty Icon */
+.cart-empty-icon {
+  @variant metaplanet {
+    color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Cart Price Text */
+.cart-price-text {
+  @variant metaplanet {
+    color: white;
+  }
+}
+
+/* Cart Product Image Container */
+.cart-product-image-container {
+  @variant metaplanet {
+    border-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Cart Action Buttons (Edit Quantity) */
+.cart-action-button {
+  @variant metaplanet {
+    border-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.6);
+    background-color: transparent;
+    
+    @variant hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: white;
+    }
+  }
+}
+
+/* Cart Delete Button */
+.cart-delete-button {
+  @variant metaplanet {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #212121;
+    
+    @variant hover {
+      background-color: #ef4444;
+      color: white;
+    }
+  }
+}
+
+/* Cart Modal Button (Checkout) */
+.cart-modal-button {
+  @variant metaplanet {
+    background-color: white;
+    color: #212121;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    &::before {
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(33, 33, 33, 0.1),
+        transparent
+      );
+    }
+    
+    @variant hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+      background-color: #f8f8f8;
+    }
+    
+  }
+}

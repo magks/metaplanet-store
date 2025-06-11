@@ -48,7 +48,7 @@ menu.map((item: Menu) => {
     {/*<nav className={`flex items-center justify-between p-4 lg:px-6 ${
       isOverlay 
         ? 'absolute top-0 left-0 right-0 z-30 bg-transparent backdrop-blur-[2px]' 
-        : 'relative bg-white dark:bg-black'
+        : 'relative bg-white ignoredark:bg-black'
     }`}>*/}
     <nav className="flex items-center justify-between p-4 lg:px-6 bg-transparent">
       <div className="block flex-none md:hidden">
