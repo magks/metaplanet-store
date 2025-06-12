@@ -1,7 +1,8 @@
 import productFragment from '../fragments/product';
 
 export const getProductQuery = /* GraphQL */ `
-  query getProduct($handle: String!) {
+  query getProduct($handle: String!, $countryCode: CountryCode) 
+    @inContext(country: $countryCode) {
     product(handle: $handle) {
       ...product
     }
@@ -10,7 +11,8 @@ export const getProductQuery = /* GraphQL */ `
 `;
 
 export const getProductsQuery = /* GraphQL */ `
-  query getProducts($sortKey: ProductSortKeys, $reverse: Boolean, $query: String) {
+  query getProducts($sortKey: ProductSortKeys, $reverse: Boolean, $query: String, $countryCode: CountryCode)
+    @inContext(country: $countryCode) {
     products(sortKey: $sortKey, reverse: $reverse, query: $query, first: 100) {
       edges {
         node {
@@ -23,7 +25,8 @@ export const getProductsQuery = /* GraphQL */ `
 `;
 
 export const getProductRecommendationsQuery = /* GraphQL */ `
-  query getProductRecommendations($productId: ID!) {
+  query getProductRecommendations($productId: ID!, $countryCode: CountryCode) 
+    @inContext(country: $countryCode) {
     productRecommendations(productId: $productId) {
       ...product
     }

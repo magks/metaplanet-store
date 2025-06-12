@@ -1,9 +1,12 @@
 import { GridTileImage } from '@/components/shared/grid/tile';
 import appSettings from '@/lib/app-settings';
+import { StoreLocale, getCountryCode } from '@/lib/i18n/storelocale-countrycode';
 import { translateOrDefault } from '@/lib/utils/translate-or-default';
+import clsx from 'clsx';
 import { getCollectionProducts } from 'lib/shopify';
 import type { Product } from 'lib/shopify/types';
 import { useTranslations } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 import Link from 'next/link';
 
 function ThreeItemGridItem({
@@ -48,10 +51,15 @@ function ThreeItemGridItem({
 }
 
 export async function ThreeItemGrid() {
+  const locale = await getLocale() as StoreLocale;
+  const countryCode = getCountryCode(locale)
+  console.log(`ThreeItemGrid::locale::\n\tlocale==${locale};\n\tcountryCode==${countryCode}`);
+  
   const brand = appSettings.siteTheme;
   // Collections that start with `hidden-*` are hidden from the search page.
   const homepageItems = await getCollectionProducts({
-    collection: `hidden-homepage-featured-items-${brand}`
+    collection: `hidden-homepage-featured-items-${brand}`,
+    countryCode
   });
 
   if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
@@ -61,10 +69,15 @@ export async function ThreeItemGrid() {
 
   return (
     <>
-    {/* spacer */}
-    <div className="h-8 md:h-12 lg:h-16" />
-    {/* Three Item Grid */}
-    <section className="mx-auto grid max-w-(--breakpoint-2xl) gap-4 px-4 pb-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]">
+    {/* Remove or reduce spacer */}
+    {/* <div className="h-8 md:h-12 lg:h-16" /> */}
+     <div className="h-3 md:h-3 lg:h-4" /> 
+    {/* Add negative margin-top to pull grid up */}
+    <section className={clsx(
+      "z-[15] mx-auto grid max-w-(--breakpoint-2xl) gap-4 px-4 pb-4 md:grid-cols-6 md:grid-rows-2 lg:max-h-[calc(100vh-200px)]",
+      {"-mt-16 md:-mt-15 lg:-mt-15 relative": appSettings.siteTheme == 'metaplanet'
+      } 
+    )}>
       <ThreeItemGridItem size="full" item={firstProduct} priority={true} />
       <ThreeItemGridItem size="half" item={secondProduct} priority={true} />
       <ThreeItemGridItem size="half" item={thirdProduct} />

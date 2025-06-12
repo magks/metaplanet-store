@@ -7,15 +7,16 @@ import BannerLogoLink from "./banner-logo-link";
 
 //h-10 bg-black border-b border-white z-40 relative
 export default function SiteSwitcher() {
+  {/* bg-[linear-gradient(#252725,var(--navbar-black))] */}
   return (
-    <div className="h-8 bg-[linear-gradient(#252725,#000)] bg-transparent border-b  z-0 relative">
-      <div className="flex items-center justify-between px-2 h-9">
+    <div className="h-full bg-transparent z-55 relative">
+      <div className="flex items-baseline-last justify-between px-2 h-full">
         
         {/* Left side: empty */}
         <div className="text-black text-lg font-bold"></div>
 
         {/* Left side: logo links */}
-        <div className="flex space-x-4">
+        <div className="space-x-4">
           {bannerLogoLinks.map((link, idx) => {
             const isCurrent = link.brandId === appSettings.brandId;
             // look up the previous link’s "isCurrent" state (if any)

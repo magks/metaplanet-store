@@ -9,16 +9,23 @@ import Footer from 'components/shared/layout/footer';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { translateOrDefault } from 'utils';
+import { getCountryCode, StoreLocale } from '@/lib/i18n/storelocale-countrycode';
 
 export async function generateMetadata(props: {
   params: Promise<{ handle: string }>;
 }): Promise<Metadata> {
   const params = await props.params;
-  const product = await getProduct(params.handle);
+
+  const locale = await getLocale() as StoreLocale;
+  const countryCode = getCountryCode(locale)
+  console.log(`product/[handle] Page::generateMetadata::\n\tlocale==${locale};\n\tcountryCode==${countryCode}`);
+
+
+  const product = await getProduct(params.handle, countryCode);
 
   if (!product) return notFound();
 
@@ -51,9 +58,13 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function ProductPage(props: { params: Promise<{ handle: string }> }) {
+export default async function ProductPage(props: { params: Promise<{ handle: string, locale: string }> }) {
+  const locale_intl = await getLocale() as StoreLocale;
+  const countryCode = getCountryCode(locale_intl)
+  console.log(`product/[handle] Page::locale::\n\tlocale==${locale_intl};\n\tcountryCode==${countryCode}`);
   const params = await props.params;
-  const product = await getProduct(params.handle);
+   console.log(`!!!!!!!!!!!!!!product/[handle] Page::props.locale=${params.locale}`);
+  const product = await getProduct(params.handle, countryCode);
 
   if (!product) return notFound();
   const t = await getTranslations('products');
@@ -113,8 +124,11 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
   );
 }
 
-async function RelatedProducts({ id }: { id: string }) {
-  const relatedProducts = await getProductRecommendations(id);
+async function RelatedProducts({ id }: { id: string}) {
+  const locale = await getLocale() as StoreLocale;
+  const countryCode = getCountryCode(locale)
+  console.log(`product/[handle] Page::RelatedProducts::\n\tlocale==${locale};\n\tcountryCode==${countryCode}`);
+  const relatedProducts = await getProductRecommendations(id, countryCode);
 
   if (!relatedProducts.length) return null;
   const t = await getTranslations('products');

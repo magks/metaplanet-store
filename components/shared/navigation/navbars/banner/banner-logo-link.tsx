@@ -24,10 +24,10 @@ export default function BannerLogoLink({
   //  . Otherwise keep it a small pill (h-8).
   //
   const outerClasses = [
-    "group inline-flex w-max overflow-hidden transition-all duration-300",
+    "group inline-flex  w-max overflow-hidden transition-all duration-300",
      "",
     // active: fill parent’s height; inactive: fixed 8
-    isCurrentSite ? " rounded-t-2xl" : " rounded-full ",
+    isCurrentSite ? " rounded-b-2xl" : " rounded-full ",
     // opacity / pointer logic
     isCurrentSite
       ? "opacity-90 cursor-default pointer-events-none"
@@ -47,7 +47,7 @@ export default function BannerLogoLink({
     // active: full parent height; inactive: fill outer’s h-8
     isCurrentSite ? "" : "",
     // rounded top if active, otherwise fully pill shaped
-    isCurrentSite ? "rounded-t-full " : "rounded-full",
+    isCurrentSite ? "rounded-full " : "rounded-full",
     "bg-[linear-gradient(to_top,#1a1a1a,#011)] px-[0.0rem] ",
 
     isCurrentSite ? "" : "",

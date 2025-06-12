@@ -6,8 +6,9 @@ import Grid from '@/components/shared/grid';
 import NoneFound from '@/components/shared/layout/search/none-found';
 import ProductGridItems from 'components/shared/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import './search.css';
+import { StoreLocale, getCountryCode } from '@/lib/i18n/storelocale-countrycode';
 
 export async function generateMetadata(props: {
   params: Promise<{ collection: string }>;
@@ -28,11 +29,16 @@ export default async function CategoryPage(props: {
   params: Promise<{ collection: string }>;
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
+
+  const locale = await getLocale() as StoreLocale;
+  const countryCode = getCountryCode(locale)
+  console.log(`product/[handle] Page::locale::\n\tlocale==${locale};\n\tcountryCode==${countryCode}`);
+
   const searchParams = await props.searchParams;
   const params = await props.params;
   const { sort } = searchParams as { [key: string]: string };
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
-  const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse });
+  const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse, countryCode });
   const t = await getTranslations('collections');
   return (
   <>

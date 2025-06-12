@@ -14,7 +14,7 @@
     @variant homepage {
       /* Metaplanet Homepage: Absolute floating navbar */
       position: absolute;
-      top: 2rem; /* top-8 */
+      top: 0rem; /* top-8 */
       left: 0;
       right: 0;
       z-index: 50;
@@ -29,6 +29,11 @@
     /* Metaplanet: Transparent background (especially on homepage) */
     background-color: transparent;
     font-family: var(--font-space-grotesk);
+
+    @variant homepage {
+      position: relative;
+      top: 2rem; /* top-8 */
+    }
   }
 }
 
@@ -158,7 +163,7 @@
   }
 }
 
-
+/* todo remove -- possibly not used any longer */
 /* Main content spacing for absolute navbars */
 .main-content {
   @variant metaplanet {

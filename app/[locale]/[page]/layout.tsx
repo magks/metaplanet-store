@@ -1,6 +1,11 @@
 import Footer from 'components/shared/layout/footer';
+import { useLocale } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const locale = useLocale();
+  console.log(`pageLayout::locale=${locale}`);
+
   return (
     <>
       <div className="w-full">

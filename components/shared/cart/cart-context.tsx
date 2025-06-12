@@ -6,6 +6,7 @@ import type {
   Product,
   ProductVariant
 } from 'lib/shopify/types';
+import { useLocale } from 'next-intl';
 import React, {
   createContext,
   use,
@@ -192,11 +193,13 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
 
 export function CartProvider({
   children,
-  cartPromise
+  cartPromise,
 }: {
   children: React.ReactNode;
   cartPromise: Promise<Cart | undefined>;
 }) {
+  const locale = useLocale();
+  console.log(`cartProvider(client)::locale=${locale}`);
   return (
     <CartContext.Provider value={{ cartPromise }}>
       {children}

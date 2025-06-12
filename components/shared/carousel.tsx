@@ -2,13 +2,18 @@ import { Link } from '@/i18n/navigation';
 import appSettings from '@/lib/app-settings';
 import { translateOrDefault } from '@/lib/utils/translate-or-default';
 import { getCollectionProducts } from 'lib/shopify';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { GridTileImage } from './grid/tile';
+import { StoreLocale, getCountryCode } from '@/lib/i18n/storelocale-countrycode';
 
 export async function Carousel() {
   const brand = appSettings.siteTheme;
+  const locale = await getLocale() as StoreLocale;
+  const countryCode = getCountryCode(locale)
+  console.log(`carousel:locale::\n\tlocale==${locale};\n\tcountryCode==${countryCode}`);
+  
   // Collections that start with `hidden-*` are hidden from the search page.
-  const products = await getCollectionProducts({ collection: `hidden-homepage-carousel-${brand}` });
+  const products = await getCollectionProducts({ collection: `hidden-homepage-carousel-${brand}`, countryCode });
 
   if (!products?.length) return null;
 

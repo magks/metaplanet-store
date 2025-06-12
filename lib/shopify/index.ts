@@ -83,6 +83,10 @@ export async function shopifyFetchBase<T>({
   variables?: ExtractVariables<T>;
 }): Promise<{ status: number; body: T } | never> {
   try {
+    console.log(`shopifyFetching::\n\theaders:\n\t${JSON.stringify(headers)}\n\n\tbody:\n\t${JSON.stringify({
+        ...(query && { query }),
+        ...(variables && { variables })
+      })}\n\n`);
     const result = await fetch(endpoint, {
       method: 'POST',
       headers: {
@@ -130,8 +134,8 @@ export async function shopifyFetch<T>(
     query: string;
     variables?: ExtractVariables<T>;
   },
-  maxRetries = 3,
-  baseDelayMs = 100
+  maxRetries = 1,
+  baseDelayMs = 150
 ): Promise<{ status: number; body: T }> {
   let attempt = 0;
 
@@ -332,7 +336,7 @@ export async function getCollection(
 ): Promise<Collection | undefined> {
   'use cache';
   cacheTag(TAGS.collections);
-  cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyCollectionOperation>({
     query: getCollectionQuery,
@@ -347,15 +351,17 @@ export async function getCollection(
 export async function getCollectionProducts({
   collection,
   reverse,
-  sortKey
+  sortKey,
+  countryCode = "JP"
 }: {
   collection: string;
   reverse?: boolean;
   sortKey?: string;
+  countryCode?: string;
 }): Promise<Product[]> {
   'use cache';
   cacheTag(TAGS.collections, TAGS.products);
-  cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
 
 
   const res = await shopifyFetch<ShopifyCollectionProductsOperation>({
@@ -363,7 +369,8 @@ export async function getCollectionProducts({
     variables: {
       handle: collection,
       reverse,
-      sortKey: sortKey === 'CREATED_AT' ? 'CREATED' : sortKey
+      sortKey: sortKey === 'CREATED_AT' ? 'CREATED' : sortKey,
+      countryCode
     }
   });
   //console.log(`${JSON.stringify(res.body)}`);
@@ -381,7 +388,7 @@ export async function getCollectionProducts({
 export async function getCollections(): Promise<Collection[]> {
   'use cache';
   cacheTag(TAGS.collections);
-  cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyCollectionsOperation>({
     query: getCollectionsQuery
@@ -412,7 +419,7 @@ export async function getCollections(): Promise<Collection[]> {
 export async function getMenu(handle: string): Promise<Menu[]> {
   'use cache';
   cacheTag(TAGS.collections);
-  cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyMenuOperation>({
     query: getMenuQuery,
@@ -449,15 +456,16 @@ export async function getPages(): Promise<Page[]> {
   return removeEdgesAndNodes(res.body.data.pages);
 }
 
-export async function getProduct(handle: string): Promise<Product | undefined> {
+export async function getProduct(handle: string, countryCode: string = "JP"): Promise<Product | undefined> {
   'use cache';
   cacheTag(TAGS.products);
-  cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyProductOperation>({
     query: getProductQuery,
     variables: {
-      handle
+      handle,
+      countryCode
     }
   });
 
@@ -465,16 +473,18 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
 }
 
 export async function getProductRecommendations(
-  productId: string
+  productId: string,
+  countryCode: string = "JP"
 ): Promise<Product[]> {
   'use cache';
   cacheTag(TAGS.products);
-  cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyProductRecommendationsOperation>({
     query: getProductRecommendationsQuery,
     variables: {
-      productId
+      productId,
+      countryCode
     }
   });
 
@@ -484,22 +494,25 @@ export async function getProductRecommendations(
 export async function getProducts({
   query,
   reverse,
-  sortKey
+  sortKey,
+  countryCode = "JP"
 }: {
   query?: string;
   reverse?: boolean;
   sortKey?: string;
+  countryCode?: string;
 }): Promise<Product[]> {
   'use cache';
   cacheTag(TAGS.products);
-  cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyProductsOperation>({
     query: getProductsQuery,
     variables: {
       query,
       reverse,
-      sortKey
+      sortKey,
+      countryCode
     }
   });
 

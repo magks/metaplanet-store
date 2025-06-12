@@ -48,6 +48,8 @@ import { NavbarConditional } from '@/components/shared/navigation/navbar-conditi
 import SiteSwitcher from '@/components/shared/navigation/navbars/banner/site-switcher';
 import { UniversalNavbar } from '@/components/shared/navigation/navbars/universal-navbar';
 import type { Metadata, ResolvingMetadata } from 'next';
+import { SiteSwitcherConditional } from '@/components/shared/navigation/navbars/banner/site-switcher-conditional';
+import { setRequestLocale } from 'next-intl/server';
 type MetadataProps = {
   params: Promise<{ id: string }>
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
@@ -139,6 +141,9 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  // Enable static rendering
+  setRequestLocale(locale);
  
 
   // Don't await the fetch, pass the Promise to the context provider
@@ -149,7 +154,7 @@ export default async function RootLayout({
 
   
   // Check if it's homepage
-  //const isHomepage = pathname === `/${locale}` || pathname === '/';
+  const isHomepage = pathname === `/${locale}` || pathname === '/';
   //console.log(`rootLayout::x-pathname=${headersList.get('x-pathname') }`);
   //console.log(`rootLayout::settings.themeName=${appSettings.siteTheme}`)
 
@@ -177,10 +182,14 @@ export default async function RootLayout({
           disableTransitionOnChange
           forcedTheme={appSettings.siteTheme}
         >
-          <NextIntlClientProvider>
+          <NextIntlClientProvider 
+          >
           <CartProvider cartPromise={cart}>
             {/*   */}
-            <SiteSwitcher/>
+            <SiteSwitcherConditional>
+            {appSettings.siteTheme == 'metaplanet' && isHomepage ? null : <SiteSwitcher/>}
+              
+            </SiteSwitcherConditional>
             {/* <NavbarSelector theme={appSettings.siteTheme} pathname={pathname} /> */}
             <NavbarConditional>
                 <UniversalNavbar 

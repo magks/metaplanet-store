@@ -1,10 +1,11 @@
 import Grid from '@/components/shared/grid';
 import NoneFound from '@/components/shared/layout/search/none-found';
 import appSettings from '@/lib/app-settings';
+import { getCountryCode, StoreLocale } from '@/lib/i18n/storelocale-countrycode';
 import ProductGridItems from 'components/shared/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 
 export const metadata = {
   title: 'Search',
@@ -34,7 +35,12 @@ export default async function SearchPage(props: {
   const queryString = `${(searchValue||'')} ${includeTagsQuery} ${excludeTagsQuery}`;
 
   console.log(`searchPage::queryString=${queryString || 'empty'}`);
-  const products = await getProducts({ sortKey, reverse, query: queryString });
+
+  const locale = await getLocale() as StoreLocale;
+  const countryCode = getCountryCode(locale)
+  console.log(`search/ Page::\n\tlocale==${locale};\n\tcountryCode==${countryCode}`);
+  const products = await getProducts({ sortKey, reverse, query: queryString, countryCode: countryCode});
+ 
   const resultsText = products.length > 1 ? 'results' : 'result';
   const t = await getTranslations('searchPage');
   return (

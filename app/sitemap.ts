@@ -1,6 +1,8 @@
+import { getCountryCode, StoreLocale } from '@/lib/i18n/storelocale-countrycode';
 import { getCollections, getPages, getProducts } from 'lib/shopify';
 import { baseUrl, validateEnvironmentVariables } from 'lib/utils';
 import { MetadataRoute } from 'next';
+import { getLocale } from 'next-intl/server';
 
 type Route = {
   url: string;
@@ -24,7 +26,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   );
 
-  const productsPromise = getProducts({}).then((products) =>
+  const locale = await getLocale() as StoreLocale;
+  const countryCode = getCountryCode(locale)
+  console.log(`sitemap::\n\tlocale==${locale};\n\tcountryCode==${countryCode}`);
+  const productsPromise = getProducts({countryCode}).then((products) =>
     products.map((product) => ({
       url: `${baseUrl}/product/${product.handle}`,
       lastModified: product.updatedAt

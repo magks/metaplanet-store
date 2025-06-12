@@ -141,6 +141,7 @@ export type ShopifyCartOperation = {
   };
   variables: {
     cartId: string;
+    countryCode?: string;
   };
 };
 
@@ -210,6 +211,7 @@ export type ShopifyCollectionProductsOperation = {
     handle: string;
     reverse?: boolean;
     sortKey?: string;
+    countryCode?: string;
   };
 };
 
@@ -248,6 +250,7 @@ export type ShopifyProductOperation = {
   data: { product: ShopifyProduct };
   variables: {
     handle: string;
+    countryCode?: string;
   };
 };
 
@@ -257,6 +260,7 @@ export type ShopifyProductRecommendationsOperation = {
   };
   variables: {
     productId: string;
+    countryCode?: string;
   };
 };
 
@@ -268,5 +272,6 @@ export type ShopifyProductsOperation = {
     query?: string;
     reverse?: boolean;
     sortKey?: string;
+    countryCode?: string;
   };
 };

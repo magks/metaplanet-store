@@ -57,7 +57,7 @@ export default function CartModal() {
         <OpenCart quantity={cart?.totalQuantity} />
       </button>
       <Transition show={isOpen}>
-        <Dialog onClose={closeCart} className="relative z-50">
+        <Dialog onClose={closeCart} className="relative z-69">
           <Transition.Child
             as={Fragment}
             enter="transition-all ease-in-out duration-300"
@@ -128,7 +128,7 @@ export default function CartModal() {
                             className="flex w-full flex-col border-b cart-item-border"
                           >
                             <div className="relative flex w-full flex-row justify-between px-1 py-4">
-                              <div className="absolute z-40 -ml-1 -mt-2">
+                              <div className="absolute z-61 -ml-1 -mt-2">
                                 <DeleteItemButton
                                   item={item}
                                   optimisticUpdate={updateCartItem}
@@ -153,7 +153,7 @@ export default function CartModal() {
                                 <Link
                                   href={merchandiseUrl}
                                   onClick={closeCart}
-                                  className="z-30 ml-2 flex flex-row space-x-4"
+                                  className="z-60 ml-2 flex flex-row space-x-4"
                                 >
                                   <div className="flex flex-1 flex-col text-base">
                                     <span className="leading-tight cart-modal-text">

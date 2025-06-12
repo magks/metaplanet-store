@@ -3,6 +3,7 @@
 import { MetaplanetLogo } from '@/components/metaplanet/metaplanet-logo';
 import clsx from 'clsx';
 
+
 interface HeroProps {
   mobileImage: string;
   desktopImage: string;
@@ -10,7 +11,17 @@ interface HeroProps {
   title?: string;
   subtitle?: string;
   className?: string;
-  breakpoint?: 'sm' | 'md' | 'lg'; // When to switch from mobile to desktop
+  breakpoint?: 'sm' | 'md' | 'lg';
+}
+
+interface HeroProps {
+  mobileImage: string;
+  desktopImage: string;
+  alt: string;
+  title?: string;
+  subtitle?: string;
+  className?: string;
+  breakpoint?: 'sm' | 'md' | 'lg';
 }
 
 export function Hero({
@@ -20,31 +31,40 @@ export function Hero({
   title,
   subtitle,
   className,
-  breakpoint = 'sm' // Default breakpoint is medium (768px)
+  breakpoint = 'sm'
 }: HeroProps) {
-  // Dynamic classes based on breakpoint
-  const mobileClasses = breakpoint === 'sm' ? 'block sm:hidden' : ( 
-                       breakpoint === 'md' ? 'block md:hidden' : 
-                       'block lg:hidden');
-                       
+  const mobileClasses = breakpoint === 'sm' ? 'block sm:hidden' : (
+                        breakpoint === 'md' ? 'block md:hidden' :
+                        'block lg:hidden');
+                          
   const desktopClasses = breakpoint === 'sm' ? 'hidden sm:block' : (
                         breakpoint === 'md' ? 'hidden md:block' : 
-                        'hidden lg:block');
+                         'hidden lg:block');
 
   return (
     <>
-      {/* Add this to your globals.css or component styles */}
-      {/*section classname           'h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]',*/}
       <style jsx>{`
-        .hero-background {
+        .hero-background-mtp {
           background-image: url('${mobileImage}');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
         }
         
+        /* Gradient overlay that fades to background color */
+        .gradient-fade {
+          background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            transparent 40%,
+            rgb(var(--background) / 0.5) 60%,
+            rgb(var(--background) / 0.8) 80%,
+            rgb(var(--background)) 95%
+          );
+        }
+        
         @media (min-width: 768px) {
-          .hero-background {
+          .hero-background-mtp {
             background-image: url('${desktopImage}');
           }
         }
@@ -52,19 +72,58 @@ export function Hero({
       
       <section 
         className={clsx(
-          'hero-background relative w-full overflow-hidden',
-          'h-[67vh] ',
+          'hero-background-mtp relative w-full overflow-hidden',
+          'h-[67vh]',
           className
         )}
         role="img"
       >
+        {/* Gradient Overlay BOTTOM - Multiple layers for better browser support */}
+        {/*<div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% via-black/50 via-70% to-black to-95% z-[5]" />*/}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% via-black/50 via-70% to-neutral-500 to-95% z-[5]"/>
+        {/*<div 
+          className="absolute inset-0" 
+          style={{
+            background: `linear-gradient(180deg, transparent 30%, ${getComputedStyle(document.documentElement).getPropertyValue('--background')} 100%)`
+          }}
+        />
+        */}
+
+        {/* Additional overlay for background color matching */}
+        <div 
+          className="absolute inset-0 z-[5]" 
+          style={{
+            background: `linear-gradient(to bottom, transparent 0%, transparent 50%, var(--background, #000) 100%)`
+          }}
+        />
+
+        {/* Gradient Overlay TOP - Multiple layers for better browser support */}
+        {/*<div className="absolute inset-0 bg-gradient-to-b from-transparent from-30% via-black/50 via-70% to-black to-95% z-[5]" />*/}
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent from-89% via-[var(--navbar-black)]/30 via-91% to-[var(--navbar-black)] to-97% z-[5]"/>
+        {/*<div 
+          className="absolute inset-0" 
+          style={{
+            background: `linear-gradient(180deg, transparent 30%, ${getComputedStyle(document.documentElement).getPropertyValue('--background')} 100%)`
+          }}
+        />
+        */}
+
+        {/* Additional overlay for background color matching */}
+        <div 
+          className="absolute inset-0 z-[5]" 
+          style={{
+            background: `linear-gradient(to top, transparent 0%, transparent 95%, var(--navbar-balck, #000) 100%)`
+          }}
+        />
+
+        {/* Additional overlay to darken image*/}
+        <div 
+          className="absolute inset-0 z-[5] bg-metaplanet-secondary-dark opacity-50" 
+        />
+        
         {/* Content Overlay */}
         {(title || subtitle) && (
           <div className="absolute inset-0 flex items-center justify-center z-10">
-            {/*<div className="text-center text-white px-4">*/}
-                            {/*<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
-                  {title}
-                </h1>*/}
             <div className="text-left text-white px-3 py-2 backdrop-blur-md rounded-lg border border-white border-opacity-10">
               {title && true && (
                 <MetaplanetLogo
@@ -73,9 +132,9 @@ export function Hero({
                     height={90}
                     className="max-w-[50vw]"
                     mode="light"
-                /> 
-              )}
-              {title && true  && (               
+                />
+               )}
+              {title && true  && (
                 <MetaplanetLogo
                     variant="015"
                     width={600}
@@ -90,7 +149,6 @@ export function Hero({
                 </p>
               )}
             </div>
-            {/* Dark overlay for text readability */}
           </div>
         )}
       </section>
