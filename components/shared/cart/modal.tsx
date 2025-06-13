@@ -37,7 +37,7 @@ export default function CartModal() {
   useEffect(() => {
     if (!cart) {
       createCartAndSetCookie({
-        buyerIdentity: { countryCode: locale as CountryCode }
+        buyerIdentity: { countryCode: getCountryCode(locale as StoreLocale) as CountryCode }
       });
     }
   }, [cart]);

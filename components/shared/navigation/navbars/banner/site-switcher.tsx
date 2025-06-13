@@ -4,12 +4,13 @@ import { Fragment } from "react";
 import { bannerLogoLinks } from "./banner-links";
 import BannerLogoLink from "./banner-logo-link";
 
-
+// container 
+/*h-full bg-transparent z-55 relative */ 
 //h-10 bg-black border-b border-white z-40 relative
 export default function SiteSwitcher() {
   {/* bg-[linear-gradient(#252725,var(--navbar-black))] */}
   return (
-    <div className="h-full bg-transparent z-55 relative">
+    <div className="">
       <div className="flex items-baseline-last justify-between px-2 h-full">
         
         {/* Left side: empty */}
@@ -58,5 +59,6 @@ export default function SiteSwitcher() {
 
       </div>
     </div>
+    
   );
 }

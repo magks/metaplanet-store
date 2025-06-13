@@ -1,0 +1,18 @@
+/* Metaplanet-specific site switcher variants */
+@custom-variant bmj (&:where([data-theme="bmj"], [data-theme="bmj"] *));
+@custom-variant homepage (&:where([data-page="homepage"], [data-page="homepage"] *));
+
+
+/* Navbar Container Positioning & Background */
+.site-switcher-container {
+  @variant bmj {
+    /* Default */
+    background-color: var(--color-bmj-navbar-black);
+    color:var(--color-bmj-navbar-black);
+    
+    @variant homepage {
+      /* Homepage: Absolute floating navbar */
+       background-color: var(--color-bmj-navbar-black);
+    }
+  }
+}

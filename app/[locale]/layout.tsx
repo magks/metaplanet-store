@@ -44,11 +44,7 @@ const { SITE_NAME } = process.env;
 
 
 // metadata
-import { NavbarConditional } from '@/components/shared/navigation/navbar-conditional';
-import SiteSwitcher from '@/components/shared/navigation/navbars/banner/site-switcher';
-import { UniversalNavbar } from '@/components/shared/navigation/navbars/universal-navbar';
 import type { Metadata, ResolvingMetadata } from 'next';
-import { SiteSwitcherConditional } from '@/components/shared/navigation/navbars/banner/site-switcher-conditional';
 import { setRequestLocale } from 'next-intl/server';
 type MetadataProps = {
   params: Promise<{ id: string }>
@@ -182,26 +178,22 @@ export default async function RootLayout({
         <body suppressHydrationWarning>
         <ThemeProvider 
          attribute="data-theme"
-          defaultTheme={appSettings.siteTheme}
-          enableSystem={false}
-          disableTransitionOnChange
-          forcedTheme={appSettings.siteTheme}
+         enableSystem={false}
+         disableTransitionOnChange
+         forcedTheme={appSettings.siteTheme}
+         defaultTheme={appSettings.siteTheme}
         >
           <NextIntlClientProvider 
           >
           <CartProvider cartPromise={cart}>
-            {/*   */}
+            {/*   
             <SiteSwitcherConditional>
             {appSettings.siteTheme == 'metaplanet' && isHomepage ? null : <SiteSwitcher/>}
               
             </SiteSwitcherConditional>
+            */}
             {/* <NavbarSelector theme={appSettings.siteTheme} pathname={pathname} /> */}
-            <NavbarConditional>
-                <UniversalNavbar 
-                  pathname={pathname} 
-                  theme={appSettings.siteTheme} 
-                />
-            </NavbarConditional>
+
                    { /*
                    <MetaplanetNavbarConditional>
                       <MetaplanetNavbar pathname={pathname} />

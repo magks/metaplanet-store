@@ -14,8 +14,12 @@
     --brand-primary-foreground: oklch(1 0 0);
     
     /* Brand-specific tokens */
-    --color-bmj-navbar-black: #212121;
+    --color-bmj-navbar-black: #0e0d0d;
+    --color-bmj-navbar-charcoal: #212121;
     --color-bmj-secondary: #FDB813;
+    --color-bmj-secondary-accent: #BC012E;
+    --color-bmj-secondary-accent-soft: #c9012f;
+    /*--color-bmj-secondary: #FDB813;*/
     --navbar-menulist-hover-bg: 255,255,255;
     --navbar-black: #212121;
     

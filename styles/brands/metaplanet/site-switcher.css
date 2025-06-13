@@ -1,0 +1,25 @@
+/* Metaplanet-specific site switcher variants */
+@custom-variant metaplanet (&:where([data-theme="metaplanet"], [data-theme="metaplanet"] *));
+@custom-variant homepage (&:where([data-page="homepage"], [data-page="homepage"] *));
+
+/* Navbar Container Positioning & Background */
+.site-switcher-container {
+  @variant metaplanet {
+    /* Metaplanet: Default */
+    position: relative;
+    @apply h-full;
+    @apply bg-transparent;
+    @apply z-55;
+    @apply relative;
+
+    @variant homepage {
+      /* Metaplanet Homepage: Absolute floating navbar */
+      position: relative;
+      top: 0rem; /* top-8 */
+      left: 0;
+      right: 0;
+      z-index: 55;
+      background-color: transparent;
+    }
+  }
+}

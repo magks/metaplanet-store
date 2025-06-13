@@ -9,7 +9,7 @@ interface SiteSwitcherConditionalProps {
   children: ReactNode;
 }
 
-// todo rename to NavbarContainer and fix imports
+
 export function SiteSwitcherConditional({ children }: SiteSwitcherConditionalProps) {
   const pathname = usePathname();
   const isHomePage = isHomePagePath(pathname);
@@ -31,7 +31,7 @@ export function SiteSwitcherConditional({ children }: SiteSwitcherConditionalPro
   
   return (
     <div 
-      className=""
+      className="site-switcher-container"
       {...dataAttributes}
     >
       {children}

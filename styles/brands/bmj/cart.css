@@ -121,8 +121,8 @@
 /* Cart Modal Button (Checkout) */
 .cart-modal-button {
   @variant bmj {
-    background-color: var(--color-bmj-secondary);
-    color: black;
+    background-color: var(--color-bmj-secondary-accent-soft);
+    color: rgb(255, 255, 255);
     
     @variant hover {
       transform: translateY(-1px);
