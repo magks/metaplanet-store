@@ -250,7 +250,7 @@ export function useCart() {
     console.log("Refreshing cart...");
     
     const timeoutPromise = new Promise((_, reject) => 
-      setTimeout(() => reject(new Error('Cart fetch timeout')), 71000)
+      setTimeout(() => reject(new Error('Cart fetch timeout')), 1000*60) // 60 seconds
     );
     
     const freshCart = await Promise.race([
