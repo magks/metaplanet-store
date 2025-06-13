@@ -17,7 +17,8 @@ import {
   addToCartMutation,
   createCartMutation,
   editCartItemsMutation,
-  removeFromCartMutation
+  removeFromCartMutation,
+  updateCartBuyerIdentityMutation
 } from './mutations/cart';
 import { getCartQuery } from './queries/cart';
 import {
@@ -42,6 +43,7 @@ import {
   Product,
   ShopifyAddToCartOperation,
   ShopifyCart,
+  ShopifyCartBuyerIdentity,
   ShopifyCartOperation,
   ShopifyCollection,
   ShopifyCollectionOperation,
@@ -56,6 +58,7 @@ import {
   ShopifyProductRecommendationsOperation,
   ShopifyProductsOperation,
   ShopifyRemoveFromCartOperation,
+  ShopifyUpdateCartBuyerIdentityOperation,
   ShopifyUpdateCartOperation
 } from './types';
 
@@ -83,11 +86,23 @@ export async function shopifyFetchBase<T>({
   variables?: ExtractVariables<T>;
 }): Promise<{ status: number; body: T } | never> {
   try {
-    console.log(`shopifyFetching::\n\theaders:\n\t${JSON.stringify(headers)}\n\n\tbody:\n\t${JSON.stringify({
+    /*console.log(`shopifyFetching::\n\theaders:\n\t${JSON.stringify(headers)}\n\n\tbody:\n\t${JSON.stringify({
         ...(query && { query }),
         ...(variables && { variables })
-      })}\n\n`);
-    const result = await fetch(endpoint, {
+      })}\n\n`);*/
+
+    console.log(`shopifyFetching::\n with vars:${JSON.stringify({
+        ...(variables && { variables })
+    })}\n\n`);
+    const isCartQuery = 
+      query.includes('cart(id:') || 
+      query.includes('cartCreate') || 
+      query.includes('cartLines') ||
+      query.includes('cartBuyerIdentityUpdate'); 
+    
+
+    
+      const result = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -97,7 +112,8 @@ export async function shopifyFetchBase<T>({
       body: JSON.stringify({
         ...(query && { query }),
         ...(variables && { variables })
-      })
+      }),
+       ...(isCartQuery && { cache: 'no-store' })
     });
 
     const body = await result.json();
@@ -134,7 +150,7 @@ export async function shopifyFetch<T>(
     query: string;
     variables?: ExtractVariables<T>;
   },
-  maxRetries = 1,
+  maxRetries = 0,
   baseDelayMs = 150
 ): Promise<{ status: number; body: T }> {
   let attempt = 0;
@@ -261,12 +277,36 @@ const reshapeProducts = (products: ShopifyProduct[]) => {
   return reshapedProducts;
 };
 
-export async function createCart(): Promise<Cart> {
+export async function createCart({
+  buyerIdentity
+}:{
+  buyerIdentity?: { countryCode?: string }
+}): Promise<Cart> {
   const res = await shopifyFetch<ShopifyCreateCartOperation>({
-    query: createCartMutation
+    query: createCartMutation,
+    variables: {
+      buyerIdentity
+    }
   });
 
   return reshapeCart(res.body.data.cartCreate.cart);
+}
+
+export async function updateCartBuyerIdentity({
+  buyerIdentity
+}:{
+  buyerIdentity?: ShopifyCartBuyerIdentity
+}): Promise<ShopifyUpdateCartBuyerIdentityOperation> {
+  const cartId = (await cookies()).get('cartId')?.value!;
+  const res = await shopifyFetch<ShopifyUpdateCartBuyerIdentityOperation>({
+    query: updateCartBuyerIdentityMutation,
+    variables: {
+      cartId,
+      buyerIdentity
+    }
+  });
+
+  return res.body;
 }
 
 export async function addToCart(
@@ -312,23 +352,30 @@ export async function updateCart(
 }
 
 export async function getCart(): Promise<Cart | undefined> {
-  const cartId = (await cookies()).get('cartId')?.value;
+  try{
+    const cartId = (await cookies()).get('cartId')?.value;
 
-  if (!cartId) {
-    return undefined;
+    if (!cartId) {
+      return undefined;
+    }
+
+    console.log(`getting Cart with id=${cartId}...`);
+    const res = await shopifyFetch<ShopifyCartOperation>({
+      query: getCartQuery,
+      variables: { cartId }
+    });
+    console.log(`getting Cart with id=${cartId}...`);
+
+    // Old carts becomes `null` when you checkout.
+    if (!res.body.data.cart) {
+      return undefined;
+    }
+
+    return reshapeCart(res.body.data.cart);
+  } catch (error) {
+    console.error('Shopify getCart error:', error);
+    return undefined; // Always return undefined on error
   }
-
-  const res = await shopifyFetch<ShopifyCartOperation>({
-    query: getCartQuery,
-    variables: { cartId }
-  });
-
-  // Old carts becomes `null` when you checkout.
-  if (!res.body.data.cart) {
-    return undefined;
-  }
-
-  return reshapeCart(res.body.data.cart);
 }
 
 export async function getCollection(
@@ -336,7 +383,7 @@ export async function getCollection(
 ): Promise<Collection | undefined> {
   'use cache';
   cacheTag(TAGS.collections);
-  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('days'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyCollectionOperation>({
     query: getCollectionQuery,
@@ -361,7 +408,7 @@ export async function getCollectionProducts({
 }): Promise<Product[]> {
   'use cache';
   cacheTag(TAGS.collections, TAGS.products);
-  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('days'); else cacheLife('days');
 
 
   const res = await shopifyFetch<ShopifyCollectionProductsOperation>({
@@ -388,7 +435,7 @@ export async function getCollectionProducts({
 export async function getCollections(): Promise<Collection[]> {
   'use cache';
   cacheTag(TAGS.collections);
-  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('days'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyCollectionsOperation>({
     query: getCollectionsQuery
@@ -419,7 +466,7 @@ export async function getCollections(): Promise<Collection[]> {
 export async function getMenu(handle: string): Promise<Menu[]> {
   'use cache';
   cacheTag(TAGS.collections);
-  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('days'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyMenuOperation>({
     query: getMenuQuery,
@@ -459,7 +506,7 @@ export async function getPages(): Promise<Page[]> {
 export async function getProduct(handle: string, countryCode: string = "JP"): Promise<Product | undefined> {
   'use cache';
   cacheTag(TAGS.products);
-  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('days'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyProductOperation>({
     query: getProductQuery,
@@ -478,7 +525,7 @@ export async function getProductRecommendations(
 ): Promise<Product[]> {
   'use cache';
   cacheTag(TAGS.products);
-  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('days'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyProductRecommendationsOperation>({
     query: getProductRecommendationsQuery,
@@ -504,7 +551,7 @@ export async function getProducts({
 }): Promise<Product[]> {
   'use cache';
   cacheTag(TAGS.products);
-  if (process.env.NODE_ENV == 'development' ) cacheLife('default'); else cacheLife('days');
+  if (process.env.NODE_ENV == 'development' ) cacheLife('days'); else cacheLife('days');
 
   const res = await shopifyFetch<ShopifyProductsOperation>({
     query: getProductsQuery,

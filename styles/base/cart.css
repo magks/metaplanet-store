@@ -9,6 +9,15 @@
   /* Base panel structure */
 }
 
+.cart-modal-loading-dots {
+  /* Base loading dots structure */
+}
+
+.cart-checkout-btn-loading-dots {
+  /* Base checkout button loading dots structure */
+}
+
+
 .cart-modal-text {
   /* Base text */
 }

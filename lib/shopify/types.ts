@@ -107,6 +107,40 @@ export type ShopifyCart = {
   totalQuantity: number;
 };
 
+export type ShopifyCartBuyerIdentity = {
+  companyLocationId?: string;
+  countryCode?: string;
+  customerAccessToken?: string;
+  email?: string;
+  phone?: string;
+  preferences?: CartPreferences;
+};
+
+export type CartPreferences = {
+  delivery?: CartDeliveryPreference;
+  wallet?: string[];
+};
+
+export type CartDeliveryPreference = {
+  coordinates?: CartDeliveryCoordinatesPreference;
+  deliveryMethod: PreferenceDeliveryMethodType[];
+  pickupHandle: string[]; //Accepted value: ["shop_pay"]
+};
+
+export type CartDeliveryCoordinatesPreference = {
+  // Define fields for coordinates if specified in the docs, e.g., latitude and longitude
+  countryCode: string;
+  latitude: number;
+  longitude: number;
+};
+
+export enum PreferenceDeliveryMethodType {
+  PICK_UP = 'PICK_UP',
+  PICKUP_POINT = 'PICKUP_POINT',
+  SHIPPING = 'SHIPPING',
+}
+
+
 export type ShopifyCollection = {
   handle: string;
   title: string;
@@ -147,6 +181,20 @@ export type ShopifyCartOperation = {
 
 export type ShopifyCreateCartOperation = {
   data: { cartCreate: { cart: ShopifyCart } };
+  variables: {
+    buyerIdentity?: {
+      countryCode?: string;
+    };
+  };
+};
+
+export type ShopifyUpdateCartBuyerIdentityOperation = {
+  variables: {
+    cartId: string;
+    buyerIdentity?: {
+      countryCode?: string;
+    };
+  };
 };
 
 export type ShopifyAddToCartOperation = {
@@ -275,3 +323,7 @@ export type ShopifyProductsOperation = {
     countryCode?: string;
   };
 };
+
+export type ExtractVariables<T> = T extends { variables: object }
+  ? T['variables']
+  : never;

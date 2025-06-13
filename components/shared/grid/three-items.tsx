@@ -56,11 +56,17 @@ export async function ThreeItemGrid() {
   console.log(`ThreeItemGrid::locale::\n\tlocale==${locale};\n\tcountryCode==${countryCode}`);
   
   const brand = appSettings.siteTheme;
+  let homepageItems: Product[] = [];
   // Collections that start with `hidden-*` are hidden from the search page.
-  const homepageItems = await getCollectionProducts({
+  try {
+    homepageItems = await getCollectionProducts({
     collection: `hidden-homepage-featured-items-${brand}`,
     countryCode
   });
+  } catch (err) {
+    console.log(`threeitemgrid:: failure fetching collection products for country code::${countryCode}`);
+  }
+
 
   if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
 

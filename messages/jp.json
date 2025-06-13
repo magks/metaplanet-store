@@ -40,7 +40,8 @@
       "Calculated at checkout": "チェックアウト時に計算されます",
       "Total": "合計",
       "Your cart is empty": "カートには何も入っていません。",
-      "Proceed to Checkout": "チェックアウトに進む"
+      "Proceed to Checkout": "チェックアウトに進む",
+      "loadingCart": "カート読み込み中"
     },
     "submit": {
       "outOfStock": "在庫切れ",

@@ -147,7 +147,12 @@ export default async function RootLayout({
  
 
   // Don't await the fetch, pass the Promise to the context provider
-  const cart = getCart();
+ /* const cart = getCart().catch((error) => {
+    console.error('Initial cart fetch error:', error);
+    return undefined;
+  });*/
+
+  const cart = getCart().catch(() => undefined);
 
   const headersList = await headers();
   const pathname = headersList.get('x-pathname') || '/';

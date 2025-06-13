@@ -1,5 +1,5 @@
 'use client';
-
+import { getCartServerAction } from '@/components/shared/cart/actions';
 import type {
   Cart,
   CartItem,
@@ -8,30 +8,37 @@ import type {
 } from 'lib/shopify/types';
 import { useLocale } from 'next-intl';
 import React, {
-  createContext,
-  use,
-  useContext,
+  createContext, startTransition, use, useCallback, useContext,
   useMemo,
-  useOptimistic
+  useOptimistic, useState
 } from 'react';
 
 type UpdateType = 'plus' | 'minus' | 'delete';
 
 type CartAction =
-  | {
-      type: 'UPDATE_ITEM';
-      payload: { merchandiseId: string; updateType: UpdateType };
-    }
-  | {
-      type: 'ADD_ITEM';
-      payload: { variant: ProductVariant; product: Product };
-    };
+| {
+    type: 'UPDATE_ITEM';
+    payload: { merchandiseId: string; updateType: UpdateType };
+  }
+| {
+    type: 'ADD_ITEM';
+    payload: { variant: ProductVariant; product: Product };
+  }
+| {
+    type: 'REFRESH_CART';
+    payload: { cart: Cart | undefined }; // Updated payload
+  }
+  ;
 
+// Simplified CartContext
 type CartContextType = {
   cartPromise: Promise<Cart | undefined>;
+  locale: string;
 };
 
-const CartContext = createContext<CartContextType | undefined>(undefined);
+
+export const CartContext = createContext<CartContextType | undefined>(undefined);
+
 
 function calculateItemCost(quantity: number, price: string): string {
   return (Number(price) * quantity).toString();
@@ -186,10 +193,16 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
         lines: updatedLines
       };
     }
+    case 'REFRESH_CART': {
+      console.log(`cart reducer refreshcart cart with payload=${action.payload}`);
+      const { cart } = action.payload;
+      return cart || createEmptyCart(); // Replace with new cart or empty cart
+    }
     default:
       return currentCart;
   }
 }
+
 
 export function CartProvider({
   children,
@@ -199,17 +212,29 @@ export function CartProvider({
   cartPromise: Promise<Cart | undefined>;
 }) {
   const locale = useLocale();
-  console.log(`cartProvider(client)::locale=${locale}`);
+  const [cartLocale, setLocale] = useState(locale); 
+
+  const incrementCount = () => {
+
+  };
+
+  // is this computing anything ? if not just pass the cartPromise and locale to provider
+  const contextValue = useMemo(
+    () => ({ cartPromise, locale }),
+    [cartPromise, locale]
+  );
+
   return (
-    <CartContext.Provider value={{ cartPromise }}>
+    <CartContext.Provider value={contextValue}>
       {children}
     </CartContext.Provider>
   );
 }
 
 export function useCart() {
+  const locale = useLocale();
   const context = useContext(CartContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useCart must be used within a CartProvider');
   }
 
@@ -219,23 +244,50 @@ export function useCart() {
     cartReducer
   );
 
-  const updateCartItem = (merchandiseId: string, updateType: UpdateType) => {
+
+  const refreshCart = useCallback(async (locale: string) => {
+  try {
+    console.log("Refreshing cart...");
+    
+    const timeoutPromise = new Promise((_, reject) => 
+      setTimeout(() => reject(new Error('Cart fetch timeout')), 71000)
+    );
+    
+    const freshCart = await Promise.race([
+      getCartServerAction(),
+      timeoutPromise
+    ]) as Cart | undefined;
+    
+    // Wrap optimistic update in transition
+    startTransition(() => {
+      updateOptimisticCart({
+        type: "REFRESH_CART",
+        payload: { cart: freshCart },
+      });
+    });
+  } catch (error) {
+    console.error("Error refreshing cart:", error);
+  }
+  }, [updateOptimisticCart]);
+
+  const updateCartItem = useCallback((merchandiseId: string, updateType: UpdateType) => {
     updateOptimisticCart({
       type: 'UPDATE_ITEM',
       payload: { merchandiseId, updateType }
     });
-  };
+  }, [updateOptimisticCart]);
 
-  const addCartItem = (variant: ProductVariant, product: Product) => {
+  const addCartItem = useCallback((variant: ProductVariant, product: Product) => {
     updateOptimisticCart({ type: 'ADD_ITEM', payload: { variant, product } });
-  };
+  }, [updateOptimisticCart]);
 
   return useMemo(
     () => ({
       cart: optimisticCart,
       updateCartItem,
-      addCartItem
+      addCartItem,
+      refreshCart
     }),
-    [optimisticCart]
+    [optimisticCart, updateCartItem, addCartItem, refreshCart]
   );
 }

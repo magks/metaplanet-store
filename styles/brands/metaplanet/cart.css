@@ -18,6 +18,25 @@
   }
 }
 
+/* Cart Modal Loading Dots */
+.cart-modal-loading-dots {
+    @variant metaplanet {
+      background-color: white;
+      color: white;
+    }
+}
+
+/* Cart Checkout Button Loading Dots */
+.cart-checkout-btn-loading-dots {
+    @variant metaplanet {
+      background-color: rgba(33, 33, 33, 0.95);
+      color: white;
+      border-color: rgba(33, 33, 33, 0.95);
+      backdrop-filter: blur(12px);
+    }
+}
+
+
 /* Cart Modal Text */
 .cart-modal-text {
   @variant metaplanet {

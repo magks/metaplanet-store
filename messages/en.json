@@ -39,7 +39,8 @@
       "Calculated at checkout": "Calculated at checkout",
       "Total": "Total",
       "Your cart is empty": "Your cart is empty.",
-      "Proceed to Checkout": "Proceed to Checkout"
+      "Proceed to Checkout": "Proceed to Checkout",
+      "loadingCart": "Loading Cart"
     },
     "submit": {
       "outOfStock": "Out of Stock",

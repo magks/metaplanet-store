@@ -14,7 +14,7 @@ export default async function Footer() {
   //const copyrightDate = 1999 + (currentYear > 2023 ? `-${currentYear}` : '');
   const copyrightDate = currentYear;
   const skeleton = 'w-full h-6 animate-pulse rounded-sm bg-neutral-200 ignoredark:bg-neutral-700';
-  const menu = await getMenu('next-js-frontend-footer-menu');
+  //const menu = await getMenu('next-js-frontend-footer-menu');
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
   return (
     <footer className="`w-full -pb-4 mt-auto bg-background">

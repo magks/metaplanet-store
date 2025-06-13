@@ -3,17 +3,18 @@
 
 import LoadingDots from '@/components/shared/loading-dots';
 import Price from '@/components/shared/price';
+import { CountryCode, getCountryCode, StoreLocale } from '@/lib/i18n/storelocale-countrycode';
 import { Dialog, Transition } from '@headlessui/react';
 import { ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { DEFAULT_OPTION } from 'lib/constants';
 import { createUrl, translateOrDefault } from 'lib/utils';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { useFormStatus } from 'react-dom';
-import { createCartAndSetCookie, redirectToCheckout } from './actions';
+import { createCartAndSetCookie, redirectToCheckout, updateCartCountryCode } from './actions';
 import { useCart } from './cart-context';
 import { DeleteItemButton } from './delete-item-button';
 import { EditItemQuantityButton } from './edit-item-quantity-button';
@@ -25,16 +26,19 @@ type MerchandiseSearchParams = {
 
 export default function CartModal() {
   const t = useTranslations(`cart.modal`);
-  const m = useTranslations(`cart.modal`);
-  const { cart, updateCartItem } = useCart();
+  const { cart, updateCartItem, refreshCart} = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const quantityRef = useRef(cart?.totalQuantity);
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
+  const [locale] = useState(useLocale());
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   useEffect(() => {
     if (!cart) {
-      createCartAndSetCookie();
+      createCartAndSetCookie({
+        buyerIdentity: { countryCode: locale as CountryCode }
+      });
     }
   }, [cart]);
 
@@ -50,6 +54,29 @@ export default function CartModal() {
       quantityRef.current = cart?.totalQuantity;
     }
   }, [isOpen, cart?.totalQuantity, quantityRef]);
+
+  // Check local storage if mark has been set for buyer identity update for this locale
+  // (i.e. switched to this locale in settings menu)
+  useEffect(() => {
+    const updateNeeded = localStorage.getItem('needsCartBuyerIdentityUpdate');
+    if (updateNeeded === locale) {
+      localStorage.removeItem('needsCartBuyerIdentityUpdate');
+      // Do update
+      setIsRefreshing(true);
+      updateCartCountryCode({ 
+        buyerIdentity: { countryCode: getCountryCode(locale as StoreLocale) }
+      })
+      .then(() => refreshCart(locale))
+      .then(() => {
+        // Verify currency updated
+        if (cart?.cost.totalAmount.currencyCode !== (locale === 'jp' ? 'JPY' : 'USD')) {
+          console.warn('Currency mismatch after update');
+        }
+      })
+      .finally(() => setIsRefreshing(false))
+      .catch((err) => console.warn("Failed to update cart currency:", err));
+    }
+  }, [locale, refreshCart, cart]);
 
   return (
     <>
@@ -88,7 +115,16 @@ export default function CartModal() {
                 </button>
               </div>
 
-              {!cart || cart.lines.length === 0 ? (
+              { isRefreshing ? (
+                <div className="mt-20 flex w-full flex-col items-center justify-center">
+                  <p className="mt-6 text-center text-lg">
+                    {translateOrDefault(t('loadingCart'), "Loading cart...")}
+                    <LoadingDots className="cart-modal-loading-dots" />
+
+                  </p>
+
+                </div>
+              ) : !cart || cart.lines.length === 0 ? (
                 <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
                   <ShoppingCartIcon className="h-16 cart-empty-icon" />
                   <p className="mt-6 text-center text-2xl font-bold cart-modal-text">
@@ -256,7 +292,7 @@ function CheckoutButton({proceedStr = "Proceed to Checkout"}: {proceedStr?: stri
       type="submit"
       disabled={pending}
     >
-      {pending ? <LoadingDots className="bg-white" /> : proceedStr}
+      {pending ? <LoadingDots className="cart-checkout-btn-loading-dots" /> : proceedStr}
     </button>
   );
 }

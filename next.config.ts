@@ -36,6 +36,7 @@ export default withNextIntl({
     ignoreBuildErrors: true,
   },
   experimental: {
+    //dynamicIO: true,
     ppr: true,
     inlineCss: true,
     useCache: true,
