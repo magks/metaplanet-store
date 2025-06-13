@@ -2,9 +2,15 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { GridTileImage } from '@/components/shared/grid/tile';
+import { NavbarConditional } from '@/components/shared/navigation/navbar-conditional';
+import SiteSwitcher from '@/components/shared/navigation/navbars/banner/site-switcher';
+import { SiteSwitcherConditional } from '@/components/shared/navigation/navbars/banner/site-switcher-conditional';
+import { UniversalNavbar } from '@/components/shared/navigation/navbars/universal-navbar';
 import { Gallery } from '@/components/shared/product/gallery';
 import { ProductProvider } from '@/components/shared/product/product-context';
 import { ProductDescription } from '@/components/shared/product/product-description';
+import appSettings from '@/lib/app-settings';
+import { getCountryCode, StoreLocale } from '@/lib/i18n/storelocale-countrycode';
 import Footer from 'components/shared/layout/footer';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
@@ -13,7 +19,6 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { translateOrDefault } from 'utils';
-import { getCountryCode, StoreLocale } from '@/lib/i18n/storelocale-countrycode';
 
 export async function generateMetadata(props: {
   params: Promise<{ handle: string }>;
@@ -87,6 +92,18 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
   };
 
   return (
+    <>
+    <div>
+            <SiteSwitcherConditional>
+              <SiteSwitcher />
+              <NavbarConditional>
+                <UniversalNavbar 
+                  pathname={'/product'} 
+                  theme={appSettings.siteTheme} 
+                />
+              </NavbarConditional>
+            </SiteSwitcherConditional>
+          </div>
     <ProductProvider>
       <script
         type="application/ld+json"
@@ -121,6 +138,7 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
       </div>
       <Footer />
     </ProductProvider>
+    </>
   );
 }
 
